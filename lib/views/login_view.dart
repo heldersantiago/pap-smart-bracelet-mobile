@@ -19,24 +19,24 @@ class _LoginViewState extends State<LoginView> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Padding(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Image.asset("images/doctors.png"),
             ),
-            SizedBox(height: 15),
-            Input(
+            const SizedBox(height: 15),
+            const Input(
               labelText: "Email or Username",
               icon: Icons.email,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
               child: TextField(
                 obscureText: passToggle ? true : false,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                     labelText: "Password",
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: const Icon(Icons.lock),
                     suffixIcon: InkWell(
                       onTap: () {
                         if (passToggle == true) {
@@ -47,25 +47,25 @@ class _LoginViewState extends State<LoginView> {
                         setState(() {});
                       },
                       child: passToggle
-                          ? Icon(CupertinoIcons.eye_slash_fill)
-                          : Icon(CupertinoIcons.eye_fill),
+                          ? const Icon(CupertinoIcons.eye_slash_fill)
+                          : const Icon(CupertinoIcons.eye_fill),
                     )),
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Padding(
               padding: const EdgeInsets.all(10),
               child: SizedBox(
                 width: double.infinity,
                 child: Material(
-                  color: Color(0XFF7165D6),
+                  color: const Color(0XFF7165D6),
                   borderRadius: BorderRadius.circular(10),
                   child: InkWell(
                     onTap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => LoginView()));
                     },
-                    child: Center(
+                    child: const Center(
                       child: Padding(
                         padding:
                             EdgeInsets.symmetric(vertical: 15, horizontal: 30),
@@ -83,11 +83,11 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "Dont have any account?",
                   style: TextStyle(
                       fontSize: 16,
@@ -99,9 +99,9 @@ class _LoginViewState extends State<LoginView> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => RegisterView()));
+                              builder: (context) => const RegisterView()));
                     },
-                    child: Text("Create Account",
+                    child: const Text("Create Account",
                         style: TextStyle(
                           color: Color(0XFF7165D6),
                           fontSize: 18,

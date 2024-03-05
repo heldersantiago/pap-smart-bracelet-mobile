@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/home_view.dart';
 import 'package:pap/views/login_view.dart';
 import 'package:pap/views/register_view.dart';
 import 'package:pap/widgets/button_auth.dart';

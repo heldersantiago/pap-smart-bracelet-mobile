@@ -5,6 +5,6 @@ class SettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(child: Text("SetingsView"));
+    return const Material(child: Text("SetingsView"));
   }
 }

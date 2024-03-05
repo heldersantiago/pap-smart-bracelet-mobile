@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pap/views/appointment_view.dart';
 import 'package:pap/views/home_view.dart';
 import 'package:pap/views/login_view.dart';
 import 'package:pap/views/message_view.dart';
-import 'package:pap/views/register_view.dart';
 import 'package:pap/views/settings_views.dart';
-import 'package:pap/views/shedule_view.dart';
 
 class NavbarRoots extends StatefulWidget {
   const NavbarRoots({super.key});
@@ -19,42 +18,45 @@ class _NavbarRootsState extends State<NavbarRoots> {
   final _screens = [
     HomeView(),
     // Message Screen
-    MessageView(),
+    const MessageView(),
     // Schedule Screen
-    ScheduleView(),
+    const AppointmentView(),
     // Settings Screen
-    SettingsView(),
+    const SettingsView(),
+
+    const LoginView(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: _screens[_selectedIndex],
-      bottomNavigationBar: Container(
+      bottomNavigationBar: SizedBox(
         height: 80,
         child: BottomNavigationBar(
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Color(0XFF7165D6),
+          selectedItemColor: const Color(0XFF7165D6),
           unselectedItemColor: Colors.black54,
           selectedLabelStyle:
-              TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           currentIndex: _selectedIndex,
           onTap: (index) {
             setState(() {
               _selectedIndex = index;
             });
           },
-          items: [
+          items: const [
             BottomNavigationBarItem(
                 icon: Icon(Icons.home_filled), label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.chat_bubble_text_fill),
-                label: "Messages"),
+                icon: Icon(Icons.emergency_sharp), label: "Saúde"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_month), label: "Schedule"),
+                icon: Icon(Icons.notifications), label: "Notificações"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: "Settings"),
+                icon: Icon(Icons.broadcast_on_home_sharp),
+                label: "Dispositivo"),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Conta"),
           ],
         ),
       ),
