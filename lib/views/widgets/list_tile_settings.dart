@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pap/views/screens/auth/login_screen.dart';
+import 'package:pap/views/screens/profile_screen.dart';
 
 class ListTileSettings extends StatelessWidget {
   final IconData icon;
@@ -17,7 +19,10 @@ class ListTileSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ProfileScreen()));
+      },
       leading: Container(
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(color: colorShape, shape: BoxShape.circle),

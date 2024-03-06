@@ -20,8 +20,10 @@ class WelcomeView extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => NavbarRoots()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NavbarRoots()));
                   },
                   child: const Text(
                     "SKIP",
