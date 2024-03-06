@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/auth/register_view.dart';
+import 'package:pap/views/screens/auth/login_screen.dart';
 import 'package:pap/views/widgets/input.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterScreen> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterViewState extends State<RegisterScreen> {
   bool passToggle = true;
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,15 @@ class _LoginViewState extends State<LoginView> {
             ),
             const SizedBox(height: 15),
             const Input(
-              labelText: "Email or Username",
+              labelText: "Username",
+              icon: Icons.person,
+            ),
+            const Input(
+              labelText: "Phone Number",
+              icon: Icons.phone,
+            ),
+            const Input(
+              labelText: "Email",
               icon: Icons.email,
             ),
             Padding(
@@ -52,6 +60,10 @@ class _LoginViewState extends State<LoginView> {
                     )),
               ),
             ),
+            const Input(
+              labelText: "Device ID",
+              icon: Icons.broadcast_on_home_outlined,
+            ),
             const SizedBox(height: 15),
             Padding(
               padding: const EdgeInsets.all(10),
@@ -62,15 +74,17 @@ class _LoginViewState extends State<LoginView> {
                   borderRadius: BorderRadius.circular(10),
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginView()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const RegisterScreen()));
                     },
                     child: const Center(
                       child: Padding(
                         padding:
                             EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                         child: Text(
-                          "LOG IN",
+                          "SIGN UP",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
@@ -88,7 +102,7 @@ class _LoginViewState extends State<LoginView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Dont have any account?",
+                  "Already has Account?",
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -99,9 +113,9 @@ class _LoginViewState extends State<LoginView> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const RegisterView()));
+                              builder: (context) => const LoginScreen()));
                     },
-                    child: const Text("Create Account",
+                    child: const Text("LOG IN",
                         style: TextStyle(
                           color: Color(0XFF7165D6),
                           fontSize: 18,

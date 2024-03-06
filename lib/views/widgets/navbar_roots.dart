@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/appointment_view.dart';
-import 'package:pap/views/screens/home_view.dart';
-import 'package:pap/views/screens/auth/login_view.dart';
-import 'package:pap/views/screens/message_view.dart';
-import 'package:pap/views/screens/settings_views.dart';
+import 'package:pap/views/screens/device_screen.dart';
+import 'package:pap/views/screens/home_screen.dart';
+import 'package:pap/views/screens/health_data_screen.dart';
+import 'package:pap/views/screens/account_screen.dart';
+import 'package:pap/views/screens/notifications_screen.dart';
 
 class NavbarRoots extends StatefulWidget {
   const NavbarRoots({super.key});
@@ -15,15 +15,11 @@ class NavbarRoots extends StatefulWidget {
 class _NavbarRootsState extends State<NavbarRoots> {
   int _selectedIndex = 0;
   final _screens = [
-    HomeView(),
-    // Message Screen
-    const MessageView(),
-    // Schedule Screen
-    const AppointmentView(),
-    // Settings Screen
-    const SettingsView(),
-
-    const LoginView(),
+    HomeScreen(),
+    const HealthDataScreen(),
+    const NotificationsScreen(),
+    const DeviceScreen(),
+    const AccountScreen(),
   ];
   @override
   Widget build(BuildContext context) {
