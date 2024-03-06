@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pap/views/appointment_view.dart';
-import 'package:pap/views/home_view.dart';
-import 'package:pap/views/login_view.dart';
-import 'package:pap/views/message_view.dart';
-import 'package:pap/views/settings_views.dart';
+import 'package:pap/views/screens/home_screen.dart';
+import 'package:pap/views/screens/health_data_screen.dart';
+import 'package:pap/views/screens/settings_screen.dart';
 
 class NavbarRoots extends StatefulWidget {
   const NavbarRoots({super.key});
@@ -16,15 +13,9 @@ class NavbarRoots extends StatefulWidget {
 class _NavbarRootsState extends State<NavbarRoots> {
   int _selectedIndex = 0;
   final _screens = [
-    HomeView(),
-    // Message Screen
-    const MessageView(),
-    // Schedule Screen
-    const AppointmentView(),
-    // Settings Screen
-    const SettingsView(),
-
-    const LoginView(),
+    HomeScreen(),
+    const HealthDataScreen(),
+    const SettingScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -50,13 +41,9 @@ class _NavbarRootsState extends State<NavbarRoots> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.home_filled), label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.emergency_sharp), label: "Saúde"),
+                icon: Icon(Icons.emergency_sharp), label: "Dados de Saúde"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.notifications), label: "Notificações"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.broadcast_on_home_sharp),
-                label: "Dispositivo"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Conta"),
+                icon: Icon(Icons.settings), label: "Definições"),
           ],
         ),
       ),

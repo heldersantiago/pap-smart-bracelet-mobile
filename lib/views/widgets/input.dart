@@ -8,11 +8,11 @@ class Input extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: TextField(
         decoration: InputDecoration(
             labelText: labelText,
-            border: OutlineInputBorder(),
+            border: const OutlineInputBorder(),
             prefixIcon: Icon(icon)),
       ),
     );

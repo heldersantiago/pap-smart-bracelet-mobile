@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class HomeView extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   List symptoms = [
     "Batimento Cardiaco",
     "Pressão arterial",
@@ -20,7 +20,7 @@ class HomeView extends StatelessWidget {
     "doctor5.jpg"
   ];
 
-  HomeView({super.key});
+  HomeScreen({super.key});
 
   // const HomeView({super.key});
 
