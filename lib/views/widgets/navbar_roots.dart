@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/device_screen.dart';
 import 'package:pap/views/screens/home_screen.dart';
 import 'package:pap/views/screens/health_data_screen.dart';
-import 'package:pap/views/screens/account_screen.dart';
-import 'package:pap/views/screens/notifications_screen.dart';
+import 'package:pap/views/screens/settings_screen.dart';
 
 class NavbarRoots extends StatefulWidget {
   const NavbarRoots({super.key});
@@ -17,9 +15,7 @@ class _NavbarRootsState extends State<NavbarRoots> {
   final _screens = [
     HomeScreen(),
     const HealthDataScreen(),
-    const NotificationsScreen(),
-    const DeviceScreen(),
-    const AccountScreen(),
+    const SettingScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -45,13 +41,9 @@ class _NavbarRootsState extends State<NavbarRoots> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.home_filled), label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.emergency_sharp), label: "Saúde"),
+                icon: Icon(Icons.emergency_sharp), label: "Dados de Saúde"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.notifications), label: "Notificações"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.broadcast_on_home_sharp),
-                label: "Dispositivo"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Conta"),
+                icon: Icon(Icons.settings), label: "Definições"),
           ],
         ),
       ),
