@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/appointment_view.dart';
-import 'package:pap/views/home_view.dart';
-import 'package:pap/views/login_view.dart';
-import 'package:pap/views/message_view.dart';
-import 'package:pap/views/settings_views.dart';
+import 'package:pap/views/screens/appointment_view.dart';
+import 'package:pap/views/screens/home_view.dart';
+import 'package:pap/views/screens/auth/login_view.dart';
+import 'package:pap/views/screens/message_view.dart';
+import 'package:pap/views/screens/settings_views.dart';
 
 class NavbarRoots extends StatefulWidget {
   const NavbarRoots({super.key});

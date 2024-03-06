@@ -5,6 +5,6 @@ class MessageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(child: Text("MessageView"));
+    return const Material(child: Text("MessageView"));
   }
 }

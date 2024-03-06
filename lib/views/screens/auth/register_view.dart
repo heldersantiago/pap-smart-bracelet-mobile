@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pap/views/login_view.dart';
-import 'package:pap/widgets/input.dart';
+import 'package:pap/views/screens/auth/login_view.dart';
+import 'package:pap/views/widgets/input.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
