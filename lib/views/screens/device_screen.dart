@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DeviceScreen extends StatelessWidget {
@@ -5,6 +6,26 @@ class DeviceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Material(child: Text("DeviceScreen"));
+    return Material(
+        child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Scaffold(
+              drawer: Drawer(
+                child: ListView(
+                  children: [
+                    ListTile(
+                      leading: const Icon(Icons.people),
+                      title: const Text("sample"),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.people),
+                      title: const Text("sample"),
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+              ),
+            )));
   }
 }

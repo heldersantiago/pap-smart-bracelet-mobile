@@ -44,10 +44,13 @@ class ProfileScreen extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          const CircleAvatar(
-                            radius: 35,
-                            backgroundImage: AssetImage("images/doctors.png"),
-                          ),
+                          const Hero(
+                              tag: "photo",
+                              child: CircleAvatar(
+                                radius: 35,
+                                backgroundImage:
+                                    AssetImage("images/doctor1.jpg"),
+                              )),
                           const SizedBox(height: 10),
                           const Text("Jamal Adjani",
                               style: TextStyle(
@@ -162,7 +165,7 @@ class ProfileScreen extends StatelessWidget {
                               ],
                             ),
                             child: SizedBox(
-                              width: MediaQuery.of(context).size.width / 1.4,
+                              width: MediaQuery.of(context).size.width / 1.2,
                               child: const Column(
                                 children: [
                                   ListTile(

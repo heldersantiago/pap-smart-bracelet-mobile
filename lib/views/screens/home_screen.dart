@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pap/views/screens/health_detail_screen.dart';
+import 'package:pap/views/screens/profile_screen.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
@@ -27,113 +29,127 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.only(top: 40),
+      padding: const EdgeInsets.only(top: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Olá, Jamal Adjani",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
-                CircleAvatar(
-                  radius: 25,
-                  backgroundImage: AssetImage("images/doctors.png"),
-                )
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ProfileScreen()));
+                  },
+                  child: const Hero(
+                      tag: "photo",
+                      child: CircleAvatar(
+                        radius: 25,
+                        backgroundImage: AssetImage("images/doctor1.jpg"),
+                      )),
+                ),
               ],
             ),
           ),
           const SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      color: const Color(0XFF7165D6),
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 6,
-                            spreadRadius: 4)
-                      ]),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: const BoxDecoration(
-                            color: Colors.white, shape: BoxShape.circle),
-                        child: const Icon(Icons.emergency,
-                            color: Color(0XFF7165D6), size: 35),
-                      ),
-                      const SizedBox(height: 30),
-                      const Text(
-                        "Saúde Adulta",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        "Monitorize sua saúde",
-                        style: TextStyle(color: Colors.white70),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 6,
-                            spreadRadius: 4)
-                      ]),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: const BoxDecoration(
-                            color: Color(0XFF7165D6), shape: BoxShape.circle),
-                        child: const Icon(Icons.home_filled,
-                            color: Colors.white, size: 35),
-                      ),
-                      const SizedBox(height: 30),
-                      const Text(
-                        "Página Inicial",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text("Sistema - SMSI",
+          Padding(
+            padding: const EdgeInsets.all(9),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    width: 180,
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: const Color(0XFF7165D6),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 6,
+                              spreadRadius: 4)
+                        ]),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: const BoxDecoration(
+                              color: Colors.white, shape: BoxShape.circle),
+                          child: const Icon(Icons.emergency,
+                              color: Color(0XFF7165D6), size: 35),
+                        ),
+                        const SizedBox(height: 30),
+                        const Text(
+                          "Saúde Adulta",
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black87,
-                          ))
-                    ],
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        const SizedBox(height: 10),
+                        const Text(
+                          "Monitorize sua saúde",
+                          style: TextStyle(color: Colors.white70),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 6,
+                              spreadRadius: 4)
+                        ]),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: const BoxDecoration(
+                              color: Color(0XFF7165D6), shape: BoxShape.circle),
+                          child: const Icon(Icons.home_filled,
+                              color: Colors.white, size: 35),
+                        ),
+                        const SizedBox(height: 30),
+                        const Text(
+                          "Página Inicial",
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(height: 10),
+                        const Text("Sistema - SMSI",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black87,
+                            ))
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 20),
           const Padding(
@@ -221,7 +237,8 @@ class HomeScreen extends StatelessWidget {
                 onTap: () {},
                 child: Container(
                   margin: const EdgeInsets.all(5),
-                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   decoration: BoxDecoration(
                       color: const Color(0XFF7165D6),
                       borderRadius: BorderRadius.circular(10),
@@ -232,12 +249,12 @@ class HomeScreen extends StatelessWidget {
                             spreadRadius: 2)
                       ]),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(1),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          padding: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(5),
                           decoration: const BoxDecoration(
                               color: Colors.white, shape: BoxShape.circle),
                           child: Icon(iconData, color: Colors.red, size: 40),

@@ -122,7 +122,8 @@ class _RegisterViewState extends State<RegisterScreen> {
                           fontWeight: FontWeight.bold,
                         )))
               ],
-            )
+            ),
+            const SizedBox(height: 40),
           ],
         ),
       ),

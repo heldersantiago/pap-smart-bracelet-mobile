@@ -26,7 +26,7 @@ class WelcomeView extends StatelessWidget {
                             builder: (context) => const NavbarRoots()));
                   },
                   child: const Text(
-                    "SKIP",
+                    "IGNORAR",
                     style: TextStyle(color: Color(0xff7165d6), fontSize: 20),
                   )),
             ),

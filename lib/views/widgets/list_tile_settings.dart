@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/auth/login_screen.dart';
 import 'package:pap/views/screens/profile_screen.dart';
 
 class ListTileSettings extends StatelessWidget {
@@ -7,12 +6,14 @@ class ListTileSettings extends StatelessWidget {
   final String title;
   final Color colorIcon;
   final Color colorShape;
+  final Widget screen;
 
   const ListTileSettings({
     required this.icon,
     required this.title,
     required this.colorShape,
     required this.colorIcon,
+    required this.screen,
     super.key,
   });
 
@@ -20,8 +21,8 @@ class ListTileSettings extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ProfileScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => screen));
       },
       leading: Container(
         padding: const EdgeInsets.all(10),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pap/views/screens/home_screen.dart';
-import 'package:pap/views/screens/health_data_screen.dart';
+import 'package:pap/views/screens/notifications_screen.dart';
 import 'package:pap/views/screens/settings_screen.dart';
 
 class NavbarRoots extends StatefulWidget {
@@ -14,7 +14,7 @@ class _NavbarRootsState extends State<NavbarRoots> {
   int _selectedIndex = 0;
   final _screens = [
     HomeScreen(),
-    const HealthDataScreen(),
+    const NotificationScreen(),
     const SettingScreen(),
   ];
   @override
