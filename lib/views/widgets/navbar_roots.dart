@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pap/views/screens/home_screen.dart';
 import 'package:pap/views/screens/notifications_screen.dart';
 import 'package:pap/views/screens/settings_screen.dart';
+import 'package:pap/views/widgets/color.dart';
 
 class NavbarRoots extends StatefulWidget {
   const NavbarRoots({super.key});
@@ -27,7 +28,7 @@ class _NavbarRootsState extends State<NavbarRoots> {
         child: BottomNavigationBar(
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: const Color(0XFF7165D6),
+          selectedItemColor: primaryColor,
           unselectedItemColor: Colors.black54,
           selectedLabelStyle:
               const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),

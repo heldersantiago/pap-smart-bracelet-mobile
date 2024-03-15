@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pap/views/screens/health_detail_screen.dart';
 import 'package:pap/views/screens/profile_screen.dart';
+import 'package:pap/views/widgets/color.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
@@ -71,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                     width: 180,
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                        color: const Color(0XFF7165D6),
+                        color: primaryColor,
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: const [
                           BoxShadow(
@@ -87,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                           decoration: const BoxDecoration(
                               color: Colors.white, shape: BoxShape.circle),
                           child: const Icon(Icons.emergency,
-                              color: Color(0XFF7165D6), size: 35),
+                              color: primaryColor, size: 35),
                         ),
                         const SizedBox(height: 30),
                         const Text(
@@ -125,7 +126,7 @@ class HomeScreen extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.all(10),
                           decoration: const BoxDecoration(
-                              color: Color(0XFF7165D6), shape: BoxShape.circle),
+                              color: primaryColor, shape: BoxShape.circle),
                           child: const Icon(Icons.home_filled,
                               color: Colors.white, size: 35),
                         ),
@@ -240,7 +241,7 @@ class HomeScreen extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   decoration: BoxDecoration(
-                      color: const Color(0XFF7165D6),
+                      color: primaryColor,
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: const [
                         BoxShadow(

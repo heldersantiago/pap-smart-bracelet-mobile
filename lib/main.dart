@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/welcome_view.dart';
+import 'package:pap/views/screens/onboarding/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WelcomeView(),
+      home: OnboardingView(),
     );
   }
 }

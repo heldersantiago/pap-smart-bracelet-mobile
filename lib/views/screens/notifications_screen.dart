@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pap/views/widgets/color.dart';
 import 'package:pap/views/widgets/upcoming.dart';
 
 class NotificationScreen extends StatefulWidget {
@@ -53,11 +54,15 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: _buttonIndex == 0
-                            ? const Color(0XFF7165D6)
+                            ? primaryColor
                             : Colors.transparent),
-                    child: const Text("Noticações",
+                    child: Text("Noticações",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w500)),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: _buttonIndex == 0
+                                ? Colors.white
+                                : Colors.black54)),
                   ),
                 ),
                 InkWell(
@@ -72,11 +77,15 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: _buttonIndex == 1
-                            ? const Color(0XFF7165D6)
+                            ? primaryColor
                             : Colors.transparent),
-                    child: const Text("Alertas",
+                    child: Text("Alertas",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w500)),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: _buttonIndex == 1
+                                ? Colors.white
+                                : Colors.black54)),
                   ),
                 ),
                 InkWell(
@@ -91,11 +100,15 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: _buttonIndex == 2
-                            ? const Color(0XFF7165D6)
+                            ? primaryColor
                             : Colors.transparent),
-                    child: const Text("Riscos",
+                    child: Text("Riscos",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w500)),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: _buttonIndex == 2
+                                ? Colors.white
+                                : Colors.black54)),
                   ),
                 ),
               ],

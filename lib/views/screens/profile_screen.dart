@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pap/views/widgets/color.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -7,7 +8,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0XFF7165D6),
+      backgroundColor: primaryColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -70,7 +71,7 @@ class ProfileScreen extends StatelessWidget {
                                 padding: const EdgeInsets.all(10),
                                 margin: const EdgeInsets.all(10),
                                 decoration: const BoxDecoration(
-                                    color: Color(0XFF9F97E2),
+                                    color: primaryColor,
                                     shape: BoxShape.circle),
                                 child: const Icon(
                                   Icons.call,
@@ -83,7 +84,7 @@ class ProfileScreen extends StatelessWidget {
                                 padding: const EdgeInsets.all(10),
                                 margin: const EdgeInsets.all(10),
                                 decoration: const BoxDecoration(
-                                    color: Color(0XFF9F97E2),
+                                    color: primaryColor,
                                     shape: BoxShape.circle),
                                 child: const Icon(
                                   CupertinoIcons.chat_bubble_text_fill,

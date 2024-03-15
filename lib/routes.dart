@@ -3,7 +3,7 @@ import 'package:pap/views/screens/auth/login_screen.dart';
 import 'package:pap/views/screens/auth/register_screen.dart';
 import 'package:pap/views/screens/notifications_screen.dart';
 import 'package:pap/views/screens/profile_screen.dart';
-import 'package:pap/views/screens/welcome_view.dart';
+import 'package:pap/views/screens/welcome_screen.dart';
 
 class RouteGenerator {
   static const String homePage = '/';

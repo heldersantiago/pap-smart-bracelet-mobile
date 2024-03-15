@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pap/views/screens/device_screen.dart';
+import 'package:pap/views/screens/onboarding/onboarding_screen.dart';
 import 'package:pap/views/screens/profile_screen.dart';
-import 'package:pap/views/screens/welcome_view.dart';
+import 'package:pap/views/screens/welcome_screen.dart';
 import 'package:pap/views/widgets/list_tile_settings.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -91,7 +92,7 @@ class SettingScreen extends StatelessWidget {
               title: "Terminar sessão",
               colorShape: Color.fromARGB(255, 255, 205, 210),
               colorIcon: Colors.red,
-              screen: WelcomeView(),
+              screen: OnboardingView(),
             ),
             SizedBox(height: 20),
           ],
