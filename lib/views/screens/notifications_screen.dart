@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/widgets/color.dart';
 import 'package:pap/views/widgets/upcoming.dart';
+import 'package:pap/constants/color.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});

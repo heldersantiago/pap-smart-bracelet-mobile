@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pap/views/screens/auth/login_screen.dart';
 import 'package:pap/views/screens/auth/register_screen.dart';
 import 'package:pap/views/widgets/button_auth.dart';
-import 'package:pap/views/widgets/color.dart';
 import 'package:pap/views/widgets/navbar_roots.dart';
+import 'package:pap/constants/color.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});

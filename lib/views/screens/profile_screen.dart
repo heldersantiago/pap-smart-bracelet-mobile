@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pap/views/widgets/color.dart';
+import 'package:pap/constants/color.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

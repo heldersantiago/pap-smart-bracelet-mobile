@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pap/views/screens/home_screen.dart';
 import 'package:pap/views/screens/notifications_screen.dart';
 import 'package:pap/views/screens/settings_screen.dart';
-import 'package:pap/views/widgets/color.dart';
+import 'package:pap/constants/color.dart';
+import 'package:pap/constants/navbar.dart';
 
 class NavbarRoots extends StatefulWidget {
   const NavbarRoots({super.key});
@@ -13,11 +14,7 @@ class NavbarRoots extends StatefulWidget {
 
 class _NavbarRootsState extends State<NavbarRoots> {
   int _selectedIndex = 0;
-  final _screens = [
-    HomeScreen(),
-    const NotificationScreen(),
-    const SettingScreen(),
-  ];
+  final _screens = screens;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/onboarding/onboarding_items.dart';
+import 'package:pap/constants/onboarding_items.dart';
 import 'package:pap/views/screens/welcome_screen.dart';
-import 'package:pap/views/widgets/color.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:pap/constants/color.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});

@@ -1,4 +1,6 @@
-import 'onboarding_info.dart';
+// import 'onboarding_info.dart';
+
+import 'package:pap/types/onboarding_info.dart';
 
 class OnboardingItems {
   List<OnboardingInfo> items = [

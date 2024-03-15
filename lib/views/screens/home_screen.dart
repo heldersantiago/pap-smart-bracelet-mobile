@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pap/views/screens/profile_screen.dart';
-import 'package:pap/views/widgets/color.dart';
+import 'package:pap/constants/color.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {

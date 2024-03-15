@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/widgets/color.dart';
+import 'package:pap/constants/color.dart';
 
 class ButtonAuth extends StatelessWidget {
   final String buttonText;
