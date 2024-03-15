@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/auth/login_screen.dart';
+import 'package:pap/constants/color.dart';
+import 'package:pap/routes.dart';
 import 'package:pap/views/widgets/input.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -26,11 +27,11 @@ class _RegisterViewState extends State<RegisterScreen> {
             ),
             const SizedBox(height: 15),
             const Input(
-              labelText: "Username",
+              labelText: "Nome",
               icon: Icons.person,
             ),
             const Input(
-              labelText: "Phone Number",
+              labelText: "Telefone",
               icon: Icons.phone,
             ),
             const Input(
@@ -61,7 +62,7 @@ class _RegisterViewState extends State<RegisterScreen> {
               ),
             ),
             const Input(
-              labelText: "Device ID",
+              labelText: "ID do dispositivo",
               icon: Icons.broadcast_on_home_outlined,
             ),
             const SizedBox(height: 15),
@@ -70,7 +71,7 @@ class _RegisterViewState extends State<RegisterScreen> {
               child: SizedBox(
                 width: double.infinity,
                 child: Material(
-                  color: const Color(0XFF7165D6),
+                  color: primaryColor,
                   borderRadius: BorderRadius.circular(10),
                   child: InkWell(
                     onTap: () {
@@ -102,7 +103,7 @@ class _RegisterViewState extends State<RegisterScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Already has Account?",
+                  "Já tem uma conta?",
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -110,14 +111,11 @@ class _RegisterViewState extends State<RegisterScreen> {
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginScreen()));
+                      Navigator.of(context).pushNamed(RouteGenerator.loginPage);
                     },
-                    child: const Text("LOG IN",
+                    child: const Text("LOGIN",
                         style: TextStyle(
-                          color: Color(0XFF7165D6),
+                          color: primaryColor,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         )))

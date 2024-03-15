@@ -1,30 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/profile_screen.dart';
+import 'package:pap/constants/constant.dart';
+import 'package:pap/routes.dart';
 import 'package:pap/constants/color.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
-  List symptoms = [
-    "Batimento Cardiaco",
-    "Pressão arterial",
-    "Localização",
-    "Oxigénio no sangue",
-    "Temperatura corporal",
-    "Estado físico",
-    "Alertas",
-  ];
-  List imgs = [
-    "doctor1.jpg",
-    "doctor2.jpg",
-    "doctor3.jpg",
-    "doctor4.jpg",
-    "doctor5.jpg"
-  ];
+  List<String> symptoms = Constant().symptoms;
+  List<String> cardnames = Constant().cardName;
+  List<IconData> cardIcons = Constant().cardIcons;
 
   HomeScreen({super.key});
-
-  // const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +29,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ProfileScreen()));
+                    Navigator.of(context).pushNamed(RouteGenerator.profilePage);
                   },
                   child: const Hero(
                       tag: "photo",
@@ -207,31 +189,14 @@ class HomeScreen extends StatelessWidget {
           GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2),
-            itemCount: 4,
+            itemCount: cardnames.length,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              List<IconData> icons = [
-                CupertinoIcons.heart_solid,
-                CupertinoIcons.heart_slash_fill,
-                Icons.gas_meter_outlined,
-                Icons.thermostat,
-                // Add more icons as needed
-              ];
-
-              List<String> names = [
-                "Batimento Cardíaco",
-                "Pressão arterial",
-                "Oxigénio no sangue",
-                "Temperatura corporal",
-                "Estado físico",
-                "Localização",
-                "Alertas",
-              ];
-
-              IconData iconData =
-                  (index < icons.length) ? icons[index] : Icons.error;
-              String cardName = (index < names.length) ? names[index] : "";
+              IconData cardIcon =
+                  (index < cardIcons.length) ? cardIcons[index] : Icons.error;
+              String cardName =
+                  (index < cardnames.length) ? cardnames[index] : "";
 
               return InkWell(
                 onTap: () {},
@@ -257,7 +222,7 @@ class HomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(5),
                           decoration: const BoxDecoration(
                               color: Colors.white, shape: BoxShape.circle),
-                          child: Icon(iconData, color: Colors.red, size: 40),
+                          child: Icon(cardIcon, color: Colors.red, size: 40),
                         ),
                         const SizedBox(height: 30),
                         Text(

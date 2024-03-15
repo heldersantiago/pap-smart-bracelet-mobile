@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/device_screen.dart';
-import 'package:pap/views/screens/onboarding/onboarding_screen.dart';
-import 'package:pap/views/screens/profile_screen.dart';
+import 'package:pap/routes.dart';
 import 'package:pap/views/widgets/list_tile_settings.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -41,7 +39,7 @@ class SettingScreen extends StatelessWidget {
               title: "Perfil",
               colorShape: Color.fromARGB(255, 187, 222, 251),
               colorIcon: Colors.blue,
-              screen: ProfileScreen(),
+              screen: RouteGenerator.profilePage,
             ),
             SizedBox(height: 20),
             ListTileSettings(
@@ -49,7 +47,7 @@ class SettingScreen extends StatelessWidget {
               title: "Notificações",
               colorShape: Color.fromARGB(255, 197, 202, 233),
               colorIcon: Colors.indigo,
-              screen: ProfileScreen(),
+              screen: RouteGenerator.notificationPage,
             ),
             SizedBox(height: 20),
             ListTileSettings(
@@ -57,7 +55,7 @@ class SettingScreen extends StatelessWidget {
               title: "Dispositivo",
               colorShape: Color.fromARGB(255, 200, 230, 201),
               colorIcon: Colors.green,
-              screen: DeviceScreen(),
+              screen: RouteGenerator.devicePage,
             ),
             SizedBox(height: 20),
             ListTileSettings(
@@ -65,7 +63,7 @@ class SettingScreen extends StatelessWidget {
               title: "Sobre Nós",
               colorShape: Color.fromARGB(255, 255, 224, 178),
               colorIcon: Colors.orange,
-              screen: ProfileScreen(),
+              screen: RouteGenerator.profilePage,
             ),
             SizedBox(height: 20),
             ListTileSettings(
@@ -73,7 +71,7 @@ class SettingScreen extends StatelessWidget {
               title: "Termos e Políticas",
               colorShape: Color.fromARGB(255, 225, 190, 231),
               colorIcon: Colors.purple,
-              screen: ProfileScreen(),
+              screen: RouteGenerator.settingsPage,
             ),
             SizedBox(height: 20),
             ListTileSettings(
@@ -81,7 +79,7 @@ class SettingScreen extends StatelessWidget {
               title: "Central de Ajuda",
               colorShape: Color.fromARGB(255, 255, 236, 179),
               colorIcon: Colors.amber,
-              screen: ProfileScreen(),
+              screen: RouteGenerator.notificationPage,
             ),
             SizedBox(height: 10),
             Divider(height: 15),
@@ -91,7 +89,7 @@ class SettingScreen extends StatelessWidget {
               title: "Terminar sessão",
               colorShape: Color.fromARGB(255, 255, 205, 210),
               colorIcon: Colors.red,
-              screen: OnboardingView(),
+              screen: RouteGenerator.onboardingPage,
             ),
             SizedBox(height: 20),
           ],

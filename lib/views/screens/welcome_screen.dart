@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/auth/login_screen.dart';
-import 'package:pap/views/screens/auth/register_screen.dart';
+import 'package:pap/routes.dart';
 import 'package:pap/views/widgets/button_auth.dart';
 import 'package:pap/views/widgets/navbar_roots.dart';
 import 'package:pap/constants/color.dart';
@@ -65,12 +64,12 @@ class WelcomeView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ButtonAuth(
-                  buttonText: "LOG IN",
-                  view: LoginScreen(),
+                  buttonText: "LOGIN",
+                  view: RouteGenerator.loginPage,
                 ),
                 ButtonAuth(
-                  buttonText: "SIGN UP",
-                  view: RegisterScreen(),
+                  buttonText: "Cadastrar-se",
+                  view: RouteGenerator.registerPage,
                 )
               ],
             )

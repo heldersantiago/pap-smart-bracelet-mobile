@@ -3,7 +3,7 @@ import 'package:pap/constants/color.dart';
 
 class ButtonAuth extends StatelessWidget {
   final String buttonText;
-  final Widget view;
+  final String view;
   const ButtonAuth({super.key, required this.buttonText, required this.view});
 
   @override
@@ -13,8 +13,7 @@ class ButtonAuth extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       child: InkWell(
         onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => view));
+          Navigator.of(context).pushNamed(view);
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),

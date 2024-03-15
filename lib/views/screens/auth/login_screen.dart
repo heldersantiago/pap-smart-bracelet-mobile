@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pap/constants/color.dart';
+import 'package:pap/routes.dart';
 import 'package:pap/views/screens/auth/register_screen.dart';
 import 'package:pap/views/widgets/input.dart';
 
@@ -26,7 +28,7 @@ class _LoginViewState extends State<LoginScreen> {
             ),
             const SizedBox(height: 15),
             const Input(
-              labelText: "Email or Username",
+              labelText: "Email",
               icon: Icons.email,
             ),
             Padding(
@@ -58,7 +60,7 @@ class _LoginViewState extends State<LoginScreen> {
               child: SizedBox(
                 width: double.infinity,
                 child: Material(
-                  color: const Color(0XFF7165D6),
+                  color: primaryColor,
                   borderRadius: BorderRadius.circular(10),
                   child: InkWell(
                     onTap: () {
@@ -72,7 +74,7 @@ class _LoginViewState extends State<LoginScreen> {
                         padding:
                             EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                         child: Text(
-                          "LOG IN",
+                          "LOGIN",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
@@ -90,7 +92,7 @@ class _LoginViewState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Dont have any account?",
+                  "Não possui uma conta?",
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -98,14 +100,12 @@ class _LoginViewState extends State<LoginScreen> {
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const RegisterScreen()));
+                      Navigator.of(context)
+                          .pushNamed(RouteGenerator.registerPage);
                     },
-                    child: const Text("Create Account",
+                    child: const Text("Crie uma conta",
                         style: TextStyle(
-                          color: Color(0XFF7165D6),
+                          color: primaryColor,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         )))
