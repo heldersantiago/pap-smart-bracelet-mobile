@@ -21,7 +21,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
   Widget build(BuildContext contiext) {
     return SingleChildScrollView(
         child: Padding(
-      padding: const EdgeInsets.only(top: 40),
+      padding: const EdgeInsets.only(top: 50),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

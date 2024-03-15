@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pap/views/widgets/color.dart';
 
 class ButtonAuth extends StatelessWidget {
   final String buttonText;
@@ -8,7 +9,7 @@ class ButtonAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color(0XFF7165D6),
+      color: primaryColor,
       borderRadius: BorderRadius.circular(10),
       child: InkWell(
         onTap: () {

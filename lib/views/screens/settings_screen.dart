@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:pap/views/screens/device_screen.dart';
 import 'package:pap/views/screens/onboarding/onboarding_screen.dart';
 import 'package:pap/views/screens/profile_screen.dart';
-import 'package:pap/views/screens/welcome_screen.dart';
 import 'package:pap/views/widgets/list_tile_settings.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -13,7 +12,7 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+        padding: EdgeInsets.only(top: 50, left: 10, right: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

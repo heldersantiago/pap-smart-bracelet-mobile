@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pap/views/screens/onboarding/onboarding_items.dart';
+import 'package:pap/views/screens/welcome_screen.dart';
 import 'package:pap/views/widgets/color.dart';
-import 'package:pap/views/widgets/navbar_roots.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -34,7 +34,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   TextButton(
                       onPressed: () => pageController
                           .jumpToPage(controller.items.length - 1),
-                      child: const Text("Skip")),
+                      child: const Text("IGNORAR")),
 
                   //Indicator
                   SmoothPageIndicator(
@@ -55,7 +55,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                       onPressed: () => pageController.nextPage(
                           duration: const Duration(milliseconds: 600),
                           curve: Curves.easeIn),
-                      child: const Text("Next")),
+                      child: const Text("Avançar")),
                 ],
               ),
       ),
@@ -110,7 +110,7 @@ class _OnboardingViewState extends State<OnboardingView> {
             // same key
             if (!mounted) return;
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const NavbarRoots()));
+                MaterialPageRoute(builder: (context) => const WelcomeView()));
           },
           child: const Text(
             "Começar",

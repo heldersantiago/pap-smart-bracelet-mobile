@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pap/views/screens/auth/login_screen.dart';
 import 'package:pap/views/screens/auth/register_screen.dart';
 import 'package:pap/views/widgets/button_auth.dart';
+import 'package:pap/views/widgets/color.dart';
 import 'package:pap/views/widgets/navbar_roots.dart';
 
 class WelcomeView extends StatelessWidget {
@@ -12,7 +13,7 @@ class WelcomeView extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.only(top: 40),
         child: Column(
           children: [
             const SizedBox(height: 15),
@@ -27,7 +28,7 @@ class WelcomeView extends StatelessWidget {
                   },
                   child: const Text(
                     "IGNORAR",
-                    style: TextStyle(color: Color(0xff7165d6), fontSize: 20),
+                    style: TextStyle(color: primaryColor, fontSize: 20),
                   )),
             ),
             const SizedBox(height: 10),
@@ -41,7 +42,7 @@ class WelcomeView extends StatelessWidget {
             const Text(
               "Monitoramento de Saude",
               style: TextStyle(
-                  color: Color(0XFF7165D6),
+                  color: primaryColor,
                   fontSize: 35,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1,
