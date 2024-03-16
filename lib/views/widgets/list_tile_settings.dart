@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ListTileSettings extends StatelessWidget {
   final IconData icon;
@@ -19,7 +20,7 @@ class ListTileSettings extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        Navigator.of(context).pushNamed(screen);
+        Get.toNamed(screen);
       },
       leading: Container(
         padding: const EdgeInsets.all(10),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:pap/routes.dart';
 import 'package:pap/views/screens/onboarding_screen.dart';
 
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
+      defaultTransition: Transition.fadeIn,
       initialRoute: RouteGenerator.homePage,
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,

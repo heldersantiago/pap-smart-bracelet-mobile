@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/routes.dart';
 import 'package:pap/views/screens/auth/register_screen.dart';
@@ -100,8 +101,7 @@ class _LoginViewState extends State<LoginScreen> {
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.of(context)
-                          .pushNamed(RouteGenerator.registerPage);
+                      Get.toNamed(RouteGenerator.registerPage);
                     },
                     child: const Text("Crie uma conta",
                         style: TextStyle(

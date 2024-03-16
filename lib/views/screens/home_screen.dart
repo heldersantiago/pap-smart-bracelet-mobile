@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pap/constants/constant.dart';
+import 'package:pap/controllers/user_controller.dart';
 import 'package:pap/routes.dart';
 import 'package:pap/constants/color.dart';
 
@@ -8,6 +10,8 @@ class HomeScreen extends StatelessWidget {
   List<String> symptoms = Constant().symptoms;
   List<String> cardnames = Constant().cardName;
   List<IconData> cardIcons = Constant().cardIcons;
+
+  final UserController userController = Get.put(UserController());
 
   HomeScreen({super.key});
 
@@ -29,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed(RouteGenerator.profilePage);
+                    Get.toNamed(RouteGenerator.profilePage);
                   },
                   child: const Hero(
                       tag: "photo",

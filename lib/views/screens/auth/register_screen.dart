@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/routes.dart';
 import 'package:pap/views/widgets/input.dart';
@@ -111,7 +113,7 @@ class _RegisterViewState extends State<RegisterScreen> {
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed(RouteGenerator.loginPage);
+                      Get.toNamed(RouteGenerator.loginPage);
                     },
                     child: const Text("LOGIN",
                         style: TextStyle(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pap/constants/onboarding_items.dart';
 import 'package:pap/routes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -108,7 +109,7 @@ class _OnboardingViewState extends State<OnboardingView> {
 
             //After we press get started button this onboarding value become true
             if (!mounted) return;
-            Navigator.of(context).pushNamed(RouteGenerator.welcomePage);
+            Get.toNamed(RouteGenerator.welcomePage);
           },
           child: const Text(
             "Começar",
