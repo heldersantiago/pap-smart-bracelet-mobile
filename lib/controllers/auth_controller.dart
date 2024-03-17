@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pap/constants/endpoint.dart';
@@ -31,16 +33,15 @@ class AuthController extends GetxController {
       final token = response.body;
       await StorageService.storeToken(token);
 
-      isLoading.value = false;
+      isLoading.value = false; // end loading
       isLogged.value = true;
 
       await loadUserFromToken();
-
       Get.snackbar("Successo", "Logged in successfully",
           colorText: Colors.white,
           snackPosition: SnackPosition.TOP,
           backgroundColor: Colors.green,
-          duration: const Duration(seconds: 3),
+          duration: const Duration(seconds: 2),
           margin: const EdgeInsets.only(top: 5));
 
       // Redirect to the home page when user is logged in
@@ -51,7 +52,7 @@ class AuthController extends GetxController {
           colorText: Colors.white,
           snackPosition: SnackPosition.TOP,
           backgroundColor: Colors.red,
-          duration: const Duration(seconds: 3),
+          duration: const Duration(seconds: 2),
           margin: const EdgeInsets.only(top: 5));
     }
   }
@@ -72,6 +73,7 @@ class AuthController extends GetxController {
   Future<void> logout() async {
     await StorageService.removeToken();
     isLogged.value = false;
-    Get.toNamed(RouteGenerator.loginPage);
+    isLoading.value = false;
+    Get.offAllNamed(RouteGenerator.loginPage);
   }
 }

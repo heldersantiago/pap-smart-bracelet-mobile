@@ -12,29 +12,11 @@ class WelcomeView extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        padding: const EdgeInsets.only(top: 40),
+        padding: const EdgeInsets.only(top: 5),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 15),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const NavbarRoots()));
-                  },
-                  child: const Text(
-                    "IGNORAR",
-                    style: TextStyle(color: primaryColor, fontSize: 20),
-                  )),
-            ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Image.asset("images/doctors.png"),
-            ),
+            Image.asset("assets/medical_research.png"),
             const SizedBox(
               height: 20,
             ),
@@ -46,18 +28,20 @@ class WelcomeView extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1,
                   wordSpacing: 2),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(
               height: 10,
             ),
             const Text(
-              "Monitoramento de Saude para idosos",
+              "Monitoramento de Saude para idosos, controle a saude do seu idoso em qualquer lugar",
               style: TextStyle(
                   color: Colors.black54,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 1,
                   wordSpacing: 2),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 60),
             const Row(
@@ -68,7 +52,7 @@ class WelcomeView extends StatelessWidget {
                   view: RouteGenerator.loginPage,
                 ),
                 ButtonAuth(
-                  buttonText: "Cadastrar-se",
+                  buttonText: "SIGN UP",
                   view: RouteGenerator.registerPage,
                 )
               ],

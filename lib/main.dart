@@ -29,5 +29,5 @@ String _initialRoute() {
   final AuthController authController = Get.find<AuthController>();
   return authController.isLogged.value
       ? RouteGenerator.homePage
-      : RouteGenerator.loginPage;
+      : RouteGenerator.onboardingPage;
 }

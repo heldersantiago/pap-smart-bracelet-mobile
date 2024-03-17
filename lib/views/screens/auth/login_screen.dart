@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pap/constants/color.dart';
@@ -101,6 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: InkWell(
                       onTap: () async {
                         if (_formkey.currentState!.validate()) {
+                          authController.isLoading.value = true;
                           authController.login(_emailController.text.trim(),
                               _passwordController.text.trim());
                         }
@@ -109,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 15, horizontal: 30),
-                          child: authController.isLoading.value
+                          child: Obx(() => authController.isLoading.value
                               ? const CircularProgressIndicator(
                                   color: Colors.white,
                                 )
@@ -120,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     fontSize: 25,
                                     fontWeight: FontWeight.bold,
                                   ),
-                                ),
+                                )),
                         ),
                       ),
                     ),
