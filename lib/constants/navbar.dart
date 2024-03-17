@@ -7,5 +7,5 @@ import 'package:pap/views/screens/settings_screen.dart';
 List<Widget> screens = [
   HomeScreen(),
   const NotificationScreen(),
-  const SettingScreen(),
+  SettingScreen(),
 ];

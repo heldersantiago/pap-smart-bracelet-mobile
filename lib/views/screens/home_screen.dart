@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pap/constants/constant.dart';
+import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/controllers/user_controller.dart';
 import 'package:pap/routes.dart';
 import 'package:pap/constants/color.dart';
@@ -12,6 +13,8 @@ class HomeScreen extends StatelessWidget {
   List<IconData> cardIcons = Constant().cardIcons;
 
   final UserController userController = Get.put(UserController());
+
+  final AuthController authController = Get.put(AuthController());
 
   HomeScreen({super.key});
 
@@ -27,9 +30,10 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  "Olá, Jamal Adjani",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                Text(
+                  "Olá,${authController.currentUser.value.name}",
+                  style: const TextStyle(
+                      fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 GestureDetector(
                   onTap: () {

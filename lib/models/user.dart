@@ -1,19 +1,22 @@
 class User {
-  final String name;
-  final String email;
-  final String password;
-  final String braceletId;
-  final String relativeTie;
+  final int? id;
+  final String? name;
+  final String? email;
+  final String? password;
+  final String? braceletId;
+  final String? relativeTie;
 
   User(
-      {required this.name,
-      required this.email,
-      required this.password,
-      required this.relativeTie,
-      required this.braceletId});
+      {this.id,
+      this.name,
+      this.email,
+      this.password,
+      this.relativeTie,
+      this.braceletId});
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
+      id: json['id'],
       name: json['name'],
       email: json['email'],
       password: json['password'],

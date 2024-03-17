@@ -34,11 +34,11 @@ class RouteGenerator {
       case registerPage:
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case profilePage:
-        return MaterialPageRoute(builder: (_) => const ProfileScreen());
+        return MaterialPageRoute(builder: (_) => ProfileScreen());
       case notificationPage:
         return MaterialPageRoute(builder: (_) => const NotificationScreen());
       case settingsPage:
-        return MaterialPageRoute(builder: (_) => const SettingScreen());
+        return MaterialPageRoute(builder: (_) => SettingScreen());
       case devicePage:
         return MaterialPageRoute(builder: (_) => const DeviceScreen());
       default:

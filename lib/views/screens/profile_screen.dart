@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pap/constants/color.dart';
+import 'package:pap/controllers/auth_controller.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  final AuthController authController = Get.find<AuthController>();
+  ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +56,8 @@ class ProfileScreen extends StatelessWidget {
                                     AssetImage("images/doctor1.jpg"),
                               )),
                           const SizedBox(height: 10),
-                          const Text("Jamal Adjani",
-                              style: TextStyle(
+                          Text(authController.currentUser.value.name!,
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 23,
                                   fontWeight: FontWeight.w600)),
