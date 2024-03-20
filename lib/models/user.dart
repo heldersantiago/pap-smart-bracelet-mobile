@@ -5,7 +5,6 @@ class User {
   final String? password;
   final String? braceletId;
   final String? relativeTie;
-
   User(
       {this.id,
       this.name,

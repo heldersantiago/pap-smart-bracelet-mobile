@@ -2,25 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/routes.dart';
-import 'package:pap/views/screens/onboarding_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
+  inititeControllersAndServices();
+}
+
+void inititeControllersAndServices() {
+  Get.put(AuthController());
 }
 
 class MyApp extends StatelessWidget {
-  final AuthController authController = Get.put(AuthController());
   final bool isLoggedIn = false;
 
-  MyApp({super.key});
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      defaultTransition: Transition.fadeIn,
+      defaultTransition: Transition.leftToRightWithFade,
       initialRoute: _initialRoute(),
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,
-      // home: const OnboardingView(),
     );
   }
 }

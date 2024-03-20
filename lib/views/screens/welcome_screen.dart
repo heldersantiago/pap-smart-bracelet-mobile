@@ -9,55 +9,58 @@ class WelcomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        padding: const EdgeInsets.only(top: 5),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset("assets/medical_research.png"),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              "Monitoramento de Saude",
-              style: TextStyle(
-                  color: primaryColor,
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1,
-                  wordSpacing: 2),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Text(
-              "Monitoramento de Saude para idosos, controle a saude do seu idoso em qualquer lugar",
-              style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 1,
-                  wordSpacing: 2),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 60),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: SingleChildScrollView(
+          child: Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ButtonAuth(
-                  buttonText: "LOGIN",
-                  view: RouteGenerator.loginPage,
+                Image.asset("assets/medical_research.png"),
+                const SizedBox(
+                  height: 20,
                 ),
-                ButtonAuth(
-                  buttonText: "SIGN UP",
-                  view: RouteGenerator.registerPage,
+                const Text(
+                  "Monitoramento de Saúde",
+                  style: TextStyle(
+                      color: primaryColor,
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                      wordSpacing: 2),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  "Monitoramento de Saude para idosos, controle a saude do seu idoso em qualquer lugar",
+                  style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 1,
+                      wordSpacing: 2),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 60),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ButtonAuth(
+                      buttonText: "LOGIN",
+                      view: RouteGenerator.loginPage,
+                    ),
+                    ButtonAuth(
+                      buttonText: "SIGN UP",
+                      view: RouteGenerator.registerPage,
+                    )
+                  ],
                 )
               ],
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );
