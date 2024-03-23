@@ -23,4 +23,12 @@ class User {
       braceletId: json['braceletId'],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'email': email,
+        'password': password,
+        'relative_tie': relativeTie,
+        'bracelet_id': braceletId,
+      };
 }

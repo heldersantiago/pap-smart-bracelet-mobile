@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Email",
-                      prefixIcon: Icon(Icons.email),
+                      prefixIcon: Icon(Icons.email_outlined),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     labelText: "Password",
-                    prefixIcon: const Icon(Icons.lock),
+                    prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: InkWell(
                       onTap: () {
                         setState(() {

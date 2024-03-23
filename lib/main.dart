@@ -5,10 +5,10 @@ import 'package:pap/routes.dart';
 
 void main() {
   runApp(const MyApp());
-  inititeControllersAndServices();
+  initiateControllersAndServices();
 }
 
-void inititeControllersAndServices() {
+void initiateControllersAndServices() {
   Get.put(AuthController());
 }
 
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   final bool isLoggedIn = false;
 
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -31,5 +32,5 @@ String _initialRoute() {
   final AuthController authController = Get.find<AuthController>();
   return authController.isLogged.value
       ? RouteGenerator.homePage
-      : RouteGenerator.onboardingPage;
+      : RouteGenerator.loginPage;
 }

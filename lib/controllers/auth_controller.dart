@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:pap/constants/endpoint.dart';
 import 'package:pap/models/user.dart';
-import 'package:http/http.dart' as http;
 import 'package:pap/routes.dart';
 import 'package:pap/services/storage_service.dart';
 import 'package:pap/services/user_service.dart';
@@ -10,7 +10,8 @@ import 'package:pap/services/user_service.dart';
 class AuthController extends GetxController {
   UserService userService = Get.put(UserService());
 
-  final String apiUrl = authUrl;
+  final String _authUrl = authUrl;
+  final String _apiUrl = apiUrl;
   var isLogged = false.obs;
   var isLoading = false.obs;
   var userId = 0.obs;
@@ -21,7 +22,7 @@ class AuthController extends GetxController {
   void login(String email, String password) async {
     final response = await http.post(
         Uri.parse(
-          apiUrl,
+          _authUrl,
         ),
         body: {'email': email, 'password': password});
 
@@ -66,7 +67,10 @@ class AuthController extends GetxController {
     currentUser.value = user;
   }
 
-  void register(User user) async {}
+  void register(User user) async {
+    isLoading.value = false; // Start loading
+    print(user.toJson());
+  }
 
   Future<void> logout() async {
     await StorageService.removeToken();
