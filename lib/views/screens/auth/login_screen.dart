@@ -1,117 +1,164 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/auth/register_screen.dart';
-import 'package:pap/views/widgets/input.dart';
+import 'package:get/get.dart';
+import 'package:pap/constants/color.dart';
+import 'package:pap/controllers/auth_controller.dart';
+import 'package:pap/routes.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginViewState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginViewState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   bool passToggle = true;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final _formkey = GlobalKey<FormState>();
+
+  final AuthController authController = Get.find<AuthController>();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.white,
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Image.asset("images/doctors.png"),
-            ),
-            const SizedBox(height: 15),
-            const Input(
-              labelText: "Email or Username",
-              icon: Icons.email,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-              child: TextField(
-                obscureText: passToggle ? true : false,
-                decoration: InputDecoration(
+        child: Form(
+          key: _formkey,
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Image.asset("images/doctors.png"),
+              ),
+              const SizedBox(height: 15),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                child: TextFormField(
+                    controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Email",
+                      prefixIcon: Icon(Icons.email_outlined),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Insira seu Email";
+                      }
+                      if (!value.isEmail) {
+                        return "Insira um Email válido";
+                      }
+                      return null;
+                    }),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                child: TextFormField(
+                  controller: _passwordController,
+                  obscureText: passToggle,
+                  decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     labelText: "Password",
-                    prefixIcon: const Icon(Icons.lock),
+                    prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: InkWell(
                       onTap: () {
-                        if (passToggle == true) {
-                          passToggle = false;
-                        } else {
-                          passToggle = true;
-                        }
-                        setState(() {});
+                        setState(() {
+                          passToggle = !passToggle;
+                        });
                       },
-                      child: passToggle
-                          ? const Icon(CupertinoIcons.eye_slash_fill)
-                          : const Icon(CupertinoIcons.eye_fill),
-                    )),
+                      child: Icon(
+                          passToggle ? Icons.visibility_off : Icons.visibility),
+                    ),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Insira sua Password";
+                    }
+                    return null;
+                  },
+                ),
               ),
-            ),
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: SizedBox(
-                width: double.infinity,
-                child: Material(
-                  color: const Color(0XFF7165D6),
-                  borderRadius: BorderRadius.circular(10),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginScreen()));
-                    },
-                    child: const Center(
-                      child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-                        child: Text(
-                          "LOG IN",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                          ),
+              const SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Material(
+                    color: primaryColor,
+                    borderRadius: BorderRadius.circular(10),
+                    child: InkWell(
+                      onTap: () async {
+                        if (_formkey.currentState!.validate()) {
+                          authController.isLoading.value = true;
+                          authController.login(_emailController.text.trim(),
+                              _passwordController.text.trim());
+                        }
+                      },
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 30),
+                          child: Obx(() => authController.isLoading.value
+                              ? const CircularProgressIndicator(
+                                  color: Colors.white,
+                                )
+                              : const Text(
+                                  "LOGIN",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )),
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 15),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "Dont have any account?",
-                  style: TextStyle(
+              const SizedBox(height: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Não possui uma conta?",
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      color: Colors.black54),
-                ),
-                TextButton(
+                      color: Colors.black54,
+                    ),
+                  ),
+                  TextButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const RegisterScreen()));
+                      Get.toNamed(RouteGenerator.registerPage);
                     },
-                    child: const Text("Create Account",
-                        style: TextStyle(
-                          color: Color(0XFF7165D6),
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        )))
-              ],
-            )
-          ],
+                    child: const Text(
+                      "Crie uma conta",
+                      style: TextStyle(
+                        color: primaryColor,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

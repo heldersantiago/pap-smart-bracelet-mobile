@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/home_screen.dart';
-import 'package:pap/views/screens/notifications_screen.dart';
-import 'package:pap/views/screens/settings_screen.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/constants/navbar.dart';
 

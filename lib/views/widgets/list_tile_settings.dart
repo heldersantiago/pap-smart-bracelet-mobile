@@ -1,14 +1,17 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/profile_screen.dart';
+import 'package:get/get.dart';
+import 'package:pap/controllers/auth_controller.dart';
 
 class ListTileSettings extends StatelessWidget {
   final IconData icon;
   final String title;
   final Color colorIcon;
   final Color colorShape;
-  final Widget screen;
-
-  const ListTileSettings({
+  final String screen;
+  final AuthController authController = Get.find<AuthController>();
+  ListTileSettings({
     required this.icon,
     required this.title,
     required this.colorShape,
@@ -16,13 +19,11 @@ class ListTileSettings extends StatelessWidget {
     required this.screen,
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => screen));
+      onTap: () async {
+        Get.toNamed(screen);
       },
       leading: Container(
         padding: const EdgeInsets.all(10),
