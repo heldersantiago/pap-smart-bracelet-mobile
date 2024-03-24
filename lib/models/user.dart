@@ -10,7 +10,7 @@ class User {
       this.name,
       this.email,
       this.password,
-      this.relativeTie,
+      this.relativeTie = "1",
       this.braceletId});
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -28,7 +28,7 @@ class User {
         'name': name,
         'email': email,
         'password': password,
-        'relative_tie': relativeTie,
-        'bracelet_id': braceletId,
+        'relative_tie': int.tryParse(relativeTie!),
+        'bracelet_id': int.tryParse(braceletId!),
       };
 }

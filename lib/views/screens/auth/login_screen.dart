@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pap/constants/color.dart';
@@ -17,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool passToggle = true;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final _formkey = GlobalKey<FormState>();
+  final formkey = GlobalKey<FormState>();
 
   final AuthController authController = Get.find<AuthController>();
 
@@ -34,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
       color: Colors.white,
       child: SingleChildScrollView(
         child: Form(
-          key: _formkey,
+          key: formkey,
           child: Column(
             children: [
               const SizedBox(height: 10),
@@ -102,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderRadius: BorderRadius.circular(10),
                     child: InkWell(
                       onTap: () async {
-                        if (_formkey.currentState!.validate()) {
+                        if (formkey.currentState!.validate()) {
                           authController.isLoading.value = true;
                           authController.login(_emailController.text.trim(),
                               _passwordController.text.trim());
