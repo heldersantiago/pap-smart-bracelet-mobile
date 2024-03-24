@@ -129,9 +129,9 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             ListTile(
-              onTap: () {
-                Navigator.pushReplacementNamed(
-                    context, RouteGenerator.loginPage);
+              onTap: () async {
+                authController.isLoading.value = true;
+                await authController.logout();
               },
               title: Text(
                 "Terminar Sessão",

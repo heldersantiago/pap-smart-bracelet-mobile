@@ -133,6 +133,9 @@ class _RegisterViewState extends State<RegisterScreen> {
                     if (value == null || value.isEmpty) {
                       return "Insira sua Password";
                     }
+                    if (value.length < 6) {
+                      return "Password precisa de 6 caracteres no mínimo";
+                    }
                     return null;
                   },
                 ),
