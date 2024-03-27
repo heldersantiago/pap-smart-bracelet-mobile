@@ -3,48 +3,41 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/controllers/auth_controller.dart';
+import 'package:pap/routes.dart';
 
 class ProfileScreen extends StatelessWidget {
   final AuthController authController = Get.find<AuthController>();
+
   ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushReplacementNamed(
+                context, RouteGenerator.settingsPage);
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
+        backgroundColor: primaryColor,
+        title: const Text(
+          "Meu perfil",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+        ),
+      ),
       backgroundColor: primaryColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
             const SizedBox(height: 50),
             Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 0),
                 child: Stack(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.white,
-                            size: 25,
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {},
-                          child: const Icon(
-                            Icons.more_vert_outlined,
-                            color: Colors.white,
-                            size: 25,
-                          ),
-                        )
-                      ],
-                    ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.symmetric(vertical: 0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
