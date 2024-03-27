@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pap/routes.dart';
 import 'package:pap/views/widgets/upcoming.dart';
 import 'package:pap/constants/color.dart';
 
@@ -18,13 +19,19 @@ class _NotificationScreenState extends State<NotificationScreen> {
     const Center(child: Text("Sem mensagem de risco no momento")),
   ];
   @override
-  Widget build(BuildContext contiext) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pushReplacementNamed(context, RouteGenerator.homePage);
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
         backgroundColor: primaryColor,
         title: const Text(
-          "Dados da Saúde",
-          style: TextStyle(color: Colors.white),
+          "Central de notificações",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
       )),
       body: SingleChildScrollView(
           child: Padding(

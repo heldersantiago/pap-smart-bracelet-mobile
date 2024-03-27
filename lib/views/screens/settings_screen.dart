@@ -17,10 +17,16 @@ class SettingScreen extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       child: Scaffold(
         appBar: AppBar(
+            leading: IconButton(
+              onPressed: (){
+                Navigator.pushReplacementNamed(context, RouteGenerator.homePage);
+              },
+              icon: const Icon(Icons.arrow_back),
+            ),
             backgroundColor: primaryColor,
             title: const Text(
               "Definições",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
             )),
         body: SingleChildScrollView(
           child: Padding(
@@ -54,14 +60,6 @@ class SettingScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 ListTileSettings(
-                  icon: Icons.notifications_none_outlined,
-                  title: "Notificações",
-                  colorShape: const Color.fromARGB(255, 197, 202, 233),
-                  colorIcon: Colors.indigo,
-                  screen: RouteGenerator.notificationPage,
-                ),
-                const SizedBox(height: 20),
-                ListTileSettings(
                   icon: Icons.broadcast_on_home_outlined,
                   title: "Dispositivo",
                   colorShape: const Color.fromARGB(255, 200, 230, 201),
@@ -70,27 +68,11 @@ class SettingScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 ListTileSettings(
-                  icon: Icons.info_outline_rounded,
-                  title: "Sobre Nós",
-                  colorShape: const Color.fromARGB(255, 255, 224, 178),
-                  colorIcon: Colors.orange,
-                  screen: RouteGenerator.profilePage,
-                ),
-                const SizedBox(height: 20),
-                ListTileSettings(
                   icon: Icons.policy,
                   title: "Termos e Políticas",
                   colorShape: const Color.fromARGB(255, 225, 190, 231),
                   colorIcon: Colors.purple,
                   screen: RouteGenerator.settingsPage,
-                ),
-                const SizedBox(height: 20),
-                ListTileSettings(
-                  icon: Icons.help_outline_rounded,
-                  title: "Central de Ajuda",
-                  colorShape: const Color.fromARGB(255, 255, 236, 179),
-                  colorIcon: Colors.amber,
-                  screen: RouteGenerator.notificationPage,
                 ),
                 const SizedBox(height: 10),
                 const Divider(height: 15),
