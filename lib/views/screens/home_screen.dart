@@ -5,6 +5,7 @@ import 'package:pap/constants/constant.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/controllers/user_controller.dart';
 import 'package:pap/models/health_card.dart';
+import 'package:pap/views/widgets/drawer_items.dart';
 import 'package:pap/views/widgets/health_data_card_section.dart';
 
 // ignore: must_be_immutable
@@ -30,124 +31,7 @@ class HomeScreen extends StatelessWidget {
       ),
       drawer: Drawer(
         width: MediaQuery.of(context).size.width * 0.7,
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 25),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 50,
-                          child: ClipOval(
-                            child: Image.asset(
-                              "images/default-user.png",
-                              color: primaryColor.withOpacity(0.4),
-                              width: 120,
-                              height: 120,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          authController.currentUser.value.email!,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 2,
-                        ),
-                        const Text(
-                          "Filho",
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  ListTile(
-                    title: Text(
-                      "Página Inicial",
-                      style: TextStyle(
-                        color: primaryColor.withOpacity(0.7),
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                      ),
-                    ),
-                    leading: Icon(
-                      Icons.home,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Ajuda",
-                      style: TextStyle(
-                        color: primaryColor.withOpacity(0.7),
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                      ),
-                    ),
-                    leading: Icon(
-                      Icons.help,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Definições",
-                      style: TextStyle(
-                        color: primaryColor.withOpacity(0.7),
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                      ),
-                    ),
-                    leading: Icon(
-                      Icons.settings,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  )
-                ],
-              ),
-            ),
-            ListTile(
-              onTap: () async {
-                authController.isLoading.value = true;
-                await authController.logout();
-              },
-              title: Text(
-                "Terminar Sessão",
-                style: TextStyle(
-                  color: primaryColor.withOpacity(0.7),
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                ),
-              ),
-              leading: Icon(
-                Icons.logout,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            )
-          ],
-        ),
+        child: DrawerItems() // The Expanded drawer view
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(top: 5),
@@ -268,13 +152,14 @@ class HomeScreen extends StatelessWidget {
                             vertical: 10, horizontal: 15),
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         decoration: BoxDecoration(
-                            color: const Color(0XFFF4F6FA),
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: const [
                               BoxShadow(
                                 color: Colors.black12,
                                 blurRadius: 5,
                                 spreadRadius: 1,
+                                blurStyle: BlurStyle.outer
                               )
                             ]),
                         child: Center(
@@ -293,13 +178,13 @@ class HomeScreen extends StatelessWidget {
             const Padding(
                 padding: EdgeInsets.only(left: 15, bottom: 10),
                 child: Text(
-                  "Dados Vitais",
+                  "Dados vitais",
                   style: TextStyle(
                       color: Colors.black87,
                       fontWeight: FontWeight.w600,
                       fontSize: 25),
                 )),
-            HealthDataCardSection(healthDataCard: healthDataCard)
+            HealthDataCardSection(healthDataCard: healthDataCard) // The List view of health data
           ],
         ),
       ),
