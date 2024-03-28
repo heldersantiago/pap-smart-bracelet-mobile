@@ -17,8 +17,8 @@ class HealthDataCardSection extends StatelessWidget {
         return InkWell(
           onTap: () {},
           child: Container(
-            margin: const EdgeInsets.all(20),
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            margin: const EdgeInsets.all(15),
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
             decoration: BoxDecoration(
                 color: backgroundColor,
                 borderRadius: BorderRadius.circular(10),
@@ -35,20 +35,23 @@ class HealthDataCardSection extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
-                       Icon(healthDataCard[index].icon, color: healthDataCard[index].textColor,),
-                       const SizedBox(width: 6),
-                       Text(
-                         healthDataCard[index].title,
-                         style: TextStyle(
-                             color: healthDataCard[index].textColor,
-                             fontWeight: FontWeight.w600,
-                             fontSize: 20),
-                       ),
-                     ],
-                   ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          healthDataCard[index].icon,
+                          color: healthDataCard[index].textColor,
+                        ),
+                        const SizedBox(width: 6),
+                        Text(
+                          healthDataCard[index].title,
+                          style: TextStyle(
+                              color: healthDataCard[index].textColor,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20),
+                        ),
+                      ],
+                    ),
                     const Icon(Icons.arrow_forward, size: 28),
                   ],
                 ),
