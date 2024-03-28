@@ -4,16 +4,15 @@ import 'package:pap/constants/color.dart';
 import 'package:pap/constants/constant.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/controllers/user_controller.dart';
-import 'package:pap/routes.dart';
+import 'package:pap/models/health_card.dart';
+import 'package:pap/views/widgets/health_data_card_section.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   List<String> symptoms = Constant().symptoms;
-  List<String> cardnames = Constant().cardName;
-  List<IconData> cardIcons = Constant().cardIcons;
+  List<HealthCard> healthDataCard = Constant().healthdatas;
 
   final UserController userController = Get.put(UserController());
-
   final AuthController authController = Get.put(AuthController());
 
   HomeScreen({super.key});
@@ -21,11 +20,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: const Text(
-          "SMSI",
-          style: TextStyle(color: Colors.white),
+          "Nexus SMSI",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
         ),
       ),
       drawer: Drawer(
@@ -281,9 +281,9 @@ class HomeScreen extends StatelessWidget {
                           child: Text(
                             symptoms[index],
                             style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black87,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black54,
                             ),
                           ),
                         ),
@@ -291,68 +291,15 @@ class HomeScreen extends StatelessWidget {
                     })),
             const SizedBox(height: 15),
             const Padding(
-                padding: EdgeInsets.only(left: 15),
+                padding: EdgeInsets.only(left: 15, bottom: 10),
                 child: Text(
                   "Dados Vitais",
                   style: TextStyle(
                       color: Colors.black87,
                       fontWeight: FontWeight.w600,
-                      fontSize: 20),
+                      fontSize: 25),
                 )),
-            GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              itemCount: cardnames.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                IconData cardIcon =
-                    (index < cardIcons.length) ? cardIcons[index] : Icons.error;
-                String cardName =
-                    (index < cardnames.length) ? cardnames[index] : "";
-
-                return InkWell(
-                  onTap: () {},
-                  child: Container(
-                    margin: const EdgeInsets.all(5),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 10),
-                    decoration: BoxDecoration(
-                        color: primaryColor,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 2,
-                              spreadRadius: 2)
-                        ]),
-                    child: Padding(
-                      padding: const EdgeInsets.all(1),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(5),
-                            decoration: const BoxDecoration(
-                                color: Colors.white, shape: BoxShape.circle),
-                            child: Icon(cardIcon, color: Colors.red, size: 40),
-                          ),
-                          const SizedBox(height: 30),
-                          Text(
-                            cardName,
-                            style: const TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          const SizedBox(height: 5),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
+            HealthDataCardSection(healthDataCard: healthDataCard)
           ],
         ),
       ),

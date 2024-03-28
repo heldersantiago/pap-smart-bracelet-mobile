@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pap/models/health_card.dart';
 
 class Constant {
   final List<String> symptoms = [
@@ -19,19 +20,26 @@ class Constant {
     "doctor5.jpg"
   ];
 
-  // Vital Data Cards
-  final List<String> cardName = [
-    "Batimento Cardíaco",
-    "Pressão arterial",
-    "Oxigénio no sangue",
-    "Temperatura corporal",
-  ];
-
-  final List<IconData> cardIcons = [
-    CupertinoIcons.heart_solid,
-    CupertinoIcons.heart_slash_fill,
-    Icons.gas_meter_outlined,
-    Icons.thermostat,
-    // Add more icons as needed
+  final List<HealthCard> healthdatas = [
+    HealthCard(
+        title: "Batimento cardiaco",
+        subtitle: "Batimento cardiaco",
+        icon: CupertinoIcons.heart_slash_fill,
+        textColor: Colors.black),
+    HealthCard(
+        title: "Pressão arterial",
+        subtitle: "Veja aqui a sua pressão",
+        icon: Icons.track_changes_sharp,
+        textColor: Colors.green),
+    HealthCard(
+        title: "Oxigénio no Sangue",
+        subtitle: "Tudo sobre o seu oxigénio",
+        icon: Icons.gas_meter_outlined,
+        textColor: Colors.orange),
+    HealthCard(
+        title: "Temperatura Corporal",
+        subtitle: "A temperatura do corpo",
+        icon: CupertinoIcons.thermometer,
+        textColor: Colors.pink)
   ];
 }
