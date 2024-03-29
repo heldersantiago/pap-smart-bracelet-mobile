@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pap/Utils/routes.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/routes.dart';
@@ -16,8 +17,7 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.pushReplacementNamed(
-                context, RouteGenerator.settingsPage);
+            Routes.navigateTo(context, RouteGenerator.settingsPage, false);
           },
           icon: const Icon(Icons.arrow_back),
         ),
@@ -49,8 +49,8 @@ class ProfileScreen extends StatelessWidget {
                                     AssetImage("images/doctor1.jpg"),
                               )),
                           const SizedBox(height: 10),
-                          Text(authController.currentUser.value.name!,
-                              style: const TextStyle(
+                          const Text("sample",
+                              style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 23,
                                   fontWeight: FontWeight.w600)),

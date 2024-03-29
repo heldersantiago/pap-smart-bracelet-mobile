@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 String _initialRoute() {
   final AuthController authController = Get.find<AuthController>();
   return authController.isLogged.value
-      ? RouteGenerator.homePage
-      : RouteGenerator.loginPage;
+      ? RouteGenerator.homePage // Use RouteGenerator.homePage directly for the initial route
+      : RouteGenerator.homePage; // Or any other initial route for non-logged-in users
 }
+

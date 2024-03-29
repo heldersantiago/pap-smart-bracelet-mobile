@@ -1,29 +1,34 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pap/Utils/routes.dart';
 import 'package:pap/controllers/auth_controller.dart';
+import 'package:pap/routes.dart';
 
 class ListTileSettings extends StatelessWidget {
   final IconData icon;
   final String title;
   final Color colorIcon;
   final Color colorShape;
-  final String screen;
+  final String route;
+  final bool useEffect;
   final AuthController authController = Get.find<AuthController>();
+
   ListTileSettings({
     required this.icon,
     required this.title,
     required this.colorShape,
     required this.colorIcon,
-    required this.screen,
+    required this.route,
+    required this.useEffect,
     super.key,
   });
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () async {
-        Get.toNamed(screen);
+        // Get.to(RouteGenerator.generateRoute(RouteSettings(name: screen),useEffect: false));
+        Routes.navigateTo(context, route, useEffect);
       },
       leading: Container(
         padding: const EdgeInsets.all(10),
