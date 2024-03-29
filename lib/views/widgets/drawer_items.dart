@@ -1,7 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pap/Utils/routes.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/controllers/auth_controller.dart';
+import 'package:pap/routes.dart';
 import 'package:pap/views/widgets/drawer_list_item.dart';
 
 class DrawerItems extends StatelessWidget {
@@ -41,9 +44,9 @@ class DrawerItems extends StatelessWidget {
                     const SizedBox(
                       height: 5,
                     ),
-                    Text(
-                      authController.currentUser.value.email!,
-                      style: const TextStyle(
+                    const Text(
+                      "sample",
+                      style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
@@ -65,8 +68,17 @@ class DrawerItems extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               const DrawerListItem(title: "Página Inicial", icon: Icons.home),
+              DrawerListItem(
+                  title: "Meu perfil",
+                  icon: Icons.person,
+                  action: () async {
+                    Routes.navigateTo(
+                        context, RouteGenerator.profilePage, true);
+                  }),
               const DrawerListItem(title: "Ajuda", icon: Icons.help),
-              const DrawerListItem(title: "Definições", icon: Icons.settings),
+              DrawerListItem(title: "Definições", icon: Icons.settings, action: () async {
+                Routes.navigateTo(context, RouteGenerator.settingsPage, true);
+              }),
             ],
           ),
         ),

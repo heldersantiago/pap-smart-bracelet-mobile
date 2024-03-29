@@ -18,15 +18,17 @@ class SettingScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
             leading: IconButton(
-              onPressed: (){
-                Navigator.pushReplacementNamed(context, RouteGenerator.homePage);
+              onPressed: () {
+                Navigator.pushReplacementNamed(
+                    context, RouteGenerator.homePage);
               },
               icon: const Icon(Icons.arrow_back),
             ),
             backgroundColor: primaryColor,
             title: const Text(
               "Definições",
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
             )),
         body: SingleChildScrollView(
           child: Padding(
@@ -34,17 +36,17 @@ class SettingScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ListTile(
-                    leading: const CircleAvatar(
+                const ListTile(
+                    leading: CircleAvatar(
                       radius: 30,
                       backgroundImage: AssetImage("images/doctors.png"),
                     ),
                     title: Text(
-                      authController.currentUser.value.email!,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: 20),
+                      'sample',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
                     ),
-                    subtitle: const Text(
+                    subtitle: Text(
                       "Filho",
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
@@ -56,7 +58,8 @@ class SettingScreen extends StatelessWidget {
                   title: "Perfil",
                   colorShape: const Color.fromARGB(255, 187, 222, 251),
                   colorIcon: Colors.blue,
-                  screen: RouteGenerator.profilePage,
+                  route: RouteGenerator.profilePage,
+                  useEffect: true,
                 ),
                 const SizedBox(height: 20),
                 ListTileSettings(
@@ -64,7 +67,8 @@ class SettingScreen extends StatelessWidget {
                   title: "Dispositivo",
                   colorShape: const Color.fromARGB(255, 200, 230, 201),
                   colorIcon: Colors.green,
-                  screen: RouteGenerator.devicePage,
+                  route: RouteGenerator.devicePage,
+                  useEffect: false,
                 ),
                 const SizedBox(height: 20),
                 ListTileSettings(
@@ -72,7 +76,8 @@ class SettingScreen extends StatelessWidget {
                   title: "Termos e Políticas",
                   colorShape: const Color.fromARGB(255, 225, 190, 231),
                   colorIcon: Colors.purple,
-                  screen: RouteGenerator.settingsPage,
+                  route: RouteGenerator.settingsPage,
+                  useEffect: false,
                 ),
                 const SizedBox(height: 10),
                 const Divider(height: 15),

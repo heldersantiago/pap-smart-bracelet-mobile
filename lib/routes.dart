@@ -21,29 +21,54 @@ class RouteGenerator {
   static const String devicePage = '/device';
 
   RouteGenerator._();
-  static Route<dynamic> generateRoute(RouteSettings settings) {
+
+  static Route<dynamic> generateRoute(RouteSettings settings, {bool useEffect = true}) {
     switch (settings.name) {
       case homePage:
         return MaterialPageRoute(builder: (_) => const NavbarRoots());
       case onboardingPage:
-        return MaterialPageRoute(builder: (_) => const OnboardingView());
+        return _buildPageRoute(const OnboardingView(), useEffect: useEffect);
       case welcomePage:
-        return MaterialPageRoute(builder: (_) => const WelcomeView());
+        return _buildPageRoute(const WelcomeView(), useEffect: useEffect);
       case loginPage:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
+        return _buildPageRoute(const LoginScreen(), useEffect: useEffect);
       case registerPage:
-        return MaterialPageRoute(builder: (_) => const RegisterScreen());
+        return _buildPageRoute(const RegisterScreen(), useEffect: useEffect);
       case profilePage:
-        return MaterialPageRoute(builder: (_) => ProfileScreen());
+        return _buildPageRoute(ProfileScreen(), useEffect: useEffect);
       case notificationPage:
-        return MaterialPageRoute(builder: (_) => const NotificationScreen());
+        return _buildPageRoute(const NotificationScreen(), useEffect: useEffect);
       case settingsPage:
-        return MaterialPageRoute(builder: (_) => SettingScreen());
+        return _buildPageRoute(SettingScreen(), useEffect: useEffect);
       case devicePage:
-        return MaterialPageRoute(builder: (_) => const DeviceScreen());
+        return _buildPageRoute(const DeviceScreen(), useEffect: useEffect);
       default:
         throw const FormatException("Route not found");
     }
+  }
+
+  static Route<dynamic> _buildPageRoute(Widget page, {bool useEffect = true}) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => page,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        if (useEffect) {
+          const begin = Offset(0.0, 1.0);
+          const end = Offset.zero;
+          const curve = Curves.ease;
+
+          var tween = Tween(begin: begin, end: end).chain(
+            CurveTween(curve: curve),
+          );
+
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        } else {
+          return child;
+        }
+      },
+    );
   }
 }
 
