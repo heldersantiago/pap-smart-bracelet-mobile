@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:pap/constants/endpoint.dart';
 import 'package:pap/models/user.dart';
-import 'package:http/http.dart' as http;
 
 class UserService extends GetxService {
   final String _apiUrl = "$apiUrl/users/elderlies";
@@ -29,6 +29,7 @@ class UserService extends GetxService {
 
   Future<User> getUser(int userId) async {
     final response = await http.get(Uri.parse('$_apiUrl/$userId'));
+
     if (response.statusCode == 200) {
       final userJson = jsonDecode(response.body);
       return User.fromJson(userJson);

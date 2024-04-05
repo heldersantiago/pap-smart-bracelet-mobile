@@ -5,7 +5,7 @@ class User {
   final String? phone;
   final String? password;
   final String? braceletId;
-  final String? roleId;
+  final int? roleId;
 
   User(
       {this.id,
@@ -13,7 +13,7 @@ class User {
       this.email,
       this.phone,
       this.password,
-      this.roleId = "2",
+      this.roleId = 2,
       this.braceletId});
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -32,7 +32,7 @@ class User {
         'email': email,
         'phone': phone,
         'password': password,
-        'role_id': int.tryParse(roleId!),
+        'role_id': roleId!,
         'bracelet_id': int.tryParse(braceletId!),
       };
 }

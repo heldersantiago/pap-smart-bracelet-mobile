@@ -36,17 +36,17 @@ class SettingScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const ListTile(
-                    leading: CircleAvatar(
+                ListTile(
+                    leading: const CircleAvatar(
                       radius: 30,
                       backgroundImage: AssetImage("images/doctors.png"),
                     ),
                     title: Text(
-                      'sample',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                      authController.currentUser.value.name!,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w600, fontSize: 20),
                     ),
-                    subtitle: Text(
+                    subtitle: const Text(
                       "Filho",
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
