@@ -32,8 +32,4 @@ class StorageService {
     return decodedToken["id"]!.toString();
   }
 
-  static String _padBase64(String input) {
-    final int missingPaddingLength = 4 - input.length % 4;
-    return input + '=' * missingPaddingLength;
-  }
 }
