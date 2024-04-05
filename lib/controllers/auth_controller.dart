@@ -20,12 +20,20 @@ class AuthController extends GetxController {
   var registerError = RegisterError().obs;
   var currentUser = User().obs;
 
-  void login(String email, String password) async {
+  void login(String emailOrPhone, String password) async {
+    Map<String, String> data = {};
+
+    if (emailOrPhone.contains('@')) {
+      data['email'] = emailOrPhone; // input is an email
+    } else {
+      data['phone'] = emailOrPhone; // input is a phone number
+    }
+
     final response = await http.post(
         Uri.parse(
           _authUrl,
         ),
-        body: {'email': email, 'password': password});
+        body: {'password': password, ...data});
 
     isLoading.value = true; // Start loading
 
@@ -36,7 +44,7 @@ class AuthController extends GetxController {
       isLoading.value = false; // end loading
       isLogged.value = true;
 
-      await loadUserFromToken();
+      // await loadUserFromToken();
       // Redirect to the home page when user is logged in
       Get.toNamed(RouteGenerator.homePage);
     } else {
@@ -73,7 +81,7 @@ class AuthController extends GetxController {
           "email": user.email,
           "password": user.password,
           "bracelet_id": user.braceletId,
-          "relative_tie": user.relativeTie
+          "role_id": user.roleId
         });
 
     if (response.statusCode == 201) {

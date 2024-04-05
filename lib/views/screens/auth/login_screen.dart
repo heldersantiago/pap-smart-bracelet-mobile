@@ -13,7 +13,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool passToggle = true;
-  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _emailOrPhoneController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final formkey = GlobalKey<FormState>();
 
@@ -21,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
-    _emailController.dispose();
+    _emailOrPhoneController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -38,26 +38,26 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: Image.asset("images/doctors.png"),
+                child: Image.asset("images/signin.png"),
               ),
               const SizedBox(height: 15),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
                 child: TextFormField(
-                    controller: _emailController,
+                    controller: _emailOrPhoneController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: "Email",
+                      labelText: "Email ou nº de telefone",
                       prefixIcon: Icon(Icons.email_outlined),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "Insira seu Email";
+                        return "Insira seu email ou nº de telefone";
                       }
-                      if (!value.isEmail) {
-                        return "Insira um Email válido";
+                      if (!(value.isEmail || value.isPhoneNumber)) {
+                        return "Insira um email ou nº de telefone válido";
                       }
                       return null;
                     }),
@@ -102,7 +102,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       onTap: () async {
                         if (formkey.currentState!.validate()) {
                           authController.isLoading.value = true;
-                          authController.login(_emailController.text.trim(),
+                          authController.login(
+                              _emailOrPhoneController.text.trim(),
                               _passwordController.text.trim());
                         }
                       },

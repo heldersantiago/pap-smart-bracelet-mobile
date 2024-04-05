@@ -36,7 +36,7 @@ class StorageService {
 
     // Attempt decoding payload with standard padding
     try {
-      final decodedPayload = base64Url.decode(encodedPayload);
+      final decodedPayload = base64Url.decode(encodedPayload.padRight((encodedPayload.length + 4 - encodedPayload.length % 4) % 4, '='));
       final payloadJson = utf8.decode(decodedPayload);
       final payload = json.decode(payloadJson);
       return User.fromJson(payload);
@@ -46,7 +46,7 @@ class StorageService {
 
     // Attempt decoding payload with base64 padding
     try {
-      final paddedPayload = _padBase64(encodedPayload);
+      final paddedPayload = encodedPayload.padRight((encodedPayload.length + 4 - encodedPayload.length % 4) % 4, '=');
       final decodedPayload = base64Url.decode(paddedPayload);
       final payloadJson = utf8.decode(decodedPayload);
       final payload = json.decode(payloadJson);
