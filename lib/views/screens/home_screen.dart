@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: const Text(
-          "Nexus SMSI",
+          "SMSI",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
         ),
       ),

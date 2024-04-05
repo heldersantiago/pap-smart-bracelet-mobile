@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pap/Utils/routes.dart';
@@ -44,9 +43,9 @@ class DrawerItems extends StatelessWidget {
                     const SizedBox(
                       height: 5,
                     ),
-                    const Text(
-                      "sample",
-                      style: TextStyle(
+                    Text(
+                      authController.currentUser.value.name!,
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
@@ -76,9 +75,13 @@ class DrawerItems extends StatelessWidget {
                         context, RouteGenerator.profilePage, true);
                   }),
               const DrawerListItem(title: "Ajuda", icon: Icons.help),
-              DrawerListItem(title: "Definições", icon: Icons.settings, action: () async {
-                Routes.navigateTo(context, RouteGenerator.settingsPage, true);
-              }),
+              DrawerListItem(
+                  title: "Definições",
+                  icon: Icons.settings,
+                  action: () async {
+                    Routes.navigateTo(
+                        context, RouteGenerator.settingsPage, true);
+                  }),
             ],
           ),
         ),

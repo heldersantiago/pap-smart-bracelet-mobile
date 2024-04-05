@@ -16,7 +16,7 @@ class AuthController extends GetxController {
   final String _apiUrl = apiUrl;
   var isLogged = false.obs;
   var isLoading = false.obs;
-  var userId = 0.obs;
+  RxInt UserId = 0.obs;
   var registerError = RegisterError().obs;
   var currentUser = User().obs;
 
@@ -44,7 +44,7 @@ class AuthController extends GetxController {
       isLoading.value = false; // end loading
       isLogged.value = true;
 
-      // await loadUserFromToken();
+      await loadUserFromToken();
       // Redirect to the home page when user is logged in
       Get.toNamed(RouteGenerator.homePage);
     } else {
@@ -60,12 +60,12 @@ class AuthController extends GetxController {
   }
 
   Future<void> loadUserFromToken() async {
-    final userPayload = await StorageService.getUserFromPayload();
-    if (userPayload != null) {
-      userId.value = userPayload.id!;
+    final userId = await StorageService.getUserIdFromPayload();
+    if (userId != null) {
+      UserId.value = int.tryParse(userId)!;
     }
 
-    final user = await userService.getUser(userId.value);
+    final user = await userService.getUser(UserId.value);
     currentUser.value = user;
   }
 
