@@ -6,7 +6,7 @@ import 'package:pap/models/user.dart';
 import 'package:http/http.dart' as http;
 
 class UserService extends GetxService {
-  final String _apiUrl = "$apiUrl/users";
+  final String _apiUrl = "$apiUrl/users/elderlies";
   final String _authUrl = authUrl;
 
   Future<bool> loginAsync(String email, String password) async {

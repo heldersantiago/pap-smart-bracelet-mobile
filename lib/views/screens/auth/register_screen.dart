@@ -44,7 +44,7 @@ class _RegisterViewState extends State<RegisterScreen> {
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: Image.asset("images/doctors.png"),
+                child: Image.asset("images/signup.png"),
               ),
               const SizedBox(height: 15),
               Padding(
