@@ -7,7 +7,7 @@ import 'package:pap/routes.dart';
 import 'package:pap/views/widgets/drawer_list_item.dart';
 
 class DrawerItems extends StatelessWidget {
-  final AuthController authController = Get.put(AuthController());
+  final AuthController authController = Get.find<AuthController>();
 
   DrawerItems({super.key});
 
@@ -43,12 +43,14 @@ class DrawerItems extends StatelessWidget {
                     const SizedBox(
                       height: 5,
                     ),
-                    Text(
-                      authController.currentUser.value.name!,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                    Obx(
+                      () => Text(
+                        authController.currentUser.value.name!,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                     const SizedBox(
