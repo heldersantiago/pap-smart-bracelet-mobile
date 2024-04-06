@@ -18,7 +18,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<String> symptoms = Constant().symptoms;
-
   List<HealthCard> healthDataCard = Constant().healthdatas;
 
   final authController = Get.put(AuthController());
