@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
 
-const primaryColor = Color(0xFF7357a4);
+const primaryColor = Colors.purple;
+const secondaryColor = Colors.black;
 const backgroundColor = Colors.white;

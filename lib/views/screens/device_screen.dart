@@ -2,14 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/controllers/auth_controller.dart';
+import 'package:pap/controllers/bracelet_controller.dart';
 import 'package:pap/routes.dart';
 
-class DeviceScreen extends StatelessWidget {
+class DeviceScreen extends StatefulWidget {
   const DeviceScreen({super.key});
 
   @override
+  State<DeviceScreen> createState() => _DeviceScreenState();
+}
+
+class _DeviceScreenState extends State<DeviceScreen> {
+  @override
   Widget build(BuildContext context) {
     final AuthController authController = Get.find<AuthController>();
+    final BraceletController braceletController = BraceletController();
+    final formkey = GlobalKey<FormState>();
+    final TextEditingController deviceNumberController =
+        TextEditingController();
     final Map<String, IconData> dvInfo = {
       "Dispositivo": Icons.devices,
       "Estado": Icons.health_and_safety_outlined,
@@ -80,8 +90,85 @@ class DeviceScreen extends StatelessWidget {
                 ],
               ),
             )
-          : const Center(
-              child: Text("Sem pulseira associada"),
+          : Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text("Sem pulseira associada"),
+                Form(
+                  key: formkey,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const SizedBox(),
+                        FloatingActionButton(
+                          backgroundColor: Colors.purple.withOpacity(.8),
+                          onPressed: () {
+                            Get.dialog(
+                              AlertDialog(
+                                title: const Text("Adicionar Pulseira"),
+                                // Dialog title
+                                content: SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height / 5,
+                                  width: MediaQuery.of(context).size.width,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      TextFormField(
+                                        controller: deviceNumberController,
+                                        maxLength: 6,
+                                        decoration: const InputDecoration(
+                                          hintText:
+                                              "Digite o número da pulseira",
+                                        ),
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return "Erro";
+                                          }
+                                          if (value.length < 6) {
+                                            return "ID da pulseira deve ter 6 caracteres";
+                                          }
+                                          return null;
+                                        },
+                                      ),
+                                      const SizedBox(height: 20),
+                                      ElevatedButton(
+                                        onPressed: () async {
+                                          // Add device button action
+
+                                          await braceletController.create(
+                                              deviceNumberController.text);
+                                        },
+                                        child: const Text("Adicionar Pulseira"),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                // Placeholder content
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Get.back(); // Close the dialog
+                                    },
+                                    child: const Text(
+                                        "Fechar"), // Close button text
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                          child: const Icon(
+                            Icons.add,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
             ),
     );
   }

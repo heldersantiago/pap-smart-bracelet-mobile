@@ -18,14 +18,14 @@ class DrawerListItem extends StatelessWidget {
       title: Text(
         title,
         style: TextStyle(
-          color: primaryColor.withOpacity(0.7),
+          color: primaryColor.withOpacity(.7),
           fontWeight: FontWeight.w600,
           fontSize: 14,
         ),
       ),
       leading: Icon(
         icon,
-        color: Theme.of(context).colorScheme.primary,
+        color: primaryColor,
       ),
     );
   }

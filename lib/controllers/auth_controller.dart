@@ -20,7 +20,7 @@ class AuthController extends GetxController {
   var registerError = RegisterError().obs;
   var currentUser = User().obs;
 
-  void login(String emailOrPhone, String password) async {
+  Future<void> login(String emailOrPhone, String password) async {
     Map<String, String> data = {};
 
     if (emailOrPhone.contains('@')) {
