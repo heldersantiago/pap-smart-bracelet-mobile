@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/models/health_card.dart';
+import 'package:pap/routes.dart';
 
 class HealthDataCardSection extends StatelessWidget {
   final List<HealthCard> healthDataCard;
@@ -15,7 +16,10 @@ class HealthDataCardSection extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushReplacementNamed(
+                context, RouteGenerator.healthDetailPage);
+          },
           child: Container(
             margin: const EdgeInsets.all(15),
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -26,7 +30,7 @@ class HealthDataCardSection extends StatelessWidget {
                   BoxShadow(
                       color: Colors.black12,
                       blurRadius: 5,
-                      spreadRadius: 5,
+                      spreadRadius: 1,
                       blurStyle: BlurStyle.outer)
                 ]),
             child: Column(
@@ -52,7 +56,7 @@ class HealthDataCardSection extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const Icon(Icons.arrow_forward, size: 28),
+                    Icon(Icons.arrow_forward,color: healthDataCard[index].textColor ,size: 28),
                   ],
                 ),
                 const SizedBox(height: 30),
@@ -78,7 +82,7 @@ class HealthDataCardSection extends StatelessWidget {
                       ),
                     ),
                     Icon(healthDataCard[index].icon,
-                        color: Colors.purple, size: 50)
+                        color: healthDataCard[index].textColor, size: 50)
                   ],
                 ),
               ],

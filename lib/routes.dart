@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pap/views/screens/auth/login_screen.dart';
 import 'package:pap/views/screens/auth/register_screen.dart';
 import 'package:pap/views/screens/device_screen.dart';
+import 'package:pap/views/screens/health_data_detail.dart';
 import 'package:pap/views/screens/notifications_screen.dart';
 import 'package:pap/views/screens/onboarding_screen.dart';
 import 'package:pap/views/screens/profile_screen.dart';
@@ -19,10 +20,12 @@ class RouteGenerator {
   static const String welcomePage = '/welcome';
   static const String onboardingPage = '/onboarding';
   static const String devicePage = '/device';
+  static const String healthDetailPage = '/health/detail';
 
   RouteGenerator._();
 
-  static Route<dynamic> generateRoute(RouteSettings settings, {bool useEffect = true}) {
+  static Route<dynamic> generateRoute(RouteSettings settings,
+      {bool useEffect = true}) {
     switch (settings.name) {
       case homePage:
         return MaterialPageRoute(builder: (_) => const NavbarRoots());
@@ -37,11 +40,15 @@ class RouteGenerator {
       case profilePage:
         return _buildPageRoute(ProfileScreen(), useEffect: useEffect);
       case notificationPage:
-        return _buildPageRoute(const NotificationScreen(), useEffect: useEffect);
+        return _buildPageRoute(const NotificationScreen(),
+            useEffect: useEffect);
       case settingsPage:
         return _buildPageRoute(SettingScreen(), useEffect: useEffect);
       case devicePage:
         return _buildPageRoute(const DeviceScreen(), useEffect: useEffect);
+      case healthDetailPage:
+        return _buildPageRoute(const HealthDataDetailWidget(),
+            useEffect: useEffect);
       default:
         throw const FormatException("Route not found");
     }
@@ -74,5 +81,6 @@ class RouteGenerator {
 
 class RouteException implements Exception {
   final String message;
+
   const RouteException(this.message);
 }
