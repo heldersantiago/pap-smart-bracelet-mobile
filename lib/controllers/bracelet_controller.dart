@@ -10,6 +10,7 @@ class BraceletController extends GetxController {
   AuthController authController = Get.find<AuthController>();
 
   Future<void> create(String deviceId) async {
+    authController.isLoading.value = true;
     final response = await http.post(
         Uri.parse(
           "$_apiUrl/bracelets/",
@@ -20,6 +21,7 @@ class BraceletController extends GetxController {
         });
 
     if (response.statusCode == 400) {
+      authController.isLoading.value = false;
       final response0 = Utils.toJson(response.body);
       final String errorMessage = Utils.getError(response0['errors']);
 
@@ -48,7 +50,9 @@ class BraceletController extends GetxController {
           margin: const EdgeInsets.all(10));
     }
     if (response.statusCode == 201) {
+      authController.isLoading.value = false;
       Get.back();
+      await authController.loadUserFromToken();
       Get.snackbar("", "",
           titleText: const Text(""),
           messageText: const Row(

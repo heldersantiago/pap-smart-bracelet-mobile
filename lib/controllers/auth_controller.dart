@@ -60,6 +60,7 @@ class AuthController extends GetxController {
   }
 
   Future<void> loadUserFromToken() async {
+    isLoading.value = true;
     final userId = await StorageService.getUserIdFromPayload();
     if (userId != null) {
       UserId.value = int.tryParse(userId)!;
@@ -67,6 +68,7 @@ class AuthController extends GetxController {
 
     final user = await userService.getUser(UserId.value);
     currentUser.value = user;
+    isLoading.value = false;
   }
 
   void register(User user) async {
