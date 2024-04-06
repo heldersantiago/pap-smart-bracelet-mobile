@@ -30,52 +30,59 @@ class DeviceScreen extends StatelessWidget {
             "Dispositivo",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
           )),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Image.asset("images/Wristwatch-rafiki.png"),
-            Expanded(
-              child: ListView.builder(
-                  itemCount: 3,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (_, index) {
-                    String name = dvInfo.keys.elementAt(index);
-                    IconData icon = dvInfo.values.elementAt(index);
-                    String description = descriptions[index];
-                    return Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(5),
-                            boxShadow: const [
-                              BoxShadow(
-                                  blurRadius: 3,
-                                  spreadRadius: 4,
-                                  blurStyle: BlurStyle.outer,
-                                  color: Colors.black26)
-                            ]),
-                        child: ListTile(
-                          leading: Icon(icon),
-                          trailing: Text(index == 0 ? "8 sensores" : "",
-                              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
-                          title: Text(
-                            name,
-                            style: const TextStyle(fontWeight: FontWeight.w600),
-                          ),
-                          subtitle: Text(index == 0
-                              ? authController
-                                  .currentUser.value.bracelet!.deviceId!
-                              : description),
-                        ),
-                      ),
-                    );
-                  }),
+      body: authController.currentUser.value.bracelet != null
+          ? Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Image.asset("images/Wristwatch-rafiki.png"),
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: 3,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (_, index) {
+                          String name = dvInfo.keys.elementAt(index);
+                          IconData icon = dvInfo.values.elementAt(index);
+                          String description = descriptions[index];
+                          return Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  borderRadius: BorderRadius.circular(5),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        blurRadius: 3,
+                                        spreadRadius: 4,
+                                        blurStyle: BlurStyle.outer,
+                                        color: Colors.black26)
+                                  ]),
+                              child: ListTile(
+                                leading: Icon(icon),
+                                trailing: Text(index == 0 ? "8 sensores" : "",
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 15)),
+                                title: Text(
+                                  name,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                subtitle: Text(index == 0
+                                    ? authController
+                                        .currentUser.value.bracelet!.deviceId!
+                                    : description),
+                              ),
+                            ),
+                          );
+                        }),
+                  ),
+                ],
+              ),
+            )
+          : const Center(
+              child: Text("Sem pulseira associada"),
             ),
-          ],
-        ),
-      ),
     );
   }
 }

@@ -68,6 +68,27 @@ class _RegisterViewState extends State<RegisterScreen> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
                 child: TextFormField(
+                    controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Email",
+                      prefixIcon: Icon(Icons.email_outlined),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Insira seu Email";
+                      }
+                      if (!value.isEmail) {
+                        return "Insira um email válido";
+                      }
+                      return null;
+                    }),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                child: TextFormField(
                     controller: _phoneController,
                     keyboardType: TextInputType.number,
                     autocorrect: true,
@@ -84,27 +105,6 @@ class _RegisterViewState extends State<RegisterScreen> {
 
                       if (!value.isPhoneNumber) {
                         return "Insira seu Número de Telefone válido";
-                      }
-                      return null;
-                    }),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                child: TextFormField(
-                    controller: _emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Email",
-                      prefixIcon: Icon(Icons.email_outlined),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Insira seu Email";
-                      }
-                      if (!value.isEmail) {
-                        return "Insira um email válido";
                       }
                       return null;
                     }),
@@ -154,6 +154,7 @@ class _RegisterViewState extends State<RegisterScreen> {
                           authController.register(User(
                             name: _nameController.text,
                             email: _emailController.text,
+                            phone: _phoneController.text,
                             password: _passwordController.text,
                           ));
                         }

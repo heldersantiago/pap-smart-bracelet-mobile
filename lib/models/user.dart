@@ -1,3 +1,4 @@
+import 'package:pap/enums/roles.dart';
 import 'package:pap/models/bracelet.dart';
 
 class User {
@@ -7,7 +8,7 @@ class User {
   final String? phone;
   final String? password;
   final Bracelet? bracelet;
-  final int? roleId;
+  final Roles? roleId;
 
   User(
       {this.id,
@@ -15,7 +16,7 @@ class User {
       this.email,
       this.phone,
       this.password,
-      this.roleId = 2,
+      this.roleId,
       this.bracelet});
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -25,8 +26,12 @@ class User {
       email: json['user']['email'],
       phone: json['user']['phone'],
       password: json['user']['password'],
-      roleId: json['user']['role_id'],
-      bracelet: Bracelet.fromJson(json['bracelet']),
+      roleId: json['user']['role_id'] != null
+          ? Roles.values[json['user']['role_id']]
+          : null,
+      bracelet: json['bracelet'] != "No Bracelet yet"
+          ? Bracelet.fromJson(json['bracelet'])
+          : null,
     );
   }
 
@@ -35,6 +40,6 @@ class User {
         'email': email,
         'phone': phone,
         'password': password,
-        'role_id': roleId!,
+        'role_id': roleId,
       };
 }
