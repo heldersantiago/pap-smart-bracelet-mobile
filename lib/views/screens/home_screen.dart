@@ -1,22 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pap/Utils/update_data.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/constants/constant.dart';
 import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/controllers/user_controller.dart';
 import 'package:pap/models/health_card.dart';
 import 'package:pap/views/widgets/drawer_items.dart';
 import 'package:pap/views/widgets/health_data_card_section.dart';
 
 // ignore: must_be_immutable
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   List<String> symptoms = Constant().symptoms;
+
   List<HealthCard> healthDataCard = Constant().healthdatas;
 
-  final UserController userController = Get.put(UserController());
-  final AuthController authController = Get.put(AuthController());
+  final authController = Get.put(AuthController());
+  final dataUpdater = UpdateData();
 
-  HomeScreen({super.key});
+  @override
+  void initState() {
+    super.initState();
+    dataUpdater.startUpdatingData();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    dataUpdater.startUpdatingData();
+  }
 
   @override
   Widget build(BuildContext context) {
