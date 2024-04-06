@@ -4,7 +4,6 @@ import 'package:pap/Utils/update_data.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/constants/constant.dart';
 import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/controllers/user_controller.dart';
 import 'package:pap/models/health_card.dart';
 import 'package:pap/views/widgets/drawer_items.dart';
 import 'package:pap/views/widgets/health_data_card_section.dart';
@@ -22,9 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<HealthCard> healthDataCard = Constant().healthdatas;
 
-  final UserController userController = Get.put(UserController());
-
-  final AuthController authController = Get.put(AuthController());
+  final authController = Get.put(AuthController());
   final dataUpdater = UpdateData();
 
   @override
