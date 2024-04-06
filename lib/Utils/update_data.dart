@@ -9,7 +9,6 @@ class UpdateData {
 
   Future<void> startUpdatingData() async {
     _timer = Timer.periodic(const Duration(seconds: 120), (Timer timer) async {
-      print("I was called");
       await authController.loadUserFromToken();
     });
   }
