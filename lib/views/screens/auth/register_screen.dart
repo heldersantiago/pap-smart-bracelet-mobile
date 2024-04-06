@@ -140,28 +140,6 @@ class _RegisterViewState extends State<RegisterScreen> {
                   },
                 ),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                child: TextFormField(
-                    controller: _deviceController,
-                    keyboardType: TextInputType.number,
-                    maxLength: 6,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "ID do dispositivo",
-                      prefixIcon: Icon(Icons.broadcast_on_home_outlined),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Insira seu o ID";
-                      }
-                      if (!value.isNum) {
-                        return "Insira um ID válido";
-                      }
-                      return null;
-                    }),
-              ),
               const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.all(10),
@@ -175,7 +153,6 @@ class _RegisterViewState extends State<RegisterScreen> {
                         if (_formkey.currentState!.validate()) {
                           authController.register(User(
                             name: _nameController.text,
-                            braceletId: _deviceController.text,
                             email: _emailController.text,
                             password: _passwordController.text,
                           ));

@@ -1,10 +1,12 @@
+import 'package:pap/models/bracelet.dart';
+
 class User {
   final int? id;
   final String? name;
   final String? email;
   final String? phone;
   final String? password;
-  final String? braceletId;
+  final Bracelet? bracelet;
   final int? roleId;
 
   User(
@@ -14,7 +16,7 @@ class User {
       this.phone,
       this.password,
       this.roleId = 2,
-      this.braceletId});
+      this.bracelet});
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
@@ -24,6 +26,7 @@ class User {
       phone: json['user']['phone'],
       password: json['user']['password'],
       roleId: json['user']['role_id'],
+      bracelet: Bracelet.fromJson(json['bracelet']),
     );
   }
 
@@ -33,6 +36,5 @@ class User {
         'phone': phone,
         'password': password,
         'role_id': roleId!,
-        'bracelet_id': int.tryParse(braceletId!),
       };
 }
