@@ -74,13 +74,14 @@ class AuthController extends GetxController {
 
     final response = await http.post(
         Uri.parse(
-          "$_apiUrl/users/elderlies",
+          "$_apiUrl/users/elderlies/",
         ),
         body: {
           "name": user.name,
           "email": user.email,
+          "phone": user.phone,
           "password": user.password,
-          "role_id": user.roleId
+          "role_id": "2"
         });
 
     if (response.statusCode == 201) {
@@ -94,11 +95,10 @@ class AuthController extends GetxController {
           margin: const EdgeInsets.only(top: 5));
     }
 
-    // bracelet not found
-    if (response.statusCode == 404) {
+    if (response.statusCode == 400) {
       isLoading.value = false;
-      final _response = Utils.toJson(response.body);
-      final String errorMessage = Utils.getError(_response['errors']);
+      final response0 = Utils.toJson(response.body);
+      final String errorMessage = Utils.getError(response0['errors']);
       Get.snackbar("Erro", errorMessage,
           colorText: Colors.white,
           snackPosition: SnackPosition.TOP,
@@ -108,10 +108,13 @@ class AuthController extends GetxController {
     }
 
     // Email already exists
-    if (response.statusCode == 400) {
+    if (response.statusCode == 500) {
       isLoading.value = false;
-      final _response = Utils.toJson(response.body);
-      final String errorMessage = Utils.getError(_response['errors']);
+
+      final response1 = Utils.toJson(response.body);
+      final String errorMessage = Utils.getError(response1['error'] is String
+          ? response1['errors']
+          : "is not a string arriving");
       Get.snackbar("Erro", errorMessage,
           colorText: Colors.white,
           snackPosition: SnackPosition.TOP,
