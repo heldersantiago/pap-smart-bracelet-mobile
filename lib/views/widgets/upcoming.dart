@@ -6,15 +6,11 @@ class Upcoming extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "About Heart Rate",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-          ),
-          SizedBox(height: 10),
+          SizedBox(height: 5),
           Notifications(),
           SizedBox(height: 20),
           Notifications(),
@@ -37,7 +33,7 @@ class Notifications extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),

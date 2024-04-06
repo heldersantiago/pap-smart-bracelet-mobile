@@ -74,13 +74,12 @@ class AuthController extends GetxController {
 
     final response = await http.post(
         Uri.parse(
-          "$_apiUrl/users/",
+          "$_apiUrl/users/elderlies",
         ),
         body: {
           "name": user.name,
           "email": user.email,
           "password": user.password,
-          "bracelet_id": user.braceletId,
           "role_id": user.roleId
         });
 
