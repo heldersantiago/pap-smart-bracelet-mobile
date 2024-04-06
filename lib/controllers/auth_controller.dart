@@ -20,7 +20,7 @@ class AuthController extends GetxController {
   var registerError = RegisterError().obs;
   var currentUser = User().obs;
 
-  void login(String emailOrPhone, String password) async {
+  Future<void> login(String emailOrPhone, String password) async {
     Map<String, String> data = {};
 
     if (emailOrPhone.contains('@')) {
@@ -60,6 +60,7 @@ class AuthController extends GetxController {
   }
 
   Future<void> loadUserFromToken() async {
+    isLoading.value = true;
     final userId = await StorageService.getUserIdFromPayload();
     if (userId != null) {
       UserId.value = int.tryParse(userId)!;
@@ -67,6 +68,7 @@ class AuthController extends GetxController {
 
     final user = await userService.getUser(UserId.value);
     currentUser.value = user;
+    isLoading.value = false;
   }
 
   void register(User user) async {

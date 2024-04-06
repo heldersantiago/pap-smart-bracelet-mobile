@@ -30,9 +30,9 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       drawer: Drawer(
-        width: MediaQuery.of(context).size.width * 0.7,
-        child: DrawerItems() // The Expanded drawer view
-      ),
+          width: MediaQuery.of(context).size.width * 0.7,
+          child: DrawerItems() // The Expanded drawer view
+          ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(top: 5),
         child: Column(
@@ -156,11 +156,10 @@ class HomeScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: const [
                               BoxShadow(
-                                color: Colors.black12,
-                                blurRadius: 5,
-                                spreadRadius: 1,
-                                blurStyle: BlurStyle.outer
-                              )
+                                  color: Colors.black12,
+                                  blurRadius: 5,
+                                  spreadRadius: 1,
+                                  blurStyle: BlurStyle.outer)
                             ]),
                         child: Center(
                           child: Text(
@@ -184,7 +183,8 @@ class HomeScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       fontSize: 25),
                 )),
-            HealthDataCardSection(healthDataCard: healthDataCard) // The List view of health data
+            HealthDataCardSection(healthDataCard: healthDataCard)
+            // The List view of health data
           ],
         ),
       ),

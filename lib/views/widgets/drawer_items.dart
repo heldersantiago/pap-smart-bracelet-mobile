@@ -20,8 +20,8 @@ class DrawerItems extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: [
               Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
+                decoration: const BoxDecoration(
+                  color: primaryColor,
                 ),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
