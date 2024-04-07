@@ -4,21 +4,22 @@ import 'package:pap/models/health_card.dart';
 import 'package:pap/routes.dart';
 
 class HealthDataCardSection extends StatelessWidget {
-  final List<HealthCard> healthDataCard;
+  final List<HealthCard>? healthDataCard;
 
   const HealthDataCardSection({super.key, required this.healthDataCard});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: healthDataCard.length,
+      itemCount: healthDataCard?.length ?? 4,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
             Navigator.pushReplacementNamed(
-                context, RouteGenerator.healthDetailPage);
+                context, RouteGenerator.healthDetailPage,
+                arguments: index);
           },
           child: Container(
             margin: const EdgeInsets.all(15),
@@ -43,20 +44,21 @@ class HealthDataCardSection extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(
-                          healthDataCard[index].icon,
-                          color: healthDataCard[index].textColor,
+                          healthDataCard?[index].icon,
+                          color: healthDataCard?[index].textColor,
                         ),
                         const SizedBox(width: 6),
                         Text(
-                          healthDataCard[index].title,
+                          healthDataCard?[index].title ?? "",
                           style: TextStyle(
-                              color: healthDataCard[index].textColor,
+                              color: healthDataCard?[index].textColor,
                               fontWeight: FontWeight.w600,
                               fontSize: 20),
                         ),
                       ],
                     ),
-                    Icon(Icons.arrow_forward,color: healthDataCard[index].textColor ,size: 28),
+                    Icon(Icons.arrow_forward,
+                        color: healthDataCard?[index].textColor, size: 28),
                   ],
                 ),
                 const SizedBox(height: 30),
@@ -72,7 +74,7 @@ class HealthDataCardSection extends StatelessWidget {
                                   end: Alignment.centerRight)
                               .createShader(bounds);
                         },
-                        child: Text(healthDataCard[index].subtitle,
+                        child: Text(healthDataCard?[index].subtitle ?? "",
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
@@ -81,8 +83,8 @@ class HealthDataCardSection extends StatelessWidget {
                                 fontSize: 25)),
                       ),
                     ),
-                    Icon(healthDataCard[index].icon,
-                        color: healthDataCard[index].textColor, size: 50)
+                    Icon(healthDataCard?[index].icon,
+                        color: healthDataCard?[index].textColor, size: 50)
                   ],
                 ),
               ],

@@ -18,7 +18,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<String> symptoms = Constant().symptoms;
-  List<HealthCard> healthDataCard = Constant().healthdatas;
+  Constant constant = Constant();
+  List<HealthCard> healthDataCard = [];
 
   final authController = Get.put(AuthController());
   final dataUpdater = UpdateData();
@@ -27,12 +28,15 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     dataUpdater.startUpdatingData();
+    constant.healthData().then((value) => setState(() {
+          healthDataCard = value.toList();
+        }));
   }
 
   @override
   void dispose() {
     super.dispose();
-    dataUpdater.startUpdatingData();
+    dataUpdater.stopUpdating();
   }
 
   @override
@@ -200,7 +204,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.w600,
                       fontSize: 25),
                 )),
-            HealthDataCardSection(healthDataCard: healthDataCard)
+            healthDataCard.isNotEmpty
+                ? HealthDataCardSection(healthDataCard: healthDataCard)
+                : const Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.purple,
+                    ),
+                  )
             // The List view of health data
           ],
         ),
