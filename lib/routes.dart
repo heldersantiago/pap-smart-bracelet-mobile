@@ -20,7 +20,7 @@ class RouteGenerator {
   static const String welcomePage = '/welcome';
   static const String onboardingPage = '/onboarding';
   static const String devicePage = '/device';
-  static const String healthDetailPage = '/health/detail';
+  static const String healthDetailPage = '/health/detail/:id';
 
   RouteGenerator._();
 
@@ -47,7 +47,8 @@ class RouteGenerator {
       case devicePage:
         return _buildPageRoute(const DeviceScreen(), useEffect: useEffect);
       case healthDetailPage:
-        return _buildPageRoute(const HealthDataDetailWidget(),
+        final int id = settings.arguments as int;
+        return _buildPageRoute(HealthDataDetailWidget(id: id),
             useEffect: useEffect);
       default:
         throw const FormatException("Route not found");

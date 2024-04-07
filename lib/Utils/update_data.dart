@@ -8,8 +8,9 @@ class UpdateData {
   late Timer _timer;
 
   Future<void> startUpdatingData() async {
-    _timer = Timer.periodic(const Duration(seconds: 120), (Timer timer) async {
+    _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) async {
       await authController.loadUserFromToken();
+      print("Fui chamado");
     });
   }
 
