@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/Utils/update_data.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/routes.dart';
 
 void main() {
-  runApp(const MyApp());
   initiateControllersAndServices();
+  runApp(const MyApp());
 }
 
 void initiateControllersAndServices() {

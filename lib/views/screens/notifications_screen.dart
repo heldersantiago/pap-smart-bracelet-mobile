@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pap/routes.dart';
-import 'package:pap/views/widgets/upcoming.dart';
 import 'package:pap/constants/color.dart';
+import 'package:pap/routes.dart';
+import 'package:pap/views/pages/notification_page.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
@@ -14,25 +14,26 @@ class _NotificationScreenState extends State<NotificationScreen> {
   int _buttonIndex = 0;
 
   final _notificationWidgets = [
-    const Upcoming(),
+    const NotificationPage(),
     const Center(child: Text("Sem alertas no momento")),
     const Center(child: Text("Sem mensagem de risco no momento")),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: (){
-            Navigator.pushReplacementNamed(context, RouteGenerator.homePage);
-          },
-          icon: const Icon(Icons.arrow_back),
-        ),
-        backgroundColor: primaryColor,
-        title: const Text(
-          "Central de notificações",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-      )),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, RouteGenerator.homePage);
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
+          backgroundColor: primaryColor,
+          title: const Text(
+            "Central de notificações",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          )),
       body: SingleChildScrollView(
           child: Padding(
         padding: const EdgeInsets.only(top: 10),
