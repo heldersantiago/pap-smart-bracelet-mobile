@@ -42,52 +42,32 @@ class Notifications extends StatelessWidget {
           ]),
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
-        child: Column(
-          children: [
-            const ListTile(
-              title: Text(
-                "Dr. Helder Santiago",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text("Engenheiro"),
-              trailing: CircleAvatar(
-                radius: 25,
-                backgroundImage: AssetImage("images/doctor1.jpg"),
-              ),
-            ),
-            const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                child: Divider(thickness: 1, height: 20)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                const Icon(Icons.calendar_month),
-                const SizedBox(width: 5),
-                const Row(
-                  children: [
-                    Icon(Icons.access_time_filled, color: Colors.black54),
-                    SizedBox(width: 5),
-                    Text(
-                      "14:30 min",
-                      style: TextStyle(color: Colors.black87),
-                    )
-                  ],
-                ),
-                Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(5),
-                      decoration: const BoxDecoration(
-                          color: Colors.green, shape: BoxShape.circle),
-                    ),
-                    const SizedBox(width: 5),
-                    const Text("confirmado",
-                        style: TextStyle(color: Colors.black87))
-                  ],
-                )
-              ],
-            ),
-          ],
+        child: ListTile(
+          title: const Text(
+            "Dr. Helder Santiago",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          leading: const CircleAvatar(child: Icon(Icons.notifications)),
+          subtitle: const Text("Engenheiro"),
+          trailing: const Icon(Icons.arrow_forward),
+          onTap: () {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text("Notification"),
+                    content: const Text("Any notifications coming"),
+                    actions: <Widget>[
+                      FloatingActionButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text("Fechar"),
+                      ),
+                    ],
+                  );
+                });
+          },
         ),
       ),
     );

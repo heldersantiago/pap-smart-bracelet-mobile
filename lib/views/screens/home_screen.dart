@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    dataUpdater.startUpdatingData();
+    if (authController.isLogged.value) dataUpdater.startUpdatingData();
     constant.healthData().then((value) => setState(() {
           healthDataCard = value.toList();
         }));
