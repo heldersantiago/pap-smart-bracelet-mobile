@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pap/controllers/auth_controller.dart';
@@ -28,7 +27,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Batimento cardiaco",
         subtitle: "Batimento cardiaco",
-        icon: CupertinoIcons.heart_slash_fill,
+        icon: "images/light-bulb.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.heartRate != null
             ? "${authController.currentUser.value.bracelet?.heartRate} bpm"
@@ -39,7 +38,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Pressão arterial",
         subtitle: "Veja aqui a sua pressão",
-        icon: Icons.track_changes_sharp,
+        icon: "images/air-conditioner.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.bloodPressure != null
             ? "${authController.currentUser.value.bracelet?.bloodPressure} mmHg"
@@ -50,7 +49,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Oxigénio no Sangue",
         subtitle: "Tudo sobre o seu oxigénio",
-        icon: Icons.gas_meter_outlined,
+        icon: "images/air-conditioner.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.bloodOxygen != null
             ? "${authController.currentUser.value.bracelet?.bloodOxygen} %"
@@ -61,7 +60,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Temperatura Corporal",
         subtitle: "A temperatura do corpo",
-        icon: CupertinoIcons.thermometer,
+        icon: "images/air-conditioner.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.bodyTemperature !=
                 null

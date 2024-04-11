@@ -195,6 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     })),
             const SizedBox(height: 15),
+
             const Padding(
                 padding: EdgeInsets.only(left: 15, bottom: 10),
                 child: Text(
@@ -204,8 +205,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.w600,
                       fontSize: 25),
                 )),
+
+            const SizedBox(height: 15),
             healthDataCard.isNotEmpty
-                ? HealthDataCardSection(healthDataCard: healthDataCard)
+                ? HealthDataCardSection(
+                    healthDataCard: healthDataCard,
+                  )
                 : const Center(
                     child: CircularProgressIndicator(
                       color: Colors.purple,
