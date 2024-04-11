@@ -8,7 +8,7 @@ class OnboardingItems {
         title: "Monitoramento",
         descriptions:
             "Mantenha-se informado sobre sua saúde em tempo real com nosso módulo abrangente de monitoramento",
-        image: "assets/onboarding1.gif"),
+        image: "assets/easy.jpg"),
     OnboardingInfo(
         title: "Notificações",
         descriptions:
