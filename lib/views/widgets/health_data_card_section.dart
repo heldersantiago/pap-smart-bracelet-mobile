@@ -17,24 +17,9 @@ class _HealthDataCardSectionState extends State<HealthDataCardSection> {
   final double verticalPadding = 25;
   Constant constant = Constant();
 
-  // list of smart devices
-  List mySmartDevices = [
-    // [ smartDeviceName, iconPath , powerStatus ]
-    ["Batimento Cardiaco", "images/light-bulb.png", true],
-    ["Temperatura corporal", "images/air-conditioner.png", true],
-    ["Smart TV", "images/smart-tv.png", true],
-    ["Smart Fan", "images/fan.png", true],
-  ];
-
-  void powerSwitchChanged(bool value, int index) {
-    setState(() {
-      mySmartDevices[index][2] = value;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: GridView.builder(
         itemCount: widget.healthDataCard.length,
@@ -48,6 +33,7 @@ class _HealthDataCardSectionState extends State<HealthDataCardSection> {
           return HealthDataCard(
             smartDeviceName: widget.healthDataCard[index].title,
             iconPath: widget.healthDataCard[index].icon,
+            index: index,
           );
         },
       ),
