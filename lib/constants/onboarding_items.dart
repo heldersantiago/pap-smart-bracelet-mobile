@@ -5,24 +5,24 @@ import 'package:pap/types/onboarding_info.dart';
 class OnboardingItems {
   List<OnboardingInfo> items = [
     OnboardingInfo(
-        title: "Laboratory",
+        title: "Monitoramento",
         descriptions:
-            "A scientist in his laboratory is not a mere technician: he is also a child confronting natural phenomena that impress him as though they were fairy tales.",
+            "Mantenha-se informado sobre sua saúde em tempo real com nosso módulo abrangente de monitoramento",
         image: "assets/onboarding1.gif"),
     OnboardingInfo(
-        title: "Diagnosis",
+        title: "Notificações",
         descriptions:
-            "There is little you can do to stop a tornado, a hurricane, or a cancer diagnosis from changing your life in an instant.",
+            "Receba notificações instantâneas sobre eventos importantes, como picos de pressão arterial, batimentos cardíacos irregulares ou falta de atividade por longos períodos",
         image: "assets/onboarding2.gif"),
     OnboardingInfo(
-        title: "Chronic Diseases",
+        title: "Notificações",
         descriptions:
             "Cancer taught my family that my mom is much stronger than we ever thought.",
         image: "assets/onboarding3.gif"),
     OnboardingInfo(
-        title: "Heart Diseases",
+        title: "Facilidade",
         descriptions:
-            "A healthy heart is a key to happiness in life so put a stop to all of the problems related to your heart before it stops you.",
+            "Desfrute de uma experiência intuitiva e sem complicações, onde você pode visualizar e registrar seus dados de saúde com apenas alguns toques. ",
         image: "assets/onboarding4.gif"),
   ];
 }
