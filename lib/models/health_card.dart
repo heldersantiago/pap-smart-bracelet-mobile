@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 class HealthCard {
   final String title;
   final String subtitle;
-  final IconData icon;
+  final String icon;
   final Color textColor;
   final String description;
   final String value;

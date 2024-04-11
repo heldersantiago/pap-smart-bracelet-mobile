@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/widgets/smart_device_box.dart';
+import 'package:pap/constants/constant.dart';
+import 'package:pap/models/health_card.dart';
+import 'package:pap/views/widgets/health_data_card.dart';
 
 class HealthDataCardSection extends StatefulWidget {
-  // final List<HealthCard>? healthDataCard;
+  final List<HealthCard> healthDataCard;
 
-  const HealthDataCardSection({super.key});
+  const HealthDataCardSection({super.key, required this.healthDataCard});
 
   @override
   State<HealthDataCardSection> createState() => _HealthDataCardSectionState();
@@ -13,14 +15,15 @@ class HealthDataCardSection extends StatefulWidget {
 class _HealthDataCardSectionState extends State<HealthDataCardSection> {
   final double horizontalPadding = 40;
   final double verticalPadding = 25;
+  Constant constant = Constant();
 
   // list of smart devices
   List mySmartDevices = [
     // [ smartDeviceName, iconPath , powerStatus ]
-    ["Smart Light", "assets/light-bulb.png", true],
-    ["Smart AC", "images/air-conditioner.png", false],
-    ["Smart TV", "images/smart-tv.png", false],
-    ["Smart Fan", "images/fan.png", false],
+    ["Batimento Cardiaco", "images/light-bulb.png", true],
+    ["Temperatura corporal", "images/air-conditioner.png", true],
+    ["Smart TV", "images/smart-tv.png", true],
+    ["Smart Fan", "images/fan.png", true],
   ];
 
   void powerSwitchChanged(bool value, int index) {
@@ -32,21 +35,19 @@ class _HealthDataCardSectionState extends State<HealthDataCardSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height / 0.2,
+      height: MediaQuery.of(context).size.height,
       child: GridView.builder(
-        itemCount: 4,
+        itemCount: widget.healthDataCard.length,
         physics: const NeverScrollableScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: const EdgeInsets.symmetric(horizontal: 1),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 1 / 1.3,
+          childAspectRatio: 1.1 / 1.5,
         ),
         itemBuilder: (context, index) {
-          return SmartDeviceBox(
-            smartDeviceName: mySmartDevices[index][0],
-            iconPath: mySmartDevices[index][1],
-            powerOn: mySmartDevices[index][2],
-            onChanged: (value) => powerSwitchChanged(value, index),
+          return HealthDataCard(
+            smartDeviceName: widget.healthDataCard[index].title,
+            iconPath: widget.healthDataCard[index].icon,
           );
         },
       ),

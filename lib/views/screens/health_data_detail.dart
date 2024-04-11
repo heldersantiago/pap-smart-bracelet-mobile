@@ -89,9 +89,8 @@ class _HealthDataDetailWidgetState extends State<HealthDataDetailWidget> {
                                     ),
                                   ],
                                 ),
-                                Icon(
+                                Image.asset(
                                   healthDataCard[widget.id].icon,
-                                  size: 50,
                                   color: Colors.white,
                                 ),
                               ],
