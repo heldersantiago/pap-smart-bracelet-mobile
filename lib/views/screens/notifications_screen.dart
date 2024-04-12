@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/routes.dart';
+import 'package:pap/views/pages/alerts_page.dart';
 import 'package:pap/views/pages/notification_page.dart';
+import 'package:pap/views/pages/risks_page.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
@@ -15,8 +17,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
 
   final _notificationWidgets = [
     const NotificationPage(),
-    const Center(child: Text("Sem alertas no momento")),
-    const Center(child: Text("Sem mensagem de risco no momento")),
+    const AlertsPage(),
+    const RisksPage()
   ];
 
   @override
