@@ -44,12 +44,12 @@ class Notifications extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: ListTile(
           title: const Text(
-            "Dr. Helder Santiago",
+            "Nivel de Oxigenio",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           leading: const CircleAvatar(child: Icon(Icons.notifications)),
-          subtitle: const Text("Engenheiro"),
-          trailing: const Icon(Icons.arrow_forward),
+          subtitle: const Text("Seu nivel de oxigenio esta baixando, recomonde a descansar"),
+          trailing: const Icon(Icons.remove_red_eye_outlined),
           onTap: () {
             showDialog(
                 context: context,

@@ -10,6 +10,9 @@ class AlertsPage extends StatefulWidget {
 class _AlertsPageState extends State<AlertsPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Center(
+      child: Text("Sem alertas no momento",
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20)),
+    );
   }
 }
