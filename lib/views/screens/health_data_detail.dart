@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pap/Utils/update_data.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/constants/constant.dart';
+import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/models/health_card.dart';
 import 'package:pap/routes.dart';
 
@@ -15,18 +18,47 @@ class HealthDataDetailWidget extends StatefulWidget {
 
 class _HealthDataDetailWidgetState extends State<HealthDataDetailWidget> {
   Constant constant = Constant();
-  List<HealthCard> healthDataCard = [];
+  RxList<HealthCard> healthDataCard = RxList<HealthCard>();
+  final authController = Get.find<AuthController>();
+  final dataUpdater = UpdateData();
 
   @override
   void initState() {
     super.initState();
+    if (authController.isLogged.value) dataUpdater.startUpdatingData();
     constant.healthData().then((value) => setState(() {
-          healthDataCard = value.toList();
+          healthDataCard.clear();
+          healthDataCard.assignAll(value);
+
+          ever(healthDataCard, (callback) => {setState(() {})});
         }));
+  }
+
+  String? data(int index) {
+    switch (index) {
+      case 0:
+        return "${authController.currentUser.value.bracelet!.heartRate} bpm";
+      case 1:
+        return "${authController.currentUser.value.bracelet!.bloodPressure} mmHg";
+      case 2:
+        return "${authController.currentUser.value.bracelet!.bloodOxygen} %";
+      case 3:
+        return "${authController.currentUser.value.bracelet!.bodyTemperature} ºC";
+    }
+    return null;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    dataUpdater.stopUpdating();
   }
 
   @override
   Widget build(BuildContext context) {
+    if (healthDataCard.isEmpty) {
+      return const CircularProgressIndicator(color: Colors.purple);
+    }
     return Scaffold(
         appBar: AppBar(
             leading: IconButton(
@@ -100,14 +132,15 @@ class _HealthDataDetailWidgetState extends State<HealthDataDetailWidget> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Flexible(
-                                  child: Text(healthDataCard[widget.id].value,
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 32)),
+                                Obx(
+                                  () => Flexible(
+                                      child: Text(data(widget.id)!,
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 32))),
                                 ),
                                 const Text(
                                   "Estado normal",

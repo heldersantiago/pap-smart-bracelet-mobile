@@ -19,11 +19,11 @@ class HealthDataCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
-          onTap: () {
-            Navigator.pushReplacementNamed(
-                context, RouteGenerator.healthDetailPage,
-                arguments: index);
-          },
+        onTap: () {
+          Navigator.pushReplacementNamed(
+              context, RouteGenerator.healthDetailPage,
+              arguments: index);
+        },
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
