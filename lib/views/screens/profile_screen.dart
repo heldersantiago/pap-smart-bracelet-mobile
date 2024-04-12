@@ -22,49 +22,65 @@ class ProfileScreen extends StatelessWidget {
             "Meu perfil",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
           )),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 20),
-            const CircleAvatar(
-              radius: 80,
-              backgroundImage: NetworkImage(
-                'https://via.placeholder.com/150',
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            children: [
+              const SizedBox(height: 20),
+              const CircleAvatar(
+                radius: 80,
+                backgroundImage: NetworkImage(
+                  'https://via.placeholder.com/150',
+                ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                authController.currentUser.value.name!,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                'Frontend Developer',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(height: 20),
+              _buildInfoItem(
+                  Icons.email, authController.currentUser.value.email!),
+              _buildInfoItem(
+                  Icons.phone, authController.currentUser.value.phone!),
+              _buildInfoItem(Icons.location_on, 'New York, USA'),
+              const SizedBox(height: 20),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: SizedBox(
+              width: double.infinity,
+              height: 60,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
+                autofocus: true,
+                onPressed: () {
+                  // Implement edit profile functionality
+                  Navigator.pushReplacementNamed(
+                      context, RouteGenerator.profileEditPage);
+                },
+                child: const Text(
+                  'Editar Perfil',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
-            const SizedBox(height: 20),
-            Text(
-              authController.currentUser.value.name!,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
-            const Text(
-              'Frontend Developer',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
-            const SizedBox(height: 20),
-            _buildInfoItem(
-                Icons.email, authController.currentUser.value.email!),
-            _buildInfoItem(
-                Icons.phone, authController.currentUser.value.phone!),
-            _buildInfoItem(Icons.location_on, 'New York, USA'),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              autofocus: true,
-              onPressed: () {
-                // Implement edit profile functionality
-              },
-              child: const Text('Editar Perfil'),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

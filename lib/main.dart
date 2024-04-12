@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   final bool isLoggedIn = false;
 
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
