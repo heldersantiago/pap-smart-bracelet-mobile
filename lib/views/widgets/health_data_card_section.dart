@@ -13,14 +13,12 @@ class HealthDataCardSection extends StatefulWidget {
 }
 
 class _HealthDataCardSectionState extends State<HealthDataCardSection> {
-  final double horizontalPadding = 40;
-  final double verticalPadding = 25;
   Constant constant = Constant();
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height / 1.3,
       child: GridView.builder(
         itemCount: widget.healthDataCard.length,
         physics: const NeverScrollableScrollPhysics(),

@@ -31,6 +31,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
           leading: IconButton(
             onPressed: () {
@@ -44,52 +45,85 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
             "Editar perfil",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
           )),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 20),
-              const CircleAvatar(
-                  radius: 80,
-                  backgroundImage: NetworkImage(
-                    'https://via.placeholder.com/150',
-                  )),
-              const SizedBox(
-                height: 20,
-              ),
-              TextFormField(
-                controller: _nameController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                  labelText: "Nome",
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                const SizedBox(height: 20),
+                const CircleAvatar(
+                    radius: 80,
+                    backgroundImage: AssetImage("images/default-user.png")),
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              TextFormField(
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                  labelText: "Email",
+                TextFormField(
+                  controller: _nameController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                    labelText: "Nome",
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              TextFormField(
-                controller: _phoneController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                  labelText: "Telefone",
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
-              const Row(
-                children: [],
-              )
-            ],
+                TextFormField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                    labelText: "Email",
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  controller: _phoneController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                    labelText: "Telefone",
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 25),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: button(),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget button() {
+    return SizedBox(
+      width: double.infinity,
+      child: Material(
+        color: primaryColor,
+        borderRadius: BorderRadius.circular(1),
+        child: InkWell(
+          onTap: () async {},
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+              child: Obx(() => authController.isLoading.value
+                  ? const CircularProgressIndicator(
+                      color: Colors.white,
+                    )
+                  : const Text(
+                      "Salvar",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
+            ),
           ),
         ),
       ),

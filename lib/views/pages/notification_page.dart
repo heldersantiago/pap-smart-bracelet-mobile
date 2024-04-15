@@ -36,9 +36,9 @@ class Notifications extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
           boxShadow: const [
-            BoxShadow(color: Colors.black12, blurRadius: 4, spreadRadius: 2)
+            BoxShadow(color: Colors.black12, blurRadius: 1, spreadRadius: 1)
           ]),
       child: SizedBox(
         width: MediaQuery.of(context).size.width,

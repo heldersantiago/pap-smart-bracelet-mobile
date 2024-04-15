@@ -10,6 +10,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
           leading: IconButton(
             onPressed: () {
@@ -30,11 +31,8 @@ class ProfileScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 20),
               const CircleAvatar(
-                radius: 80,
-                backgroundImage: NetworkImage(
-                  'https://via.placeholder.com/150',
-                ),
-              ),
+                  radius: 80,
+                  backgroundImage: AssetImage("images/default-user.png")),
               const SizedBox(height: 20),
               Text(
                 authController.currentUser.value.name!,
@@ -52,44 +50,57 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              _buildInfoItem(
-                  Icons.email, authController.currentUser.value.email!),
-              _buildInfoItem(
-                  Icons.phone, authController.currentUser.value.phone!),
-              _buildInfoItem(Icons.location_on, 'New York, USA'),
+              _buildInfoItem(Icons.email,
+                  authController.currentUser.value.email!, "Email"),
+              _buildInfoItem(Icons.phone,
+                  authController.currentUser.value.phone!, "Telefone"),
+              _buildInfoItem(Icons.location_on, 'New York, USA', "Morada"),
               const SizedBox(height: 20),
             ],
           ),
           Padding(
-            padding: const EdgeInsets.all(10),
-            child: SizedBox(
-              width: double.infinity,
-              height: 60,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
-                autofocus: true,
-                onPressed: () {
-                  // Implement edit profile functionality
-                  Navigator.pushReplacementNamed(
-                      context, RouteGenerator.profileEditPage);
-                },
-                child: const Text(
-                  'Editar Perfil',
-                  style: TextStyle(color: Colors.white),
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                width: double.infinity,
+                child: Material(
+                  color: primaryColor,
+                  borderRadius: BorderRadius.circular(1),
+                  child: InkWell(
+                    onTap: () async {
+                      Navigator.of(context)
+                          .pushReplacementNamed(RouteGenerator.profileEditPage);
+                    },
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 15, horizontal: 10),
+                        child: Obx(() => authController.isLoading.value
+                            ? const CircularProgressIndicator(
+                                color: Colors.white,
+                              )
+                            : const Text(
+                                "Editar perfil",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
+              )),
         ],
       ),
     );
   }
 
-  Widget _buildInfoItem(IconData icon, String text) {
+  Widget _buildInfoItem(IconData icon, String text, String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: Container(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(boxShadow: const [
           BoxShadow(
               color: Colors.black26,
@@ -97,16 +108,25 @@ class ProfileScreen extends StatelessWidget {
               spreadRadius: 2,
               blurRadius: 2)
         ], borderRadius: BorderRadius.circular(5)),
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(
-              icon,
-              color: Colors.grey,
+            Text(title),
+            const SizedBox(
+              height: 5,
             ),
-            const SizedBox(width: 10),
-            Text(
-              text,
-              style: const TextStyle(fontSize: 16),
+            Row(
+              children: [
+                Icon(
+                  icon,
+                  color: Colors.grey,
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  text,
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+              ],
             ),
           ],
         ),
