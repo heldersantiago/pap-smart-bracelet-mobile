@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/models/user.dart';
 import 'package:pap/routes.dart';
+import 'package:pap/views/widgets/auth_field.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -32,6 +34,44 @@ class _RegisterViewState extends State<RegisterScreen> {
     super.dispose();
   }
 
+  String? _nameValidator(String? value) {
+    if (value!.isEmpty) {
+      return "Digite seu nome";
+    }
+    return null;
+  }
+
+  String? _passwordValidator(String? value) {
+    if (value!.isEmpty) {
+      return "Digite uma password";
+    }
+    if (value.length < 6) {
+      return "Password deve ter no mínimo 6 caracteres";
+    }
+
+    return null;
+  }
+
+  String? _phoneValidator(String? value) {
+    if (value!.isEmpty) {
+      return "Digite seu nº de telefone";
+    }
+    if (!value.isPhoneNumber) {
+      return "Digite número de telefone válido";
+    }
+    return null;
+  }
+
+  String? _emailValidator(String? value) {
+    if (value!.isEmpty) {
+      return "Digite seu email";
+    }
+    if (!value.isEmail) {
+      return "Digite email válido";
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -41,8 +81,8 @@ class _RegisterViewState extends State<RegisterScreen> {
           key: _formkey,
           child: Column(
             children: [
-              const SizedBox(height: 10),
-              Padding(
+              Container(
+                height: 300,
                 padding: const EdgeInsets.all(10),
                 child: Image.asset("images/signup.png"),
               ),
@@ -50,96 +90,51 @@ class _RegisterViewState extends State<RegisterScreen> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                child: TextFormField(
-                    controller: _nameController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Nome",
-                      prefixIcon: Icon(Icons.person_outline),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Insira seu Nome";
-                      }
-                      return null;
-                    }),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                child: TextFormField(
-                    controller: _emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Email",
-                      prefixIcon: Icon(Icons.email_outlined),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Insira seu Email";
-                      }
-                      if (!value.isEmail) {
-                        return "Insira um email válido";
-                      }
-                      return null;
-                    }),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                child: TextFormField(
-                    controller: _phoneController,
-                    keyboardType: TextInputType.number,
-                    autocorrect: true,
-                    maxLength: 9,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Telefone",
-                      prefixIcon: Icon(Icons.phone_outlined),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Insira seu Número de Telefone";
-                      }
-
-                      if (!value.isPhoneNumber) {
-                        return "Insira seu Número de Telefone válido";
-                      }
-                      return null;
-                    }),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                child: TextFormField(
-                  controller: _passwordController,
-                  obscureText: passToggle,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    labelText: "Password",
-                    prefixIcon: const Icon(Icons.lock_outline),
-                    suffixIcon: InkWell(
-                      onTap: () {
-                        setState(() {
-                          passToggle = !passToggle;
-                        });
-                      },
-                      child: Icon(
-                          passToggle ? Icons.visibility_off : Icons.visibility),
-                    ),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Insira sua Password";
-                    }
-                    if (value.length < 6) {
-                      return "Password precisa de 6 caracteres no mínimo";
-                    }
-                    return null;
-                  },
+                child: AuthField(
+                  controller: _nameController,
+                  icon: Icons.person,
+                  hintText: "Digite o seu nome",
+                  keyboardType: TextInputType.text,
+                  labelText: "Nome",
+                  validator: _nameValidator,
                 ),
               ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                child: AuthField(
+                  controller: _emailController,
+                  icon: Icons.email,
+                  hintText: "Digite o seu email",
+                  keyboardType: TextInputType.text,
+                  labelText: "Email",
+                  validator: _emailValidator,
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                child: AuthField(
+                  controller: _phoneController,
+                  icon: Icons.phone,
+                  hintText: "Digite o seu nº do telefone",
+                  keyboardType: TextInputType.text,
+                  labelText: "Número do telefone",
+                  validator: _phoneValidator,
+                ),
+              ),
+              Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                  child: AuthField(
+                    controller: _passwordController,
+                    icon: Icons.lock,
+                    hintText: "Digite o seu password",
+                    keyboardType: TextInputType.text,
+                    labelText: "Password",
+                    isPassword: true,
+                    validator: _passwordValidator,
+                  )),
               const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.all(10),

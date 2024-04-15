@@ -34,11 +34,11 @@ class _NavbarRootsState extends State<NavbarRoots> {
           },
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_filled), label: "Home"),
+                icon: Icon(Icons.home_filled), label: "Página Inicial"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.notifications_active), label: "Notificações"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: "Definições"),
+                icon: Icon(Icons.health_and_safety_outlined), label: "Estados"),
           ],
         ),
       ),
