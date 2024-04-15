@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/routes.dart';
+import 'package:pap/views/widgets/auth_field.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,6 +19,23 @@ class _LoginScreenState extends State<LoginScreen> {
   final formkey = GlobalKey<FormState>();
 
   final AuthController authController = Get.find<AuthController>();
+
+  String? _passwordValidator(String? value) {
+    if (value!.isEmpty) {
+      return "Digite sua password";
+    }
+    return null;
+  }
+
+  String? _emailOrPasswordValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Insira seu email ou nº de telefone";
+    }
+    if (!(value.isEmail || value.isPhoneNumber)) {
+      return "Insira um email ou nº de telefone válido";
+    }
+    return null;
+  }
 
   @override
   void dispose() {
@@ -36,60 +54,37 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: [
               const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Image.asset("images/signin.png"),
+              Container(
+                height: MediaQuery.of(context).size.height / 2.4,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Image.asset("images/signin.png"),
+                ),
               ),
               const SizedBox(height: 15),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                child: TextFormField(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                  child: AuthField(
                     controller: _emailOrPhoneController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Email ou nº de telefone",
-                      prefixIcon: Icon(Icons.email_outlined),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Insira seu email ou nº de telefone";
-                      }
-                      if (!(value.isEmail || value.isPhoneNumber)) {
-                        return "Insira um email ou nº de telefone válido";
-                      }
-                      return null;
-                    }),
-              ),
+                    icon: Icons.email,
+                    hintText: "Digite o email ou nº telefone",
+                    keyboardType: TextInputType.text,
+                    labelText: "Email ou núumero do  telefone",
+                    validator: _emailOrPasswordValidator,
+                  )),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                child: TextFormField(
-                  controller: _passwordController,
-                  obscureText: passToggle,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                  child: AuthField(
+                    controller: _passwordController,
+                    icon: Icons.lock,
+                    hintText: "Digite a sua password",
+                    keyboardType: TextInputType.text,
                     labelText: "Password",
-                    prefixIcon: const Icon(Icons.lock_outline),
-                    suffixIcon: InkWell(
-                      onTap: () {
-                        setState(() {
-                          passToggle = !passToggle;
-                        });
-                      },
-                      child: Icon(
-                          passToggle ? Icons.visibility_off : Icons.visibility),
-                    ),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Insira sua Password";
-                    }
-                    return null;
-                  },
-                ),
-              ),
+                    isPassword: true,
+                    validator: _passwordValidator,
+                  )),
               const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.all(10),
