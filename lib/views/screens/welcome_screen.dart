@@ -49,11 +49,11 @@ class WelcomeView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ButtonAuth(
-                      buttonText: "LOGIN",
+                      buttonText: "Entrar",
                       view: RouteGenerator.loginPage,
                     ),
                     ButtonAuth(
-                      buttonText: "SIGN UP",
+                      buttonText: "Registrar",
                       view: RouteGenerator.registerPage,
                     )
                   ],
