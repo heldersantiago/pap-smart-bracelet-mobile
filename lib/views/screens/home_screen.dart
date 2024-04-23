@@ -5,6 +5,9 @@ import 'package:pap/constants/color.dart';
 import 'package:pap/constants/constant.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/models/health_card.dart';
+import 'package:pap/routes.dart';
+import 'package:pap/services/alerts_service.dart';
+import 'package:pap/services/local_notifications.dart';
 import 'package:pap/views/widgets/drawer_items.dart';
 import 'package:pap/views/widgets/health_data_card_section.dart';
 
@@ -19,13 +22,24 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<String> symptoms = Constant().symptoms;
   Constant constant = Constant();
+  final alertService = AlertService();
   List<HealthCard> healthDataCard = [];
 
   final authController = Get.put(AuthController());
   final dataUpdater = UpdateData();
 
+  listenToNotifications() {
+    print("Listening to alerts");
+    LocalNotifications.onClickNotification.stream.listen((event) {
+      print(event);
+      Navigator.pushNamed(context, RouteGenerator.notificationPage,
+          arguments: event);
+    });
+  }
+
   @override
   void initState() {
+    listenToNotifications();
     super.initState();
     if (authController.isLogged.value) dataUpdater.startUpdatingData();
     constant.healthData().then((value) => setState(() {
@@ -194,6 +208,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       );
                     })),
+            const SizedBox(height: 15),
+            InkWell(
+              onTap: () {
+                LocalNotifications.showSimpleNotification(
+                    title: "Emergencia critica",
+                    body: "O paciente esta com muita febre",
+                    payload: "Leve o ao hospital");
+              },
+              child: Text("Show notification"),
+            ),
             const SizedBox(height: 15),
 
             const Padding(

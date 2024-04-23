@@ -1,21 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/routes.dart';
+import 'package:pap/services/alerts_service.dart';
+import 'package:pap/services/local_notifications.dart';
 
-void main() {
+final navigatorKey = GlobalKey<NavigatorState>();
+FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+
+void main() async {
   initiateControllersAndServices();
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await LocalNotifications.init();
+
+  //  handle in terminated state
+  var initialNotification =
+      await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
+  if (initialNotification?.didNotificationLaunchApp == true) {
+    // LocalNotifications.onClickNotification.stream.listen((event) {
+    Future.delayed(const Duration(seconds: 1), () {
+      // print(event);
+      navigatorKey.currentState!.pushNamed(RouteGenerator.notificationPage,
+          arguments: initialNotification?.notificationResponse?.payload);
+    });
+  }
+
+  runApp(MyApp());
 }
 
 void initiateControllersAndServices() {
   Get.put(AuthController());
+  Get.put(AlertService());
 }
 
 class MyApp extends StatelessWidget {
-  final bool isLoggedIn = false;
+  final authController = Get.find<AuthController>();
 
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +50,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
     );
   }
-}
 
-String _initialRoute() {
-  final AuthController authController = Get.find<AuthController>();
-  return authController.isLogged.value
-      ? RouteGenerator
-          .homePage // Use RouteGenerator.homePage directly for the initial route
-      : RouteGenerator
-          .onboardingPage; // Or any other initial route for non-logged-in users
+  String _initialRoute() {
+    return authController.isLogged.value
+        ? RouteGenerator
+            .homePage // Use RouteGenerator.homePage directly for the initial route
+        : RouteGenerator
+            .onboardingPage; // Or any other initial route for non-logged-in users
+  }
 }

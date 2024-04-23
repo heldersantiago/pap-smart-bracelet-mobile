@@ -38,6 +38,13 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    setState(() {
+      authController.isLoading.value = false;
+    });
+  }
+  @override
   void dispose() {
     _emailOrPhoneController.dispose();
     _passwordController.dispose();

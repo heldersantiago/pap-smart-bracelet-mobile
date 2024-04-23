@@ -36,7 +36,7 @@ class _NavbarRootsState extends State<NavbarRoots> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.home_filled), label: "Página Inicial"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.notifications_active), label: "Notificações"),
+                icon: Icon(Icons.notifications_active), label: "Alertas"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.health_and_safety_outlined), label: "Estados"),
           ],

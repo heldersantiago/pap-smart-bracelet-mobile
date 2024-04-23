@@ -73,6 +73,13 @@ class _RegisterViewState extends State<RegisterScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    setState(() {
+      authController.isLoading.value = false;
+    });
+  }
+  @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.white,

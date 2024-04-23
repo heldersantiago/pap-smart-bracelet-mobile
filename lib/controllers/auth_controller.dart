@@ -6,11 +6,13 @@ import 'package:pap/constants/endpoint.dart';
 import 'package:pap/models/register_error.dart';
 import 'package:pap/models/user.dart';
 import 'package:pap/routes.dart';
+import 'package:pap/services/alerts_service.dart';
 import 'package:pap/services/storage_service.dart';
 import 'package:pap/services/user_service.dart';
 
 class AuthController extends GetxController {
   UserService userService = Get.put(UserService());
+  // AlertService alertService = Get.put(AlertService());
 
   final String _authUrl = authUrl;
   final String _apiUrl = apiUrl;
@@ -127,9 +129,12 @@ class AuthController extends GetxController {
   }
 
   Future<void> logout() async {
+    AlertService alertService = Get.find<AlertService>();
     await StorageService.removeToken();
     isLogged.value = false;
     isLoading.value = false;
+    alertService.alerts = RxList();
+    currentUser.value = User(); // to clean
     Get.offAllNamed(RouteGenerator.loginPage);
   }
 }
