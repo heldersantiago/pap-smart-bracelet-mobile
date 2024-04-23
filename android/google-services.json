@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "307561104943",
+    "project_id": "santiago273-e80ff",
+    "storage_bucket": "santiago273-e80ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307561104943:android:3f41483b010f6e1f76a8da",
+        "android_client_info": {
+          "package_name": "com.example.pap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF52RJXtBZStD95-yO4CbKnmDL03fN33Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
