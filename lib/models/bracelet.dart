@@ -9,7 +9,7 @@ class Bracelet {
   final String? longitude;
   final String? altitude;
   final int? userId;
-  final DateTime? createAt;
+  final String? createdAt;
 
   Bracelet(
       {this.id,
@@ -22,7 +22,7 @@ class Bracelet {
       this.longitude,
       this.altitude,
       this.userId,
-      this.createAt});
+      this.createdAt});
 
   factory Bracelet.fromJson(Map<String, dynamic> json) {
     return Bracelet(
@@ -36,7 +36,7 @@ class Bracelet {
       longitude: json['longitude'].toString(),
       altitude: json['altitude'].toString(),
       userId: json['user_id'],
-      createAt: json['created_at'],
+      createdAt: json['createdAt'].toString(),
     );
   }
 

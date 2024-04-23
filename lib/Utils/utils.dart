@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:intl/intl.dart';
+
 class Utils {
   static String getError(String error) {
     switch (error) {
@@ -22,5 +24,12 @@ class Utils {
 
   static Map<String, dynamic> toJson(String m) {
     return json.decode(m);
+  }
+
+  static String formatDate(String dateString) {
+    DateTime dateTime = DateTime.parse(dateString);
+    String formattedDate = DateFormat('MMMM d, yyyy - HH:mm').format(dateTime);
+    // print(formattedDate);
+    return formattedDate;
   }
 }

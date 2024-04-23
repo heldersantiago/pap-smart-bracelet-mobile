@@ -3,7 +3,7 @@ import 'package:pap/views/screens/auth/login_screen.dart';
 import 'package:pap/views/screens/auth/register_screen.dart';
 import 'package:pap/views/screens/device_screen.dart';
 import 'package:pap/views/screens/health_data_detail.dart';
-import 'package:pap/views/screens/notifications_screen.dart';
+import 'package:pap/views/screens/alerts_screen.dart';
 import 'package:pap/views/screens/onboarding_screen.dart';
 import 'package:pap/views/screens/profile_edit_screen.dart';
 import 'package:pap/views/screens/profile_screen.dart';
@@ -44,7 +44,7 @@ class RouteGenerator {
       case profileEditPage:
         return _buildPageRoute(ProfileEditScreen(), useEffect: useEffect);
       case notificationPage:
-        return _buildPageRoute(const NotificationScreen(),
+        return _buildPageRoute(const AlertsScreen(),
             useEffect: useEffect);
       case settingsPage:
         return _buildPageRoute(SettingScreen(), useEffect: useEffect);
