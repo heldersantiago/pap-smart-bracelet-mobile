@@ -163,7 +163,7 @@ class _RegisterViewState extends State<RegisterScreen> {
                                   color: Colors.white,
                                 )
                               : const Text(
-                                  "SIGN UP",
+                                  "Registrar",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 25,
@@ -191,7 +191,7 @@ class _RegisterViewState extends State<RegisterScreen> {
                       onPressed: () {
                         Get.toNamed(RouteGenerator.loginPage);
                       },
-                      child: const Text("LOGIN",
+                      child: const Text("Entrar",
                           style: TextStyle(
                             color: primaryColor,
                             fontSize: 18,
