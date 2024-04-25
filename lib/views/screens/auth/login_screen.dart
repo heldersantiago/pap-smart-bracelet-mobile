@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     icon: Icons.email,
                     hintText: "Digite o email ou nº telefone",
                     keyboardType: TextInputType.text,
-                    labelText: "Email ou núumero do  telefone",
+                    labelText: "Email ou número do  telefone",
                     validator: _emailOrPasswordValidator,
                   )),
               Padding(

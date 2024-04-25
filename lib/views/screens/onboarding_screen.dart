@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
+import 'package:pap/Utils/animations.dart';
+import 'package:pap/constants/color.dart';
 import 'package:pap/constants/onboarding_items.dart';
 import 'package:pap/routes.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:pap/constants/color.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});
@@ -70,19 +72,30 @@ class _OnboardingViewState extends State<OnboardingView> {
             controller: pageController,
             itemBuilder: (context, index) {
               return Column(
+                mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(controller.items[index].image),
+                  Image.asset(controller.items[index].image)
+                      .animate(effects: Animations.imageOnPageLoadAnimation1),
                   const SizedBox(height: 15),
                   Text(
                     controller.items[index].title,
                     style: const TextStyle(
-                        fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: primaryColor,
+                        letterSpacing: 1,
+                        wordSpacing: 2,
+                        fontFamily: 'Outfit'),
+                  ).animate(effects: Animations.textOnPageLoadAnimation1),
                   const SizedBox(height: 15),
                   Text(controller.items[index].descriptions,
-                      style: const TextStyle(color: Colors.grey, fontSize: 17),
-                      textAlign: TextAlign.center),
+                          style: const TextStyle(
+                              color: Colors.grey,
+                              fontSize: 17,
+                              fontFamily: "Outfit"),
+                          textAlign: TextAlign.center)
+                      .animate(effects: Animations.textOnPageLoadAnimation2),
                 ],
               );
             }),

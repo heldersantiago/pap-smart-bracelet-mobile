@@ -32,7 +32,7 @@ class RouteGenerator {
       case homePage:
         return MaterialPageRoute(builder: (_) => const NavbarRoots());
       case onboardingPage:
-        return _buildPageRoute(const OnboardingView(), useEffect: useEffect);
+        return _buildPageRoute(OnboardingView(), useEffect: useEffect);
       case welcomePage:
         return _buildPageRoute(const WelcomeView(), useEffect: useEffect);
       case loginPage:

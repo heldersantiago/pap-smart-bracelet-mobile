@@ -12,6 +12,7 @@ import 'package:pap/services/user_service.dart';
 
 class AuthController extends GetxController {
   UserService userService = Get.put(UserService());
+
   // AlertService alertService = Get.put(AlertService());
 
   final String _authUrl = authUrl;
@@ -72,6 +73,8 @@ class AuthController extends GetxController {
     currentUser.value = user;
     isLoading.value = false;
   }
+
+  Future<void> checkLoginStatus() async {}
 
   void register(User user) async {
     isLoading.value = true; // Start loading
