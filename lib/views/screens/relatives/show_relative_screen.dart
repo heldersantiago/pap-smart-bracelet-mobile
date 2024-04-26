@@ -4,7 +4,16 @@ import 'package:pap/constants/color.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/routes.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ShowRelativeScreen extends StatefulWidget {
+  final int id;
+
+  ShowRelativeScreen({super.key, required this.id});
+
+  @override
+  State<ShowRelativeScreen> createState() => _ShowRelativeScreenState();
+}
+
+class _ShowRelativeScreenState extends State<ShowRelativeScreen> {
   final AuthController authController = Get.find<AuthController>();
 
   @override
@@ -20,8 +29,8 @@ class ProfileScreen extends StatelessWidget {
             icon: const Icon(Icons.arrow_back),
           ),
           backgroundColor: primaryColor,
-          title: const Text(
-            "Meu perfil",
+          title: Text(
+            "Informação de perfil " + widget.id.toString(),
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
           )),
       body: Column(
@@ -30,11 +39,7 @@ class ProfileScreen extends StatelessWidget {
         children: [
           Column(
             children: [
-              const SizedBox(height: 20),
-              const CircleAvatar(
-                  radius: 80,
-                  backgroundImage: AssetImage("images/default-user.png")),
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
               Text(
                 authController.currentUser.value.name!,
                 style: const TextStyle(
@@ -44,7 +49,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               const Text(
-                'Frontend Developer',
+                'Filho',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
@@ -125,7 +130,8 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(width: 10),
                 Text(
                   text,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.w500),
                 ),
               ],
             ),

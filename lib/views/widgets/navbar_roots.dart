@@ -12,6 +12,7 @@ class NavbarRoots extends StatefulWidget {
 class _NavbarRootsState extends State<NavbarRoots> {
   int _selectedIndex = 0;
   final _screens = screens;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +39,9 @@ class _NavbarRootsState extends State<NavbarRoots> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.notifications_active), label: "Alertas"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.health_and_safety_outlined), label: "Estados"),
+                icon: Icon(Icons.health_and_safety), label: "Estados"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.location_on_sharp), label: "Localização"),
           ],
         ),
       ),

@@ -49,7 +49,7 @@ class AuthController extends GetxController {
 
       await loadUserFromToken();
       // Redirect to the home page when user is logged in
-      Get.toNamed(RouteGenerator.homePage);
+      Get.offAndToNamed(RouteGenerator.homePage);
     } else {
       isLoading.value = false;
 
@@ -74,8 +74,6 @@ class AuthController extends GetxController {
     isLoading.value = false;
   }
 
-  Future<void> checkLoginStatus() async {}
-
   void register(User user) async {
     isLoading.value = true; // Start loading
 
@@ -93,7 +91,7 @@ class AuthController extends GetxController {
 
     if (response.statusCode == 201) {
       isLoading.value = false;
-      Get.toNamed(RouteGenerator.loginPage);
+      Get.offAndToNamed(RouteGenerator.loginPage);
       Get.snackbar("Sucesso", "Usuário cadastrado com sucesso",
           colorText: Colors.white,
           snackPosition: SnackPosition.TOP,

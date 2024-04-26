@@ -14,7 +14,7 @@ class ButtonAuth extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       child: InkWell(
         onTap: () {
-          Get.toNamed(view);
+          Get.offAndToNamed(view);
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),

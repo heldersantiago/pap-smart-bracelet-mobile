@@ -44,6 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
       authController.isLoading.value = false;
     });
   }
+
   @override
   void dispose() {
     _emailOrPhoneController.dispose();

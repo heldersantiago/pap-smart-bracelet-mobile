@@ -18,6 +18,7 @@ class SettingScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
             leading: IconButton(
+              color: backgroundColor,
               onPressed: () {
                 Navigator.pushReplacementNamed(
                     context, RouteGenerator.homePage);
