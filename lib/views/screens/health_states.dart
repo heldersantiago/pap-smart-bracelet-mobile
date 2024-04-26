@@ -12,6 +12,7 @@ class HealthStateScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: primaryColor,
         leading: IconButton(
+          color: backgroundColor,
           onPressed: () {
             Navigator.pushReplacementNamed(context, RouteGenerator.homePage);
           },

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pap/constants/color.dart';
@@ -79,6 +78,7 @@ class _RegisterViewState extends State<RegisterScreen> {
       authController.isLoading.value = false;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Material(

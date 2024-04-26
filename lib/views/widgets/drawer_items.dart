@@ -76,6 +76,13 @@ class DrawerItems extends StatelessWidget {
                     Routes.navigateTo(
                         context, RouteGenerator.profilePage, true);
                   }),
+              DrawerListItem(
+                  title: "Familiares",
+                  icon: Icons.people_alt,
+                  action: () async {
+                    Routes.navigateTo(
+                        context, RouteGenerator.listRelative, true);
+                  }),
               const DrawerListItem(title: "Ajuda", icon: Icons.help),
               DrawerListItem(
                   title: "Definições",

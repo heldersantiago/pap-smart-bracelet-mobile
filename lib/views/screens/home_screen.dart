@@ -29,9 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final dataUpdater = UpdateData();
 
   listenToNotifications() {
-    print("Listening to alerts");
     LocalNotifications.onClickNotification.stream.listen((event) {
-      print(event);
       Navigator.pushNamed(context, RouteGenerator.notificationPage,
           arguments: event);
     });

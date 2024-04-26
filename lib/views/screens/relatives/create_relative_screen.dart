@@ -4,46 +4,43 @@ import 'package:pap/constants/color.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/routes.dart';
 
-class ProfileEditScreen extends StatefulWidget {
-  ProfileEditScreen({super.key});
+class CreateRelativeScreen extends StatefulWidget {
+  const CreateRelativeScreen({super.key});
 
   @override
-  State<ProfileEditScreen> createState() => _ProfileEditScreenState();
+  State<CreateRelativeScreen> createState() => _CreateRelativeScreenState();
 }
 
-class _ProfileEditScreenState extends State<ProfileEditScreen> {
+class _CreateRelativeScreenState extends State<CreateRelativeScreen> {
   final _emailController = TextEditingController();
 
   final _phoneController = TextEditingController();
 
   final _nameController = TextEditingController();
 
+  final _passwordController = TextEditingController();
+
   final authController = Get.find<AuthController>();
 
   @override
   void initState() {
     super.initState();
-    _emailController.text = authController.currentUser.value.email!;
-    _phoneController.text = authController.currentUser.value.phone!;
-    _nameController.text = authController.currentUser.value.name!;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
           leading: IconButton(
             color: backgroundColor,
             onPressed: () {
-              Navigator.pushReplacementNamed(
-                  context, RouteGenerator.profilePage);
+              Navigator.pushReplacementNamed(context, RouteGenerator.homePage);
             },
             icon: const Icon(Icons.arrow_back),
           ),
           backgroundColor: primaryColor,
           title: const Text(
-            "Editar perfil",
+            "Adicionar um familiar",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
           )),
       body: Column(
@@ -51,16 +48,10 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(20),
             child: Column(
               children: [
                 const SizedBox(height: 20),
-                const CircleAvatar(
-                    radius: 80,
-                    backgroundImage: AssetImage("images/default-user.png")),
-                const SizedBox(
-                  height: 20,
-                ),
                 TextFormField(
                   controller: _nameController,
                   keyboardType: TextInputType.emailAddress,
@@ -88,6 +79,17 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   keyboardType: TextInputType.emailAddress,
                   decoration: const InputDecoration(
                       labelText: "Telefone",
+                      labelStyle:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  controller: _passwordController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                      labelText: "Password",
                       labelStyle:
                           TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
                 ),

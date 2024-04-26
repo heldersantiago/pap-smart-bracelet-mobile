@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:pap/views/screens/alerts_screen.dart';
 import 'package:pap/views/screens/auth/login_screen.dart';
 import 'package:pap/views/screens/auth/register_screen.dart';
 import 'package:pap/views/screens/device_screen.dart';
 import 'package:pap/views/screens/health_data_detail.dart';
-import 'package:pap/views/screens/alerts_screen.dart';
 import 'package:pap/views/screens/onboarding_screen.dart';
 import 'package:pap/views/screens/profile_edit_screen.dart';
 import 'package:pap/views/screens/profile_screen.dart';
+import 'package:pap/views/screens/relatives/create_relative_screen.dart';
+import 'package:pap/views/screens/relatives/edit_relative_screen.dart';
+import 'package:pap/views/screens/relatives/relatives_screens.dart';
+import 'package:pap/views/screens/relatives/show_relative_screen.dart';
 import 'package:pap/views/screens/settings_screen.dart';
 import 'package:pap/views/screens/welcome_screen.dart';
 import 'package:pap/views/widgets/navbar_roots.dart';
@@ -23,6 +27,11 @@ class RouteGenerator {
   static const String onboardingPage = '/onboarding';
   static const String devicePage = '/device';
   static const String healthDetailPage = '/health/detail/:id';
+  static const String listRelative = '/users/relatives';
+  static const String createRelative = '/users/relatives/create';
+  static const String editRelative = '/users/relatives/edit/:id';
+  static const String deleteRelative = '/users/relatives/delete/:id';
+  static const String showRelative = '/users/relatives/show/:id';
 
   RouteGenerator._();
 
@@ -32,7 +41,7 @@ class RouteGenerator {
       case homePage:
         return MaterialPageRoute(builder: (_) => const NavbarRoots());
       case onboardingPage:
-        return _buildPageRoute(OnboardingView(), useEffect: useEffect);
+        return _buildPageRoute(const OnboardingView(), useEffect: useEffect);
       case welcomePage:
         return _buildPageRoute(const WelcomeView(), useEffect: useEffect);
       case loginPage:
@@ -44,11 +53,28 @@ class RouteGenerator {
       case profileEditPage:
         return _buildPageRoute(ProfileEditScreen(), useEffect: useEffect);
       case notificationPage:
-        return _buildPageRoute(const AlertsScreen(),
-            useEffect: useEffect);
+        return _buildPageRoute(const AlertsScreen(), useEffect: useEffect);
       case settingsPage:
         return _buildPageRoute(SettingScreen(), useEffect: useEffect);
       case devicePage:
+        return _buildPageRoute(const DeviceScreen(), useEffect: useEffect);
+      case listRelative:
+        return _buildPageRoute(const RelativeScreen(),
+            useEffect: useEffect);
+      case createRelative:
+        return _buildPageRoute(const CreateRelativeScreen(),
+            useEffect: useEffect);
+      case editRelative:
+        return _buildPageRoute(const EditRelativeScreen(),
+            useEffect: useEffect);
+      case showRelative:
+        final int id = settings.arguments as int;
+        return _buildPageRoute(
+            ShowRelativeScreen(
+              id: id,
+            ),
+            useEffect: useEffect);
+      case deleteRelative:
         return _buildPageRoute(const DeviceScreen(), useEffect: useEffect);
       case healthDetailPage:
         final int id = settings.arguments as int;

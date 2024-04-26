@@ -47,6 +47,7 @@ class _AlertScreenState extends State<AlertsScreen> {
         backgroundColor: Colors.white,
         appBar: AppBar(
             leading: IconButton(
+              color: backgroundColor,
               onPressed: () {
                 Navigator.pushReplacementNamed(
                     context, RouteGenerator.homePage);
