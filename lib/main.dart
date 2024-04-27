@@ -56,6 +56,6 @@ class MyApp extends StatelessWidget {
         ? RouteGenerator
             .homePage // Use RouteGenerator.homePage directly for the initial route
         : RouteGenerator
-            .onboardingPage; // Or any other initial route for non-logged-in users
+            .splashPage; // Or any other initial route for non-logged-in users
   }
 }

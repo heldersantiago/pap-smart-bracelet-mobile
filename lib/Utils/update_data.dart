@@ -12,7 +12,7 @@ class UpdateData {
   Future<void> startUpdatingData() async {
     _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) async {
       await authController.loadUserFromToken();
-      await alertService.GetAlerts();
+      await alertService.gettAlerts();
       print("Fui chamado");
     });
   }

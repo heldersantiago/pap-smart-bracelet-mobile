@@ -4,18 +4,20 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:pap/constants/endpoint.dart';
 import 'package:pap/controllers/auth_controller.dart';
+import 'package:pap/interfaces/user_service.dart';
 import 'package:pap/models/alert.dart';
 import 'package:pap/services/local_notifications.dart';
 
-class AlertService extends GetxService {
+class AlertService extends GetxService implements IAlertService {
   final authController = Get.find<AuthController>();
   var alerts = <Alert>[].obs;
-  final _apiUrl = apiUrl;
+  final _baseUrl = apiUrl;
 
-  Future<void> GetAlerts() async {
+  @override
+  Future<void> gettAlerts() async {
     final braceletId = authController.currentUser.value.bracelet!.id;
     // Use http.get to fetch data from the API
-    final response = await http.get(Uri.parse('$_apiUrl/alerts/$braceletId'));
+    final response = await http.get(Uri.parse('$_baseUrl/alerts/$braceletId'));
 
     if (response.statusCode == 200) {
       // Parse the response body into a list of notifications
@@ -36,6 +38,7 @@ class AlertService extends GetxService {
     }
   }
 
+  @override
   Future<void> showAlert(Alert alert) async {
     LocalNotifications.showSimpleNotification(
         title: alert.title!,
@@ -43,10 +46,11 @@ class AlertService extends GetxService {
         payload: alert.id.toString());
   }
 
+  @override
   Future<void> alertRead(int id) async {
     final response = await http.put(
         Uri.parse(
-          "$_apiUrl/alerts/$id",
+          "$_baseUrl/alerts/$id",
         ),
         body: {
           "isActive": "false",

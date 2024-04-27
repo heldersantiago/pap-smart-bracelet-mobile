@@ -7,7 +7,6 @@ import 'package:pap/Utils/utils.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/models/alert.dart';
-import 'package:pap/routes.dart';
 import 'package:pap/services/alerts_service.dart';
 
 class AlertsScreen extends StatefulWidget {
@@ -40,6 +39,7 @@ class _AlertScreenState extends State<AlertsScreen> {
     super.dispose();
     dataUpdater.stopUpdating();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

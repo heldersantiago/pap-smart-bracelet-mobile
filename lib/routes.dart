@@ -12,11 +12,13 @@ import 'package:pap/views/screens/relatives/edit_relative_screen.dart';
 import 'package:pap/views/screens/relatives/relatives_screens.dart';
 import 'package:pap/views/screens/relatives/show_relative_screen.dart';
 import 'package:pap/views/screens/settings_screen.dart';
+import 'package:pap/views/screens/splash_screen.dart';
 import 'package:pap/views/screens/welcome_screen.dart';
 import 'package:pap/views/widgets/navbar_roots.dart';
 
 class RouteGenerator {
   static const String homePage = '/';
+  static const String splashPage = '/splash';
   static const String loginPage = '/login';
   static const String registerPage = '/register';
   static const String profilePage = '/profile';
@@ -40,6 +42,8 @@ class RouteGenerator {
     switch (settings.name) {
       case homePage:
         return MaterialPageRoute(builder: (_) => const NavbarRoots());
+      case splashPage:
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case onboardingPage:
         return _buildPageRoute(const OnboardingView(), useEffect: useEffect);
       case welcomePage:
@@ -59,8 +63,7 @@ class RouteGenerator {
       case devicePage:
         return _buildPageRoute(const DeviceScreen(), useEffect: useEffect);
       case listRelative:
-        return _buildPageRoute(const RelativeScreen(),
-            useEffect: useEffect);
+        return _buildPageRoute(const RelativeScreen(), useEffect: useEffect);
       case createRelative:
         return _buildPageRoute(const CreateRelativeScreen(),
             useEffect: useEffect);
