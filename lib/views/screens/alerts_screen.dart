@@ -40,20 +40,12 @@ class _AlertScreenState extends State<AlertsScreen> {
     super.dispose();
     dataUpdater.stopUpdating();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-            leading: IconButton(
-              color: backgroundColor,
-              onPressed: () {
-                Navigator.pushReplacementNamed(
-                    context, RouteGenerator.homePage);
-              },
-              icon: const Icon(Icons.arrow_back),
-            ),
+            leading: Text(""),
             backgroundColor: primaryColor,
             title: const Text(
               "Central de Alertas",
