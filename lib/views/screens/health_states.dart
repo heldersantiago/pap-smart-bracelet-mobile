@@ -11,15 +11,9 @@ class HealthStateScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: primaryColor,
-        leading: IconButton(
-          color: backgroundColor,
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, RouteGenerator.homePage);
-          },
-          icon: const Icon(Icons.arrow_back),
-        ),
+        leading: Text(""),
         title: const Text(
-          "Estado da saude",
+          "Estado da saúde",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
         ),
       ),

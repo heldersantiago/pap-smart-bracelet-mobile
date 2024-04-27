@@ -118,7 +118,7 @@ class _OnboardingViewState extends State<OnboardingView> {
 
             //After we press get started button this onboarding value become true
             if (!mounted) return;
-            Get.toNamed(RouteGenerator.welcomePage);
+            Get.offAndToNamed(RouteGenerator.welcomePage);
           },
           child: const Text(
             "Começar",
