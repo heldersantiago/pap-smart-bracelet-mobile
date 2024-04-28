@@ -60,7 +60,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Temperatura Corporal",
         subtitle: "A temperatura do corpo",
-        icon: "images/air-conditioner.png",
+        icon: "images/temperature1.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.bodyTemperature !=
                 null
