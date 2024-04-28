@@ -35,10 +35,13 @@ class HealthDataCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // icon
-                Image.asset(
-                  iconPath,
-                  height: 90,
-                  color: Colors.white,
+                Hero(
+                  tag: index,
+                  child: Image.asset(
+                    iconPath,
+                    height: 90,
+                    color: Colors.white,
+                  ),
                 ),
 
                 // smart device name + switch

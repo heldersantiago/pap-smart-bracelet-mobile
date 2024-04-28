@@ -8,6 +8,6 @@ import 'package:pap/views/screens/location_screen.dart';
 List<Widget> screens = [
   HomeScreen(),
   const AlertsScreen(),
-  const HealthStateScreen(),
+  // const HealthStateScreen(),
   const LocationScreen(),
 ];

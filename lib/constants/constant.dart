@@ -27,7 +27,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Batimento cardiaco",
         subtitle: "Batimento cardiaco",
-        icon: "images/light-bulb.png",
+        icon: "images/lined_heart.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.heartRate != null
             ? "${authController.currentUser.value.bracelet?.heartRate} bpm"
@@ -38,7 +38,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Pressão arterial",
         subtitle: "Veja aqui a sua pressão",
-        icon: "images/air-conditioner.png",
+        icon: "images/heart_rate.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.bloodPressure != null
             ? "${authController.currentUser.value.bracelet?.bloodPressure} mmHg"
@@ -49,7 +49,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Oxigénio no Sangue",
         subtitle: "Tudo sobre o seu oxigénio",
-        icon: "images/air-conditioner.png",
+        icon: "images/blood.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.bloodOxygen != null
             ? "${authController.currentUser.value.bracelet?.bloodOxygen} %"
@@ -60,7 +60,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Temperatura Corporal",
         subtitle: "A temperatura do corpo",
-        icon: "images/air-conditioner.png",
+        icon: "images/celsius.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.bodyTemperature !=
                 null

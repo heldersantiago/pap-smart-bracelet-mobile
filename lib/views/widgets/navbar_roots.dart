@@ -43,8 +43,6 @@ class _NavbarRootsState extends State<NavbarRoots> {
                     icon: const Icon(Icons.notifications_active),
                     label: "Alertas (${alertservice.alerts.length})"),
                 const BottomNavigationBarItem(
-                    icon: Icon(Icons.health_and_safety), label: "Estados"),
-                const BottomNavigationBarItem(
                     icon: Icon(Icons.location_on_sharp), label: "Localização"),
               ],
             )),
