@@ -1,3 +1,5 @@
+
+
 class Bracelet {
   final int? id;
   final String? deviceId;
@@ -5,8 +7,8 @@ class Bracelet {
   final String? bodyTemperature;
   final String? bloodPressure;
   final String? bloodOxygen;
-  final String? latitude;
-  final String? longitude;
+  final double? latitude;
+  final double? longitude;
   final String? altitude;
   final int? userId;
   final String? createdAt;
@@ -32,8 +34,8 @@ class Bracelet {
       bloodPressure: json['blood_pressure'].toString(),
       bodyTemperature: json['body_temperature'].toString(),
       bloodOxygen: json['blood_oxygen'].toString(),
-      latitude: json['latitude'].toString(),
-      longitude: json['longitude'].toString(),
+      latitude: json['latitude'],
+      longitude: json['longitude'],
       altitude: json['altitude'].toString(),
       userId: json['user_id'],
       createdAt: json['createdAt'].toString(),
