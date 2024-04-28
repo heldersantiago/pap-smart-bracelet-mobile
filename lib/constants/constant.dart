@@ -27,7 +27,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Batimento cardiaco",
         subtitle: "Batimento cardiaco",
-        icon: "images/light-bulb.png",
+        icon: "images/lined_heart.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.heartRate != null
             ? "${authController.currentUser.value.bracelet?.heartRate} bpm"

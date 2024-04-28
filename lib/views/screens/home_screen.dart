@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
+import 'package:pap/Utils/animations.dart';
 import 'package:pap/Utils/update_data.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/constants/constant.dart';
@@ -8,6 +10,7 @@ import 'package:pap/models/health_card.dart';
 import 'package:pap/routes.dart';
 import 'package:pap/services/alerts_service.dart';
 import 'package:pap/services/local_notifications.dart';
+import 'package:pap/views/charts/pie_chart.dart';
 import 'package:pap/views/widgets/drawer_items.dart';
 import 'package:pap/views/widgets/health_data_card_section.dart';
 
@@ -207,17 +210,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     })),
             const SizedBox(height: 15),
-
-            const Padding(
-                padding: EdgeInsets.only(left: 15, bottom: 10),
-                child: Text(
-                  "Dados vitais",
-                  style: TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 25),
-                )),
-
+            const PieChart1()
+                .animate(effects: Animations.imageOnPageLoadAnimation1),
             const SizedBox(height: 15),
             healthDataCard.isNotEmpty
                 ? HealthDataCardSection(

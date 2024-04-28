@@ -8,7 +8,7 @@ import 'package:pap/constants/constant.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/models/health_card.dart';
 import 'package:pap/routes.dart';
-import 'package:pap/views/screens/line_chart.dart';
+import 'package:pap/views/charts/line_chart.dart';
 
 class HealthDataDetailWidget extends StatefulWidget {
   final int id;
@@ -124,10 +124,13 @@ class _HealthDataDetailWidgetState extends State<HealthDataDetailWidget> {
                                     ),
                                   ],
                                 ),
-                                Image.asset(
-                                  healthDataCard[widget.id].icon,
-                                  color: Colors.white,
-                                  height: 100,
+                                Hero(
+                                  tag: widget.id,
+                                  child: Image.asset(
+                                    healthDataCard[widget.id].icon,
+                                    color: Colors.white,
+                                    height: 100,
+                                  ),
                                 ),
                               ],
                             ),
