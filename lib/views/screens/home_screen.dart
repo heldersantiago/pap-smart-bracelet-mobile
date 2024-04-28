@@ -10,7 +10,7 @@ import 'package:pap/models/health_card.dart';
 import 'package:pap/routes.dart';
 import 'package:pap/services/alerts_service.dart';
 import 'package:pap/services/local_notifications.dart';
-import 'package:pap/views/charts/pie_chart.dart';
+import 'package:pap/views/charts/radial_chart.dart';
 import 'package:pap/views/widgets/drawer_items.dart';
 import 'package:pap/views/widgets/health_data_card_section.dart';
 
@@ -83,7 +83,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(
                     onTap: () {},
                     child: Container(
-                      width: 180,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 6,
+                                  spreadRadius: 4)
+                            ]),
+                        width: 200,
+                        height: 200,
+                        child: RadialChart1()
+                            .animate(effects: Animations.radialChartOnLoad)),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 200,
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           color: primaryColor,
@@ -100,56 +117,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           Container(
                             padding: const EdgeInsets.all(10),
                             decoration: const BoxDecoration(
-                                color: Colors.white, shape: BoxShape.circle),
-                            child: const Icon(Icons.emergency,
-                                color: primaryColor, size: 35),
-                          ),
-                          const SizedBox(height: 30),
-                          const Text(
-                            "Saúde Adulta",
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            "Monitorize sua saúde",
-                            style: TextStyle(color: Colors.white70),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black12,
-                                blurRadius: 6,
-                                spreadRadius: 4)
-                          ]),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: const BoxDecoration(
-                                color: primaryColor, shape: BoxShape.circle),
+                                color: backgroundColor, shape: BoxShape.circle),
                             child: const Icon(Icons.home_filled,
-                                color: Colors.white, size: 35),
+                                color: primaryColor, size: 35),
                           ),
                           const SizedBox(height: 30),
                           const Text(
                             "Página Inicial",
                             style: TextStyle(
                                 fontSize: 18,
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(height: 10),
@@ -157,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
-                                color: Colors.black87,
+                                color: Colors.white,
                               ))
                         ],
                       ),
@@ -210,8 +187,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     })),
             const SizedBox(height: 15),
-            const PieChart1()
-                .animate(effects: Animations.imageOnPageLoadAnimation1),
+            // Container(
+            //   width: 500,
+            //   height: 350,
+            //   child: RadialChart1()
+            //       .animate(effects: Animations.imageOnPageLoadAnimation1),
+            // ),
             const SizedBox(height: 15),
             healthDataCard.isNotEmpty
                 ? HealthDataCardSection(

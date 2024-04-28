@@ -49,7 +49,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Oxigénio no Sangue",
         subtitle: "Tudo sobre o seu oxigénio",
-        icon: "images/air-conditioner.png",
+        icon: "images/blood.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.bloodOxygen != null
             ? "${authController.currentUser.value.bracelet?.bloodOxygen} %"
