@@ -207,16 +207,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     })),
             const SizedBox(height: 15),
-            InkWell(
-              onTap: () {
-                LocalNotifications.showSimpleNotification(
-                    title: "Emergencia critica",
-                    body: "O paciente esta com muita febre",
-                    payload: "Leve o ao hospital");
-              },
-              child: Text("Show notification"),
-            ),
-            const SizedBox(height: 15),
 
             const Padding(
                 padding: EdgeInsets.only(left: 15, bottom: 10),

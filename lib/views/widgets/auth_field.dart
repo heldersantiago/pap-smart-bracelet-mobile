@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pap/constants/color.dart';
 
 class AuthField extends StatefulWidget {
   const AuthField({
@@ -69,7 +70,7 @@ class _AuthFieldState extends State<AuthField> {
                 fontWeight: FontWeight.w400, color: Colors.grey.shade400),
             hintText: widget.hintText,
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: Colors.purple),
+              borderSide: BorderSide(width: 2, color: primaryColor),
               borderRadius: BorderRadius.all(
                 Radius.circular(12),
               ),
@@ -87,7 +88,7 @@ class _AuthFieldState extends State<AuthField> {
               ),
             ),
             focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: Colors.purple),
+              borderSide: BorderSide(width: 2, color: primaryColor),
               borderRadius: BorderRadius.all(
                 Radius.circular(12),
               ),

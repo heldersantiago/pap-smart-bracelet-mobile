@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
+import 'package:pap/Utils/animations.dart';
 import 'package:pap/Utils/update_data.dart';
 import 'package:pap/constants/color.dart';
 import 'package:pap/constants/constant.dart';
 import 'package:pap/controllers/auth_controller.dart';
 import 'package:pap/models/health_card.dart';
 import 'package:pap/routes.dart';
+import 'package:pap/views/screens/line_chart.dart';
 
 class HealthDataDetailWidget extends StatefulWidget {
   final int id;
@@ -154,12 +157,18 @@ class _HealthDataDetailWidgetState extends State<HealthDataDetailWidget> {
                           ],
                         )),
                   ),
+                  AspectRatio(
+                      aspectRatio: 1.6,
+                      child: const BarChart1().animate(
+                          effects: Animations.imageOnPageLoadAnimation1)),
                   Container(
                     margin: const EdgeInsets.all(10),
                     child: Text(healthDataCard[widget.id].description,
                         textAlign: TextAlign.justify,
                         style: const TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 18)),
+                            fontFamily: 'Outfit',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 18)),
                   )
                 ])));
   }
