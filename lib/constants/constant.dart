@@ -38,7 +38,7 @@ class Constant extends GetxService {
       HealthCard(
         title: "Pressão arterial",
         subtitle: "Veja aqui a sua pressão",
-        icon: "images/air-conditioner.png",
+        icon: "images/heart_rate.png",
         textColor: Colors.purple,
         value: authController.currentUser.value.bracelet!.bloodPressure != null
             ? "${authController.currentUser.value.bracelet?.bloodPressure} mmHg"
