@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:pap/Utils/animations.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/routes.dart';
-import 'package:pap/views/widgets/button_auth.dart';
+import 'package:SMSI/Utils/animations.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/routes.dart';
+import 'package:SMSI/views/widgets/button_auth.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});

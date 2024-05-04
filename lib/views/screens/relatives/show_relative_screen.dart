@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/routes.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/routes.dart';
 
 class ShowRelativeScreen extends StatefulWidget {
   final int id;

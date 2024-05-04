@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/routes.dart';
-import 'package:pap/views/widgets/list_tile_settings.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/routes.dart';
+import 'package:SMSI/views/widgets/list_tile_settings.dart';
 
 class SettingScreen extends StatelessWidget {
   SettingScreen({super.key});
@@ -16,6 +16,7 @@ class SettingScreen extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: AppBar(
             leading: IconButton(
               color: backgroundColor,

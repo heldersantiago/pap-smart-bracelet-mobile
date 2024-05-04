@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:pap/Utils/update_data.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/constants/constants.dart';
-import 'package:pap/controllers/auth_controller.dart';
+import 'package:SMSI/Utils/update_data.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/constants/constants.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});

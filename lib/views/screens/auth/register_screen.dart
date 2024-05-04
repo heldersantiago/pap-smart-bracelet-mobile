@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/models/user.dart';
-import 'package:pap/routes.dart';
-import 'package:pap/views/widgets/auth_field.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/models/user.dart';
+import 'package:SMSI/routes.dart';
+import 'package:SMSI/views/widgets/auth_field.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

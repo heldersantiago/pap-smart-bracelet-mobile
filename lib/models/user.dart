@@ -1,5 +1,5 @@
-import 'package:pap/enums/roles.dart';
-import 'package:pap/models/bracelet.dart';
+import 'package:SMSI/enums/roles.dart';
+import 'package:SMSI/models/bracelet.dart';
 
 class User {
   final int? id;

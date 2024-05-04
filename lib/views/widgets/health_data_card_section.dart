@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pap/constants/constant.dart';
-import 'package:pap/models/health_card.dart';
-import 'package:pap/views/widgets/health_data_card.dart';
+import 'package:SMSI/constants/constant.dart';
+import 'package:SMSI/models/health_card.dart';
+import 'package:SMSI/views/widgets/health_data_card.dart';
 
 class HealthDataCardSection extends StatefulWidget {
   final List<HealthCard> healthDataCard;

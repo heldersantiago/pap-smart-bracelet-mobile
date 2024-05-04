@@ -1,6 +1,6 @@
-import 'package:pap/routes.dart';
+import 'package:SMSI/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/profile_screen.dart';
+import 'package:SMSI/views/screens/profile_screen.dart';
 
 class Routes{
   static navigateTo(BuildContext context, String route, bool useEffect){

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/Utils/routes.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/routes.dart';
-import 'package:pap/views/widgets/drawer_list_item.dart';
+import 'package:SMSI/Utils/routes.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/enums/roles.dart';
+import 'package:SMSI/routes.dart';
+import 'package:SMSI/views/widgets/drawer_list_item.dart';
 
 class DrawerItems extends StatelessWidget {
   final AuthController authController = Get.find<AuthController>();
@@ -76,13 +77,15 @@ class DrawerItems extends StatelessWidget {
                     Routes.navigateTo(
                         context, RouteGenerator.profilePage, true);
                   }),
-              DrawerListItem(
-                  title: "Familiares",
-                  icon: Icons.people_alt,
-                  action: () async {
-                    Routes.navigateTo(
-                        context, RouteGenerator.listRelative, true);
-                  }),
+              authController.currentUser.value.roleId == Roles.elderly
+                  ? DrawerListItem(
+                      title: "Familiares",
+                      icon: Icons.people_alt,
+                      action: () async {
+                        Routes.navigateTo(
+                            context, RouteGenerator.listRelative, true);
+                      })
+                  : const SizedBox(),
               const DrawerListItem(title: "Ajuda", icon: Icons.help),
               DrawerListItem(
                   title: "Definições",

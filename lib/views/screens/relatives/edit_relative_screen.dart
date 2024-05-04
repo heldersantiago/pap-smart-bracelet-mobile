@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pap/constants/color.dart';
+import 'package:SMSI/constants/color.dart';
 
 import '../../../routes.dart';
 

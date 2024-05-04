@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/routes.dart';
-import 'package:pap/services/alerts_service.dart';
-import 'package:pap/services/local_notifications.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/routes.dart';
+import 'package:SMSI/services/alerts_service.dart';
+import 'package:SMSI/services/local_notifications.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -27,7 +27,6 @@ void main() async {
           arguments: initialNotification?.notificationResponse?.payload);
     });
   }
-
   runApp(MyApp());
 }
 

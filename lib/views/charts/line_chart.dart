@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:pap/constants/color.dart';
+import 'package:SMSI/constants/color.dart';
 
 class BarChart1 extends StatelessWidget {
   const BarChart1();

@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:pap/views/screens/alerts_screen.dart';
-import 'package:pap/views/screens/auth/login_screen.dart';
-import 'package:pap/views/screens/auth/register_screen.dart';
-import 'package:pap/views/screens/device_screen.dart';
-import 'package:pap/views/screens/health_data_detail.dart';
-import 'package:pap/views/screens/onboarding_screen.dart';
-import 'package:pap/views/screens/profile_edit_screen.dart';
-import 'package:pap/views/screens/profile_screen.dart';
-import 'package:pap/views/screens/relatives/create_relative_screen.dart';
-import 'package:pap/views/screens/relatives/edit_relative_screen.dart';
-import 'package:pap/views/screens/relatives/relatives_screens.dart';
-import 'package:pap/views/screens/relatives/show_relative_screen.dart';
-import 'package:pap/views/screens/settings_screen.dart';
-import 'package:pap/views/screens/splash_screen.dart';
-import 'package:pap/views/screens/welcome_screen.dart';
-import 'package:pap/views/widgets/navbar_roots.dart';
+import 'package:SMSI/views/screens/alerts_screen.dart';
+import 'package:SMSI/views/screens/auth/login_screen.dart';
+import 'package:SMSI/views/screens/auth/register_screen.dart';
+import 'package:SMSI/views/screens/device_screen.dart';
+import 'package:SMSI/views/screens/health_data_detail.dart';
+import 'package:SMSI/views/screens/onboarding_screen.dart';
+import 'package:SMSI/views/screens/profile_edit_screen.dart';
+import 'package:SMSI/views/screens/profile_screen.dart';
+import 'package:SMSI/views/screens/relatives/create_relative_screen.dart';
+import 'package:SMSI/views/screens/relatives/edit_relative_screen.dart';
+import 'package:SMSI/views/screens/relatives/relatives_screens.dart';
+import 'package:SMSI/views/screens/relatives/show_relative_screen.dart';
+import 'package:SMSI/views/screens/settings_screen.dart';
+import 'package:SMSI/views/screens/splash_screen.dart';
+import 'package:SMSI/views/screens/welcome_screen.dart';
+import 'package:SMSI/views/widgets/navbar_roots.dart';
 
 class RouteGenerator {
   static const String homePage = '/';

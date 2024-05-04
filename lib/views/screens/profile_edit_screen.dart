@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/routes.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/routes.dart';
 
 class ProfileEditScreen extends StatefulWidget {
   ProfileEditScreen({super.key});
@@ -31,6 +31,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
           leading: IconButton(
@@ -97,7 +98,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
           const SizedBox(height: 25),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: button(),
+            child: Expanded(child: button()),
           )
         ],
       ),

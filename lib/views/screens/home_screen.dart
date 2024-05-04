@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
-import 'package:pap/Utils/animations.dart';
-import 'package:pap/Utils/update_data.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/constants/constant.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/models/health_card.dart';
-import 'package:pap/routes.dart';
-import 'package:pap/services/alerts_service.dart';
-import 'package:pap/services/local_notifications.dart';
-import 'package:pap/views/charts/radial_chart.dart';
-import 'package:pap/views/widgets/drawer_items.dart';
-import 'package:pap/views/widgets/health_data_card_section.dart';
+import 'package:SMSI/Utils/animations.dart';
+import 'package:SMSI/Utils/update_data.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/constants/constant.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/models/health_card.dart';
+import 'package:SMSI/routes.dart';
+import 'package:SMSI/services/alerts_service.dart';
+import 'package:SMSI/services/local_notifications.dart';
+import 'package:SMSI/views/charts/radial_chart.dart';
+import 'package:SMSI/views/charts/radial_chart_data.dart';
+import 'package:SMSI/views/widgets/drawer_items.dart';
+import 'package:SMSI/views/widgets/health_data_card_section.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatefulWidget {
@@ -93,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   spreadRadius: 4)
                             ]),
                         width: 200,
-                        height: 200,
+                        height: 300,
                         child: RadialChart1()
                             .animate(effects: Animations.radialChartOnLoad)),
                   ),
@@ -190,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // Container(
             //   width: 500,
             //   height: 350,
-            //   child: RadialChart1()
+            //   child: RadialChartData()
             //       .animate(effects: Animations.imageOnPageLoadAnimation1),
             // ),
             const SizedBox(height: 15),

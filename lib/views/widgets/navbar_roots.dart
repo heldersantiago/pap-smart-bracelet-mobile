@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/constants/navbar.dart';
-import 'package:pap/services/alerts_service.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/constants/navbar.dart';
+import 'package:SMSI/services/alerts_service.dart';
 
 class NavbarRoots extends StatefulWidget {
   const NavbarRoots({super.key});
@@ -22,7 +22,7 @@ class _NavbarRootsState extends State<NavbarRoots> {
       backgroundColor: Colors.white,
       body: _screens[_selectedIndex],
       bottomNavigationBar: SizedBox(
-        height: 80,
+        height: MediaQuery.of(context).size.height * 0.13,
         child: Obx(() => BottomNavigationBar(
               backgroundColor: Colors.white,
               type: BottomNavigationBarType.fixed,
@@ -41,9 +41,9 @@ class _NavbarRootsState extends State<NavbarRoots> {
                     icon: Icon(Icons.home_filled), label: "Página Inicial"),
                 BottomNavigationBarItem(
                     icon: const Icon(Icons.notifications_active),
-                    label: "Alertas (${alertservice.alerts.length})"),
-                const BottomNavigationBarItem(
-                    icon: Icon(Icons.location_on_sharp), label: "Localização"),
+                    label: "Notificações (${alertservice.alerts.length})"),
+                // const BottomNavigationBarItem(
+                //     icon: Icon(Icons.location_on_sharp), label: "Localização"),
               ],
             )),
       ),

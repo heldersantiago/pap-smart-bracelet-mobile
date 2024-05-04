@@ -1,6 +1,6 @@
 import 'dart:ffi';
 
-import 'package:pap/models/bracelet.dart';
+import 'package:SMSI/models/bracelet.dart';
 
 class Alert {
   final int? id;

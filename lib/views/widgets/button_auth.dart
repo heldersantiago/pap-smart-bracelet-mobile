@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/constants/color.dart';
+import 'package:SMSI/constants/color.dart';
 
 class ButtonAuth extends StatelessWidget {
   final String buttonText;

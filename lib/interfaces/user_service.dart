@@ -1,4 +1,4 @@
-import 'package:pap/models/alert.dart';
+import 'package:SMSI/models/alert.dart';
 
 abstract class UserService {
   Future<bool> login(String email, String password);

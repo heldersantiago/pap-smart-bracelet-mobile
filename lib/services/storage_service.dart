@@ -32,4 +32,15 @@ class StorageService {
     return decodedToken["id"]!.toString();
   }
 
+  static Future<String?> getUserRoleIdFromPayload() async {
+    final jsonToken = await getToken();
+    Map<String, dynamic> jsonData = jsonDecode(jsonToken!);
+
+    if (jsonData['token'] == null) {
+      return null;
+    }
+    var decodedToken = JwtDecoder.decode(jsonData['token']);
+    return decodedToken["role_id"]!.toString();
+  }
+
 }

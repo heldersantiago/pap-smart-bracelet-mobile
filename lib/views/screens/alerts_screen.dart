@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/Utils/update_data.dart';
-import 'package:pap/Utils/utils.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/models/alert.dart';
-import 'package:pap/services/alerts_service.dart';
+import 'package:SMSI/Utils/update_data.dart';
+import 'package:SMSI/Utils/utils.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/models/alert.dart';
+import 'package:SMSI/services/alerts_service.dart';
 
 class AlertsScreen extends StatefulWidget {
   const AlertsScreen({super.key});
@@ -48,7 +48,7 @@ class _AlertScreenState extends State<AlertsScreen> {
             leading: Text(""),
             backgroundColor: primaryColor,
             title: const Text(
-              "Central de Alertas",
+              "Central de Notificações",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
             )),

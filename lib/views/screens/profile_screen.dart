@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/routes.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/routes.dart';
 
 class ProfileScreen extends StatelessWidget {
   final AuthController authController = Get.find<AuthController>();
@@ -57,6 +57,7 @@ class ProfileScreen extends StatelessWidget {
                   authController.currentUser.value.phone!, "Telefone"),
               _buildInfoItem(Icons.location_on, 'New York, USA', "Morada"),
               const SizedBox(height: 20),
+              
             ],
           ),
           Padding(

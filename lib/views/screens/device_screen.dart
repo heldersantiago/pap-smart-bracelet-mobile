@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/Utils/utils.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/controllers/bracelet_controller.dart';
-import 'package:pap/routes.dart';
+import 'package:SMSI/Utils/utils.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/controllers/bracelet_controller.dart';
+import 'package:SMSI/routes.dart';
 
 class DeviceScreen extends StatefulWidget {
   const DeviceScreen({super.key});

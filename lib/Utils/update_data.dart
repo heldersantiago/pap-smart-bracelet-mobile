@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/services/alerts_service.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/services/alerts_service.dart';
 
 class UpdateData {
   AuthController authController = Get.find<AuthController>();

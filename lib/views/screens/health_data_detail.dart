@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
-import 'package:pap/Utils/animations.dart';
-import 'package:pap/Utils/update_data.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/constants/constant.dart';
-import 'package:pap/controllers/auth_controller.dart';
-import 'package:pap/models/health_card.dart';
-import 'package:pap/routes.dart';
-import 'package:pap/views/charts/line_chart.dart';
+import 'package:SMSI/Utils/animations.dart';
+import 'package:SMSI/Utils/update_data.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/constants/constant.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
+import 'package:SMSI/models/health_card.dart';
+import 'package:SMSI/routes.dart';
+import 'package:SMSI/views/charts/line_chart.dart';
 
 class HealthDataDetailWidget extends StatefulWidget {
   final int id;

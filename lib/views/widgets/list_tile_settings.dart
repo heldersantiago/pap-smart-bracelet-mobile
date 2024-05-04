@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pap/Utils/routes.dart';
-import 'package:pap/controllers/auth_controller.dart';
+import 'package:SMSI/Utils/routes.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
 
 class ListTileSettings extends StatelessWidget {
   final IconData icon;

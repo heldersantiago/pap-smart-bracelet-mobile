@@ -1,7 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:pap/constants/color.dart';
-import 'package:pap/views/widgets/indicators.dart';
+import 'package:SMSI/constants/color.dart';
+import 'package:SMSI/views/widgets/indicators.dart';
 
 class PieChart1 extends StatefulWidget {
   const PieChart1({super.key});

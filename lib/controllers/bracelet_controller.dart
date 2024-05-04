@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:pap/Utils/utils.dart';
-import 'package:pap/constants/endpoint.dart';
-import 'package:pap/controllers/auth_controller.dart';
+import 'package:SMSI/Utils/utils.dart';
+import 'package:SMSI/constants/endpoint.dart';
+import 'package:SMSI/controllers/auth_controller.dart';
 
 class BraceletController extends GetxController {
   final String _apiUrl = apiUrl;

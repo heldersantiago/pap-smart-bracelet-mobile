@@ -4,12 +4,12 @@ import 'package:SMSI/constants/color.dart';
 import 'package:SMSI/controllers/auth_controller.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class RadialChart1 extends StatefulWidget {
+class RadialChartData extends StatefulWidget {
   @override
-  State<RadialChart1> createState() => _RadialChart1State();
+  State<RadialChartData> createState() => _RadialChart1State();
 }
 
-class _RadialChart1State extends State<RadialChart1> {
+class _RadialChart1State extends State<RadialChartData> {
   final AuthController authController = Get.find();
 
   @override
@@ -26,7 +26,7 @@ class _RadialChart1State extends State<RadialChart1> {
                 overflowMode: LegendItemOverflowMode.wrap,
               ),
               series: <CircularSeries>[
-                RadialBarSeries<GDPData, String>(
+                PieSeries<GDPData, String>(
                   dataSource: chartData,
                   xValueMapper: (GDPData data, _) => data.name,
                   yValueMapper: (GDPData data, _) => data.value,
@@ -51,18 +51,6 @@ class _RadialChart1State extends State<RadialChart1> {
       GDPData(
         "bpm",
         int.parse(u.currentUser.value.bracelet?.heartRate ?? '0'),
-      ),
-      GDPData(
-        "mmHg",
-        int.parse(u.currentUser.value.bracelet?.bloodPressure ?? '0'),
-      ),
-      GDPData(
-        "%",
-        int.parse(u.currentUser.value.bracelet?.bloodOxygen ?? '0'),
-      ),
-      GDPData(
-        "ºC",
-        int.parse(u.currentUser.value.bracelet?.bodyTemperature ?? '0'),
       ),
     ];
     return chartData;
