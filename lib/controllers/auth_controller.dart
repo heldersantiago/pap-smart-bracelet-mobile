@@ -71,6 +71,7 @@ class AuthController extends GetxController {
     final roleId = await StorageService.getUserRoleIdFromPayload();
     if (userId != null) {
       UserId.value = int.tryParse(userId)!;
+      print(UserId.value);
     }
 
     isElderly = int.parse(roleId!) == 2 ? true : false;

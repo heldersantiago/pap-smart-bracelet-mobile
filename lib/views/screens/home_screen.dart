@@ -1,3 +1,4 @@
+import 'package:SMSI/services/storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
@@ -41,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    print("Initiate");
     listenToNotifications();
     super.initState();
     if (authController.isLogged.value) dataUpdater.startUpdatingData();
